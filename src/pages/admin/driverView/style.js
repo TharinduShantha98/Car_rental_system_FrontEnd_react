@@ -22,7 +22,7 @@ export const  styleSheet = {
 
     },
     driverFrom:{
-        width: '80%',
+        width: '90%',
         height:'90%',
         backgroundColor: 'gray',
         display: 'flex',
@@ -38,7 +38,7 @@ export const  styleSheet = {
 
     },
     table:{
-        backgroundColor:'#051107',
+        backgroundColor:'#bddcc3',
         height:'50%'
 
     },
@@ -49,10 +49,27 @@ export const  styleSheet = {
     },
     textFlied:{
         width:'90%',
-        top:"10%",
-        marginTop:"7%",
+        top:"4%",
+        margin:"2% !important"
+
+    },
+    from_button:{
+        width:'90%',
+        top:"8%",
+        margin:"2% !important"
+
+    },
+
+    from_button_color:{
+        width:'90%',
+        top:"8%",
+        margin:"2% !important",
+       color: "Green"
 
     }
+
+
+
 
 
 
