@@ -13,12 +13,25 @@ export const  styleSheet = {
 
 
     },
-    driverFrom:{
+    driverFrom_container:{
         backgroundColor: '#16288d',
         height: '100%',
+        alignItems: 'center',
+        justifyContent:'center',
+        display: 'flex',
+
+    },
+    driverFrom:{
+        width: '80%',
+        height:'90%',
+        backgroundColor: 'gray',
+        display: 'flex',
+        flexDirection:'column',
+        alignItems:'center'
 
 
     },
+
     description:{
         backgroundColor: '#168d30',
         height: '100%',
@@ -33,7 +46,15 @@ export const  styleSheet = {
         backgroundColor:'#ac352a',
         height:'50%'
 
+    },
+    textFlied:{
+        width:'90%',
+        top:"10%",
+        marginTop:"7%",
+
     }
+
+
 
 
 }
