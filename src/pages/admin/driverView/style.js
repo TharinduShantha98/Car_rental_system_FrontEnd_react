@@ -2,14 +2,15 @@ export const  styleSheet = {
     container:{
 
         flexGrow: 1,
-        backgroundColor:'#0d211e',
+        //backgroundColor:'#0d211e',
         height:'100vh',
         width:'100vw',
     },
     driver_container:{
         height:'100%',
         width: '100%',
-        backgroundColor: '#818d16',
+        backgroundColor: '#3e3a3a',
+
 
 
     },
@@ -33,7 +34,7 @@ export const  styleSheet = {
     },
 
     description:{
-        backgroundColor: '#168d30',
+        backgroundColor: '#275a30',
         height: '100%',
 
     },
@@ -81,13 +82,13 @@ export const  styleSheet = {
 
     },
     table_container_root:{
-        backgroundColor: "#168d30",
+        backgroundColor: "#275a30",
         height:'50%',
     },
 
 
     table_container:{
-        backgroundColor:'#168d30 !important',
+        backgroundColor:'#275a30 !important',
         display:'flex',
         alignItems:'center',
         justifyContent: 'center',
@@ -97,7 +98,7 @@ export const  styleSheet = {
 
     },
     table:{
-        backgroundColor:'#bddcc3',
+        backgroundColor:'#e3ded6',
         height:'100%',
         width:'80% !important',
         marginTop: "20px",
