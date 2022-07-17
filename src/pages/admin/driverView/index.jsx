@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 
 class Driver extends Component{
@@ -28,16 +29,16 @@ class Driver extends Component{
 
     render() {
         let {classes} = this.props;
-        function createData(name, calories, fat, carbs, protein) {
-            return { name, calories, fat, carbs, protein };
+        function createData(id, first, last, age,contact,licean) {
+            return { id,first, last, age, contact,licean };
         }
 
         const rows = [
-            createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-            createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-            createData('Eclair', 262, 16.0, 24, 6.0),
-            createData('Cupcake', 305, 3.7, 67, 4.3),
-            createData('Gingerbread', 356, 16.0, 49, 3.9),
+            createData('D-100', 'lalith', 'mudali', 24, '0784567812','B0987654321'),
+            createData('D-101', 'lalith', 'mudali', 24, '0784567812','B0987654321'),
+            createData('D-102', 'lalith', 'mudali', 24, '0784567812','B0987654321'),
+            createData('D-103', 'lalith', 'mudali', 24, '0784567812','B0987654321'),
+            // createData('D-103', 'lalith', 'mudali', 24, '0784567812','B0987654321'),
         ];
         
         
@@ -108,14 +109,37 @@ class Driver extends Component{
                     <Grid item lg={8} sm={6} md={8} xm={6} className={classes.description} >
 
                         <Grid item lg={12} sm={12} md={12} xm={12}  className={classes.description_logo} >
+                            <div className={classes.description_logo_inner}>
+                                <Typography variant="h3">RELAXED DRIVERS </Typography>
+                                <Typography variant="h5">Hertz Brookfield car rental PVT</Typography>
+                                <div>
+                                    <TextField id="outlined-basic" label="serachDriver" variant="outlined" size={'small'} />
+                                    <GDSEButton
+                                        label='AddTimeTable'
+                                        onClick={()=>{
+
+                                            console.log('login button click..!')
+
+                                        }}
+                                        className={classes.from_button}
+                                        color="secondery"
+
+                                    >
+                                    </GDSEButton>
+                                </div>
+                            </div>
+
+
+
+
+
                         </Grid>
-                        <Grid item lg={12} sm={12} md={12} xm={12}  className={classes.table}  >
-                            <TableContainer component={Paper}>
-                                <Table className={classes.table} aria-label="simple table">
+                        <Grid item lg={12} sm={12} md={12} xm={12} className={classes.table_container_root}  >
+                            <TableContainer component={Paper} className={classes.table_container} >
+                                <Table className={classes.table} aria-label="simple table" >
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>DriverId</TableCell>
-                                            <TableCell align="right"></TableCell>
                                             <TableCell align="right">firstName</TableCell>
                                             <TableCell align="right">lastName</TableCell>
                                             <TableCell align="right">age</TableCell>
@@ -125,14 +149,15 @@ class Driver extends Component{
                                     </TableHead>
                                     <TableBody>
                                         {rows.map((row) => (
-                                            <TableRow key={row.name}>
+                                            <TableRow key={row.id}>
                                                 <TableCell component="th" scope="row">
-                                                    {row.name}
+                                                    {row.id}
                                                 </TableCell>
-                                                <TableCell align="right">{row.calories}</TableCell>
-                                                <TableCell align="right">{row.fat}</TableCell>
-                                                <TableCell align="right">{row.carbs}</TableCell>
-                                                <TableCell align="right">{row.protein}</TableCell>
+                                                <TableCell align="right">{row.first}</TableCell>
+                                                <TableCell align="right">{row.last}</TableCell>
+                                                <TableCell align="right">{row.age}</TableCell>
+                                                <TableCell align="right">{row.contact}</TableCell>
+                                                <TableCell align="right">{row.licean}</TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>

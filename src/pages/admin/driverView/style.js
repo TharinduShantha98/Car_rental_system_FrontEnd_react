@@ -14,7 +14,7 @@ export const  styleSheet = {
 
     },
     driverFrom_container:{
-        backgroundColor: '#16288d',
+        //backgroundColor: '#0f2318',
         height: '100%',
         alignItems: 'center',
         justifyContent:'center',
@@ -24,7 +24,7 @@ export const  styleSheet = {
     driverFrom:{
         width: '90%',
         height:'90%',
-        backgroundColor: 'gray',
+        //backgroundColor: '#162b1f',
         display: 'flex',
         flexDirection:'column',
         alignItems:'center'
@@ -37,20 +37,33 @@ export const  styleSheet = {
         height: '100%',
 
     },
-    table:{
-        backgroundColor:'#bddcc3',
-        height:'50%'
 
-    },
     description_logo:{
-        backgroundColor:'#ac352a',
-        height:'50%'
+       // backgroundColor:'#ac352a',
+        height:'50%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+
 
     },
+    description_logo_inner:{
+        width:'90%',
+        height:'60%',
+       // backgroundColor:'#09130b'
+    },
+    searchDriver:{
+
+
+
+    },
+
+
     textFlied:{
         width:'90%',
         top:"4%",
-        margin:"2% !important"
+        margin:"2% !important",
+
 
     },
     from_button:{
@@ -66,7 +79,34 @@ export const  styleSheet = {
         margin:"2% !important",
        color: "Green"
 
-    }
+    },
+    table_container_root:{
+        backgroundColor: "#168d30",
+        height:'50%',
+    },
+
+
+    table_container:{
+        backgroundColor:'#168d30 !important',
+        display:'flex',
+        alignItems:'center',
+        justifyContent: 'center',
+        top:'10%',
+        //marginTop:'13px'
+        //height:'90%'
+
+    },
+    table:{
+        backgroundColor:'#bddcc3',
+        height:'100%',
+        width:'80% !important',
+        marginTop: "20px",
+        marginBottom: "20px"
+
+    },
+
+
+
 
 
 
