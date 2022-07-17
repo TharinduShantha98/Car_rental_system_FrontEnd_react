@@ -105,6 +105,12 @@ export const  styleSheet = {
         marginBottom: "20px"
 
     },
+    from_button_search:{
+        width:'90%',
+        top:"8%",
+        margin:"2% !important",
+        left:'2%'
+    }
 
 
 
