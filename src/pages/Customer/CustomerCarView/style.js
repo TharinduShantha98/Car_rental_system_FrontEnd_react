@@ -8,11 +8,29 @@ export const styleSheet= {
         backgroundSize: 'cover',
         //filter: 'brightness(20%)',
         //brightness: '50%',
+        display: 'flex',
+
+
 
     },
-
     container_carContainer:{
-        height: '20%',
+        height: '30%',
         backgroundColor:'#efebe7',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+
+    container_carContainer_grid:{
+        height:"100%",
+        width:'20%',
+        backgroundColor:"#d07417",
+
+    },
+    container_carContainer_grid_img:{
+        height:"100%",
+        width:"100%",
+
     }
 }
