@@ -1,3 +1,4 @@
+import {hover} from "@testing-library/user-event/dist/hover";
 
 export const styleSheet= {
 
@@ -9,12 +10,17 @@ export const styleSheet= {
         //filter: 'brightness(20%)',
         //brightness: '50%',
         display: 'flex',
+        alignItems: 'center',
+        justifyContent:'center'
+
+
 
 
 
     },
     container_carContainer:{
         height: '30%',
+
         backgroundColor:'#efebe7',
         display: 'flex',
         flexDirection: 'row',
@@ -31,6 +37,23 @@ export const styleSheet= {
     container_carContainer_grid_img:{
         height:"100%",
         width:"100%",
+    },
 
-    }
+
+    container_carContainer_grid_button:{
+       // position:'relative',
+        left:'20%',
+
+    },
+
+    // container_carContainer_grid_hover:hover{
+
+
+
+
+
+
+
+
+
 }

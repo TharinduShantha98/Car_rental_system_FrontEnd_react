@@ -5,6 +5,7 @@ import Driver from "../pages/admin/driverView";
 import CustomerSignUp from "../pages/Customer/CustomersSignUp";
 import image2 from "../assets/img/image2.jpg";
 import CarView from "../pages/Customer/CustomerCarView";
+import Order from "../pages/Customer/order";
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
 
      //<CustomerView/>
       //<CustomerSignUp/>
-      <CarView/>
+     // <CarView/>
+      <Order/>
+
        // <Driver/>
       // <Routes>
       //
