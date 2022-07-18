@@ -22,8 +22,21 @@ class CustomerSignUp  extends Component{
             <Grid container spacing={3} className={classes.container}>
 
                 <Grid item xs={12} lg={6} sm={6} md={6} xm={6} className={classes.logo_container}>
-                    <div>
+                    <div className={classes.logo_container_div}>
+                        <Typography variant="h3" className={classes. logo_container_div_h3}>Hertz Brookfield car rental PVT</Typography>
+                        <Typography variant="h6" className={classes. logo_container_div_h3}>INPUT YOUR DETAIL FOR SIGN UP</Typography>
+                        <GDSEButton
+                            label='Login'
+                            onClick={()=>{
 
+                                console.log('login button click..!')
+
+                            }}
+                            className={classes. logo_container_div_button}
+
+
+                        >
+                        </GDSEButton>
 
                     </div>
 
@@ -37,6 +50,7 @@ class CustomerSignUp  extends Component{
 
                             <form className={classes.form_container_grid_grid_form} noValidate autoComplete="off" >
                                 <TextField id="outlined-basic" label="Your name" variant="outlined"  size="small"
+                                           inputProps={{ style: { fontFamily: 'nunito', color: 'white'}}}
                                            className={classes.form_container_grid_grid_textFiled}/>
                                 <TextField id="outlined-basic" label="address" variant="outlined"  size="small"
                                            className={classes.form_container_grid_grid_textFiled}/>
