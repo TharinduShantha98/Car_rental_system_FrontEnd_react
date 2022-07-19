@@ -1,5 +1,6 @@
 
 import React from "react";
+import{Routes, Route} from "react-router-dom";
 import CustomerView from "../pages/admin/customerView";
 import Driver from "../pages/admin/driverView";
 import CustomerSignUp from "../pages/Customer/CustomersSignUp";
@@ -12,15 +13,18 @@ function App() {
   return (
 
      //<CustomerView/>
-      //<CustomerSignUp/>
-     // <CarView/>
-      <Order/>
+     //<CustomerSignUp/>
+     //<CarView/>
+    // <Order/>
 
-       // <Driver/>
-      // <Routes>
-      //
-      //
-      // </Routes>
+      //<Driver/>
+      <Routes>
+        <Route exact path='driver' element={<Driver/>}/>
+        <Route path='customerView' element={<CustomerView/>}/>
+        <Route path='order' element={<Order/>}/>
+        <Route path='customerSignUp' element={<CustomerSignUp/>}/>
+
+      </Routes>
 
 
 
