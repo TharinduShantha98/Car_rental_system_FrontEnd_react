@@ -7,6 +7,15 @@ import Image from "semantic-ui-react/dist/commonjs/elements/Image";
 import dasBord from "../../../assets/img/cars/desktop.jpg";
 import image4 from "../../../assets/img/image4.jpg";
 import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
+import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
+
+
+import Icon from '@material-ui/core/Icon';
+import green from "@material-ui/core/colors/green";
 
 class CustomerHome extends Component{
     constructor(props) {
@@ -22,8 +31,7 @@ class CustomerHome extends Component{
     render() {
         let {classes} = this.props;
 
-
-
+        const bull = <span className={classes.bullet}>•</span>;
 
         return (
           <div className={classes.container}>
@@ -42,14 +50,83 @@ class CustomerHome extends Component{
               </div>
 
               <div className={classes.container_part2}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                  <div className={classes.container_part2_div}>
+                      <Typography variant="h5">Enjoy the efficient and specialized services of
+                          Casons Rent a Car Sri Lanka's leading rent-a-car company </Typography>
+                  </div>
 
 
+                  <div className={classes.container_part2_div2}  >
+                      <Card className={classes.root}>
+                          <CardContent>
+                              <Typography className={classes.pos} color="textSecondary">
+                                  adjective
+                              </Typography>
+                              <Typography variant="body2" component="p">
+                                  well meaning and kindly.
+                                  <br />
+                                  {'"a benevolent smile"'}
+                              </Typography>
+                          </CardContent>
+                          <CardActions>
+                              <Button size="small">Learn More</Button>
+                          </CardActions>
+                      </Card>
+
+
+                      <Card className={classes.root}>
+                          <CardContent>
+                              <Typography className={classes.pos} color="textSecondary">
+                                  adjective
+                              </Typography>
+                              <Typography variant="body2" component="p">
+                                  well meaning and kindly.
+                                  <br />
+                                  {'"a benevolent smile"'}
+                              </Typography>
+                          </CardContent>
+                          <CardActions>
+                              <Button size="small">Learn More</Button>
+                          </CardActions>
+                      </Card>
+
+
+
+                      <Card className={classes.root}>
+                          <CardContent>
+                              <Typography className={classes.pos} color="textSecondary">
+                                  adjective
+                              </Typography>
+                              <Typography variant="body2" component="p">
+                                  well meaning and kindly.
+                                  <br />
+                                  {'"a benevolent smile"'}
+                              </Typography>
+                          </CardContent>
+                          <CardActions>
+                              <Button size="small">Learn More</Button>
+                          </CardActions>
+                      </Card>
+
+
+                      <Card className={classes.root}>
+                          <CardContent>
+                              <Typography className={classes.pos} color="textSecondary">
+                                  adjective
+                              </Typography>
+                              <Typography variant="body2" component="p">
+                                  well meaning and kindly.
+                                  <br />
+                                  {'"a benevolent smile"'}
+                              </Typography>
+                          </CardContent>
+                          <CardActions>
+                              <Button size="small">Learn More</Button>
+                          </CardActions>
+                      </Card>
+
+                  </div>
               </div>
-
           </div>
 
         )

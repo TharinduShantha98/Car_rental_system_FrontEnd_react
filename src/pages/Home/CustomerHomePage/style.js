@@ -45,6 +45,42 @@ export  const  styleSheet = {
 
 
     },
+    container_part2_div:{
+        width:'100%',
+        height:'20%',
+        display:'flex',
+        backgroundColor:'#386bc2',
+       // flexDirection: 'column',
+        justifyContent:'center',
+
+    },
+
+
+    container_part2_div2:{
+        width:'100%',
+        height:'80%',
+        display:'flex',
+        backgroundColor:'#90adde',
+        flexDirection: 'row',
+        justifyContent:'center',
+
+    },
+    root: {
+        minWidth: 275,
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
+
+
 
 
 
