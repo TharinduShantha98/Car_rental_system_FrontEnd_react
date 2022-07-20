@@ -18,6 +18,7 @@ function App() {
     // <Order/>
 
       //<Driver/>
+
       <Routes>
         <Route exact path='driver' element={<Driver/>}/>
         <Route path='customerView' element={<CustomerView/>}/>
