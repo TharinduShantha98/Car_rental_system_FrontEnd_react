@@ -7,6 +7,8 @@ import CustomerSignUp from "../pages/Customer/CustomersSignUp";
 import image2 from "../assets/img/image2.jpg";
 import CarView from "../pages/Customer/CustomerCarView";
 import Order from "../pages/Customer/order";
+import Layout from "../pages/layout";
+import CustomerHome from "../pages/Home/CustomerHomePage";
 
 
 function App() {
@@ -20,10 +22,20 @@ function App() {
       //<Driver/>
 
       <Routes>
-        <Route exact path='driver' element={<Driver/>}/>
-        <Route path='customerView' element={<CustomerView/>}/>
-        <Route path='order' element={<Order/>}/>
-        <Route path='customerSignUp' element={<CustomerSignUp/>}/>
+          <Route path="/" element={<Layout/>}>
+              <Route index element={<CustomerHome/>}/>
+              {/*<Route index element={<Driver/>}/>*/}
+              <Route path="customerView" element={<CustomerView/>}/>
+              <Route path="order" element={<Order/>}/>
+              <Route path="customerSignUp" element={<CustomerSignUp/>}/>
+              <Route path="carView" element={<CarView/>}/>
+              <Route path="driver" element={<Driver/>}/>
+
+
+          </Route>
+
+
+
 
       </Routes>
 
