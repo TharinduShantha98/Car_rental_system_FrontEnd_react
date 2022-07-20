@@ -51,7 +51,7 @@ class CustomerHome extends Component{
 
               <div className={classes.container_part2}>
                   <div className={classes.container_part2_div}>
-                      <Typography variant="h5">Enjoy the efficient and specialized services of
+                      <Typography variant="h6">Enjoy the efficient and specialized services of
                           Casons Rent a Car Sri Lanka's leading rent-a-car company </Typography>
                   </div>
 
@@ -126,6 +126,20 @@ class CustomerHome extends Component{
                       </Card>
 
                   </div>
+              </div>
+
+
+              <div className={classes.container_part2_div3}>
+                    <div className={classes.container_part2_div3_div1}>
+                        <Typography variant="h5">Our business class vehicle</Typography>
+                    </div>
+
+                    <div  className={classes.container_part2_div3_div2}>
+
+                    </div>
+
+
+
               </div>
           </div>
 

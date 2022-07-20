@@ -1,6 +1,6 @@
 export  const  styleSheet = {
     container:{
-        width:'100vw',
+        //width:'100vw',
         height:'250vh',
         display:'flex',
         backgroundColor:'#282626',
@@ -8,7 +8,7 @@ export  const  styleSheet = {
 
     },
     container_part1:{
-        width:'100vw',
+       // width:'100vw',
         height:'50vh',
         display:'flex',
         backgroundColor:'#e56565',
@@ -35,12 +35,13 @@ export  const  styleSheet = {
 
     },
     container_part2:{
-        width:'100vw',
+        //width:'100vw',
         height:'50vh',
         display:'flex',
         backgroundColor:'#c23838',
         flexDirection: 'column',
         justifyContent:'center',
+        overflow:'hidden',
 
 
 
@@ -66,7 +67,7 @@ export  const  styleSheet = {
 
     },
     root: {
-        minWidth: 275,
+        //minWidth: 275,
     },
     bullet: {
         display: 'inline-block',
@@ -79,6 +80,38 @@ export  const  styleSheet = {
     pos: {
         marginBottom: 12,
     },
+
+
+    container_part2_div3:{
+       // width:'100vw',
+        height:'50vh',
+        display:'flex',
+        backgroundColor:'#d74b4b',
+        flexDirection: 'column',
+        justifyContent:'center',
+
+    },
+    container_part2_div3_div1:{
+        width:'100%',
+        height:'20%',
+        display:'flex',
+        backgroundColor:'#386bc2',
+        // flexDirection: 'column',
+        justifyContent:'center',
+    },
+    container_part2_div3_div2:{
+        width:'100%',
+        height:'80%',
+        display:'flex',
+        backgroundColor:'#90adde',
+        flexDirection: 'row',
+        justifyContent:'center',
+    },
+
+
+
+
+
 
 
 
