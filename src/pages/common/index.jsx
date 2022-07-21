@@ -67,6 +67,10 @@ class  NavBar extends Component{
                                 <Button>signIn</Button>
                             </Link>
 
+                            <Link to={"adminLog"}>
+                                <Button>adminLog</Button>
+                            </Link>
+
                         </Toolbar>
                     </AppBar>
                 </div>

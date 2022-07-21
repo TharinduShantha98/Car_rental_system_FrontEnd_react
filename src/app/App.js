@@ -11,6 +11,7 @@ import Layout from "../pages/layout";
 import CustomerHome from "../pages/Home/CustomerHomePage";
 import Login from "../pages/common/signIn";
 import SignIn from "../pages/common/signIn";
+import AdminLog from "../pages/admin/AdminLoging";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               <Route path="driver" element={<Driver/>}/>
               <Route path="CustomerHome" element={<CustomerHome/>}/>
               <Route path="signIn" element={<SignIn/>}/>
+              <Route path="adminLog" element={<AdminLog/>}/>
 
 
           </Route>

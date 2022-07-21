@@ -5,7 +5,7 @@ export const styleSheet= {
     container:{
         width:'100vw',
         height:'100vh',
-        backgroundColor:'#383634',
+        backgroundColor:'#f5f3f1',
         backgroundSize: 'cover',
         //filter: 'brightness(20%)',
         //brightness: '50%',
@@ -21,7 +21,7 @@ export const styleSheet= {
     container_carContainer:{
         height: '30%',
 
-        backgroundColor:'#efebe7',
+        backgroundColor:'#fcfcfc',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -31,9 +31,15 @@ export const styleSheet= {
     container_carContainer_grid:{
         height:"100%",
         width:'20%',
-        backgroundColor:"#d07417",
+      //  backgroundColor:"#d07417",
 
     },
+
+
+
+
+
+
     container_carContainer_grid_img:{
         height:"100%",
         width:"100%",
