@@ -9,8 +9,8 @@ import CarView from "../pages/Customer/CustomerCarView";
 import Order from "../pages/Customer/order";
 import Layout from "../pages/layout";
 import CustomerHome from "../pages/Home/CustomerHomePage";
-import Login from "../pages/common/log";
-import SignIn from "../pages/common/log";
+import Login from "../pages/common/signIn";
+import SignIn from "../pages/common/signIn";
 
 
 function App() {

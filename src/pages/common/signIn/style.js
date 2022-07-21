@@ -1,6 +1,6 @@
 export const styleSheet = {
     container:{
-        width:'100vw',
+       // width:'100vw',
         height:'100vh',
         display:'flex',
         backgroundColor:'#f6f6f4',

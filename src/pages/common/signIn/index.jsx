@@ -43,6 +43,7 @@ class SignIn extends Component{
                             label="Email Address"
                             name="email"
                             autoComplete="email"
+                            variant="outlined"
                             autoFocus
                         />
                         <TextField
@@ -53,6 +54,7 @@ class SignIn extends Component{
                             label="Password"
                             type="password"
                             id="password"
+                            variant="outlined"
                             autoComplete="current-password"
                         />
                         <FormControlLabel
