@@ -36,7 +36,7 @@ class  NavBar extends Component{
                             {/*</Typography>*/}
 
 
-                            <Link to="order">
+                            <Link to="CustomerHome">
                                 <Button>home</Button>
                             </Link>
 
@@ -48,10 +48,24 @@ class  NavBar extends Component{
                                 <Button>CarView</Button>
                             </Link>
 
+                            <Link to="order">
+                                <Button>Orders</Button>
+                            </Link>
+                            <Link to={"customerSignUp"}>
+                                <Button>Login</Button>
+                            </Link>
 
-                            <Button>Orders</Button>
-                            <Button>Login</Button>
+                            <Link to={"driver"}>
+                                <Button>Driver</Button>
+                            </Link>
 
+                            <Link to={"customerView"}>
+                                <Button>cusView</Button>
+                            </Link>
+
+                            <Link to={"signIn"}>
+                                <Button>signIn</Button>
+                            </Link>
 
                         </Toolbar>
                     </AppBar>

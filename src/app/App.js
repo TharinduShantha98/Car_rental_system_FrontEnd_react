@@ -9,6 +9,8 @@ import CarView from "../pages/Customer/CustomerCarView";
 import Order from "../pages/Customer/order";
 import Layout from "../pages/layout";
 import CustomerHome from "../pages/Home/CustomerHomePage";
+import Login from "../pages/common/log";
+import SignIn from "../pages/common/log";
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
               <Route path="customerSignUp" element={<CustomerSignUp/>}/>
               <Route path="carView" element={<CarView/>}/>
               <Route path="driver" element={<Driver/>}/>
+              <Route path="CustomerHome" element={<CustomerHome/>}/>
+              <Route path="signIn" element={<SignIn/>}/>
 
 
           </Route>
