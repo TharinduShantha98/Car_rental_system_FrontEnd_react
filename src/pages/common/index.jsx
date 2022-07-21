@@ -71,6 +71,10 @@ class  NavBar extends Component{
                                 <Button>adminLog</Button>
                             </Link>
 
+                            <Link to={"fileUpload"}>
+                                <Button>fileUpload</Button>
+                            </Link>
+
                         </Toolbar>
                     </AppBar>
                 </div>
