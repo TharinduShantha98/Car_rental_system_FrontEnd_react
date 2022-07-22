@@ -14,7 +14,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {DataGrid} from "@mui/x-data-grid";
-class FileUpload extends Component{
+class CarAdd extends Component{
 
     constructor(props) {
         super(props);
@@ -355,4 +355,4 @@ class FileUpload extends Component{
 
 }
 
-export  default withStyles(styleSheet)(FileUpload)
+export  default withStyles(styleSheet)(CarAdd)

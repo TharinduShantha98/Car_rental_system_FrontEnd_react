@@ -71,8 +71,12 @@ class  NavBar extends Component{
                                 <Button>adminLog</Button>
                             </Link>
 
-                            <Link to={"fileUpload"}>
-                                <Button>fileUpload</Button>
+                            <Link to={"carAdd"}>
+                                <Button>carAdd</Button>
+                            </Link>
+
+                            <Link to={"profile"}>
+                                <Button>profile</Button>
                             </Link>
 
                         </Toolbar>

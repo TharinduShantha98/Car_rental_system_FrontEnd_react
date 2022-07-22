@@ -13,6 +13,8 @@ import Login from "../pages/common/signIn";
 import SignIn from "../pages/common/signIn";
 import AdminLog from "../pages/admin/AdminLoging";
 import FileUpload from "../pages/admin/CarAdd";
+import CarAdd from "../pages/admin/CarAdd";
+import CustomerProfile from "../pages/Customer/CustomerProfile";
 
 
 function App() {
@@ -37,7 +39,8 @@ function App() {
               <Route path="CustomerHome" element={<CustomerHome/>}/>
               <Route path="signIn" element={<SignIn/>}/>
               <Route path="adminLog" element={<AdminLog/>}/>
-              <Route path="fileUpload" element={<FileUpload/>}/>
+              <Route path="carAdd" element={<CarAdd/>}/>
+              <Route path="profile" element={<CustomerProfile/>}/>
 
 
           </Route>
