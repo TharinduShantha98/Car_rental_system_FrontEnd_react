@@ -20,13 +20,13 @@ class  NavBar extends Component{
 
 
     render() {
-        let {classes} = this.props;
+       let {classes} = this.props;
 
 
         return (
 
-                <div className={classes.root}>
-                    <AppBar position="static">
+                <div  className={classes.container}>
+                    <AppBar position="static" className={classes.container_AppBar}>
                         <Toolbar>
                             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                                 <MenuIcon />
@@ -81,6 +81,26 @@ class  NavBar extends Component{
 
                         </Toolbar>
                     </AppBar>
+
+                    <div className={classes.container_div} >
+
+                        <div>
+                            <div>
+
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
                 </div>
 
 
