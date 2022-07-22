@@ -12,7 +12,7 @@ import CustomerHome from "../pages/Home/CustomerHomePage";
 import Login from "../pages/common/signIn";
 import SignIn from "../pages/common/signIn";
 import AdminLog from "../pages/admin/AdminLoging";
-import FileUpload from "../pages/common/FileUpload";
+import FileUpload from "../pages/admin/CarAdd";
 
 
 function App() {
