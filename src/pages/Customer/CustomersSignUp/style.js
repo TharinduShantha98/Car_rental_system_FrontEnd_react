@@ -1,22 +1,127 @@
 import  image2 from "../../../assets/img/image2.jpg"
-import  image4 from "../../../assets/img/image4.jpg"
+import  carLog from "../../../assets/img/profile/carLog.jpg"
 export const styleSheet ={
 
 
     container:{
         width:'100vw',
         height:'100vh',
-        //backgroundColor:'#383634',
+ //     backgroundColor:'#383634',
       //backgroundImage: "url('https://media.geeksforgeeks.org/wp-content/uploads/rk.png')"
-        backgroundImage: `url(${image4})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundBlendMode: 'darken',
+      //   backgroundImage: `url(${image4})`,
+      //   backgroundSize: 'cover',
+      //   backgroundRepeat: 'no-repeat',
+      //   backgroundBlendMode: 'darken',
         //filter: 'brightness(20%)',
         //brightness: '50%',
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+
+
 
     },
-    logo_container:{
+
+
+    container_div1:{
+        width: '50%',
+        height: '100%',
+    //    backgroundColor: '#dba167',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+
+
+
+    },
+
+    container_main1:{
+        width:'80%',
+        height:'100vh',
+     //   backgroundColor: '#77ef6e',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRight:'2px solid gray',
+
+
+
+    },
+    container_main1_div1:{
+        width:'100%',
+        height:'18%',
+      //  backgroundColor: '#4cc6f6',
+        display:'flex',
+        flexDirection:'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+
+    },
+
+    container_main1_div1_img:{
+        width:'20%',
+        height:'75%',
+        borderRadius:"50%",
+        marginBottom:'5px'
+
+    },
+    container_main1_div2:{
+        width:'80%',
+        height:'83%',
+      //       backgroundColor:"#edeff1",
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+
+
+    container_div2:{
+        width: '50%',
+        height: '98%',
+      //  backgroundColor: '#c4804a',
+        display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+          backgroundImage: `url(${carLog})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+    },
+    container_div2_div:{
+        width:"25%",
+        height:"100%",
+       //backgroundColor: '#c4804a',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:"column",
+
+
+    },
+   button:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row',
+        backgroundColor: '#c4804a',
+
+
+
+    }
+
+
+
+
+
+
+
+    /*logo_container:{
         height: '100vh',
        // backgroundColor:'black',
         display:'flex',
@@ -117,7 +222,7 @@ export const styleSheet ={
         backgroundColor:"#eac249 !important",
         color: "black!important",
 
-    },
+    },*/
 
 
 

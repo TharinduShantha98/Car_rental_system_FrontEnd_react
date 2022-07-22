@@ -155,29 +155,31 @@ class CustomerProfile extends Component{
 
 
                             </div>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                color={'primary'}
-                            >
-                                Sign In
-                            </Button>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                color={'primary'}
-                            >
-                                Sign In
-                            </Button>
+
 
 
 
                         </div>
                         <div className={classes.container_main1_div2_div1}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                color={'primary'}
+                            >
+                                Update Account
+                            </Button>
+
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                color={'secondary'}
+                            >
+                               Delete Account
+                            </Button>
 
 
                         </div>
