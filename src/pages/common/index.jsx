@@ -7,8 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import MenuIcon from '@material-ui/icons/Menu';
-
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import GDSEButton from "../../components/common/Button";
+import InstagramIcon from '@material-ui/icons/Instagram';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import EmailIcon from '@material-ui/icons/Email';
 import {Link} from "react-router-dom";
 
 
@@ -36,7 +40,7 @@ class  NavBar extends Component{
                             {/*</Typography>*/}
 
 
-                            <Link to="CustomerHome">
+                            <Link to="CustomerHome"  className={classes.linkStyle}>
                                 <Button>home</Button>
                             </Link>
 
@@ -44,38 +48,38 @@ class  NavBar extends Component{
 
                             <Button>Service</Button>
 
-                            <Link to="carView">
+                            <Link to="carView" className={classes.linkStyle}>
                                 <Button>CarView</Button>
                             </Link>
 
-                            <Link to="order">
+                            <Link to="order" className={classes.linkStyle}>
                                 <Button>Orders</Button>
                             </Link>
-                            <Link to={"customerSignUp"}>
+                            <Link to={"customerSignUp"} className={classes.linkStyle}>
                                 <Button>Login</Button>
                             </Link>
 
-                            <Link to={"driver"}>
+                            <Link to={"driver"} className={classes.linkStyle}>
                                 <Button>Driver</Button>
                             </Link>
 
-                            <Link to={"customerView"}>
+                            <Link to={"customerView"} className={classes.linkStyle}>
                                 <Button>cusView</Button>
                             </Link>
 
-                            <Link to={"signIn"}>
+                            <Link to={"signIn"} className={classes.linkStyle}>
                                 <Button>signIn</Button>
                             </Link>
 
-                            <Link to={"adminLog"}>
+                            <Link to={"adminLog"} className={classes.linkStyle}>
                                 <Button>adminLog</Button>
                             </Link>
 
-                            <Link to={"carAdd"}>
+                            <Link to={"carAdd"} className={classes.linkStyle}>
                                 <Button>carAdd</Button>
                             </Link>
 
-                            <Link to={"profile"}>
+                            <Link to={"profile"} className={classes.linkStyle}>
                                 <Button>profile</Button>
                             </Link>
 
@@ -84,13 +88,28 @@ class  NavBar extends Component{
 
                     <div className={classes.container_div} >
 
-                        <div>
-                            <div>
+                        <div className={classes.container_div_div1}>
+                            <div className={classes.container_div_div1_div1} >
+                                <Typography variant="h6">NO- 176/1 Galle Road Aluthgama</Typography>
+                                <Typography variant="h7"
+
+                                > TEL NO +94 34 555 1212</Typography>
+                                <Typography variant="h7">TEL NO +94 34 555 1313</Typography>
 
                             </div>
-                            <div>
-
+                            <div className={classes.container_div_div1_div2}>
+                                <FacebookIcon  className={classes.iconStyle} />
+                                <TwitterIcon className={classes.iconStyle}/>
+                                <InstagramIcon className={classes.iconStyle}/>
+                                <WhatsAppIcon className={classes.iconStyle}/>
+                                <EmailIcon className={classes.iconStyle}/>
                             </div>
+                        </div>
+
+                        <div className={classes.container_div_div2}>
+
+
+
                         </div>
 
 
