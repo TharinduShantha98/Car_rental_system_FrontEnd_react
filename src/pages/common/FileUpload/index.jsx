@@ -13,6 +13,7 @@ import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
+import {DataGrid} from "@mui/x-data-grid";
 class FileUpload extends Component{
 
     constructor(props) {
@@ -21,10 +22,43 @@ class FileUpload extends Component{
 
 
     render() {
+        const columns = [
+            { field: 'CarId', headerName: 'CarId', width: 70 },
+            { field: 'carType', headerName: 'carType', width: 100 },
+            { field: 'Transmission Type', headerName: 'Transmission Type', width: 100 },
+            { field: 'Number of pasenager', headerName: 'Number of pasenager', width: 100 },
+            { field: 'color', headerName: 'color', width: 100 },
+            { field: 'registration num', headerName: 'registration num', width: 100 },
+            { field: 'fuel Type ', headerName: 'fuel Type', width: 100 },
+            { field: 'free mileage', headerName: 'free mileage', width: 100 },
+            { field: 'price of exr km', headerName: 'price of exr km', width: 100 },
+            { field: 'daily rate', headerName: 'daily rate', width: 100 },
+            { field: 'Monthly rate', headerName: 'Monthly rate', width: 100 },
+
+        ];
+
+
+        const rows = [
+            { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+            { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+            { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+            { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+            { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+            { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+            { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+            { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+            { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+        ];
 
         let {classes} = this.props;
        return(
-           <div className={classes.container}>
+
+
+
+
+
+
+        <div className={classes.container}>
 
                <div className={classes.container_div}>
 
@@ -181,9 +215,20 @@ class FileUpload extends Component{
 
                            <div className={classes.container_div_div1_div2_div2}>
                                <label >Font view</label>
-                              <TextField id="standard-basic" label="" type={'file'} fullWidth  variant="outlined" />
+                              <TextField
+                                  id="standard-basic"
+                                  label="" type={'file'}
+                                  fullWidth
+                                  variant="outlined"
+                              />
                                <label>Side view </label>
-                              <TextField id="standard-basic" label="" type={'file'} fullWidth  variant="outlined" />
+                              <TextField
+                                  id="standard-basic"
+                                  label=""
+                                  type={'file'}
+                                  fullWidth
+                                  variant="outlined"
+                              />
                            </div>
 
                            <div className={classes.container_div_div1_div2_div1}>
@@ -211,9 +256,20 @@ class FileUpload extends Component{
 
 
                                <label>back view  </label>
-                               <TextField id="standard-basic" label="" type={'file'} fullWidth  variant="outlined" />
+                               <TextField
+                                   id="standard-basic"
+                                   label=""
+                                   type={'file'}
+                                   fullWidth
+                                   variant="outlined" />
                                <label>Interior</label>
-                               <TextField id="standard-basic" label="" type={'file'} fullWidth  variant="outlined"/>
+                               <TextField
+                                   id="standard-basic"
+                                   label=""
+                                   type={'file'}
+                                   fullWidth
+                                   variant="outlined"
+                               />
                            </div>
 
 
@@ -267,7 +323,21 @@ class FileUpload extends Component{
 
                </div>
 
-               <div>
+               <div className={classes.container_div2}>
+
+                   <div className={classes.container_div2_div1}>
+                       <div style={{ height: 400, width: '100%', border:'2px solid black' }}>
+                           <DataGrid
+                               rows={rows}
+                               columns={columns}
+                               pageSize={5}
+                               rowsPerPageOptions={[5]}
+                               checkboxSelection
+                           />
+                       </div>
+
+
+                   </div>
 
 
 
