@@ -13,7 +13,7 @@ export const  styleSheet ={
     },
     container_div:{
         width: '100%',
-        height: '100vh',
+        height: '110vh',
         backgroundColor:'#ef6e6e',
         display:'flex',
         alignItems:'center',
@@ -33,7 +33,7 @@ export const  styleSheet ={
 
     container_div_div1_div1:{
         width: '100%',
-        height: '10%',
+        height: '10vh',
         backgroundColor:'#2dcd50',
         display:'flex',
         alignItems: 'center',
@@ -81,6 +81,46 @@ export const  styleSheet ={
         flexDirection:'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    container_div_div1_div4:{
+        width: '100%',
+        height: '10vh',
+        backgroundColor:'#2dcd50',
+        display:'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:'row',
+        
+
+    },
+
+    container_div_div1_div4_div1:{
+        width:'20%',
+        backgroundColor:'#25cb47',
+    },
+    container_div_div1_div4_div2:{
+        width:'20%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+    container_div_div1_div4_div3:{
+        width:'20%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+    container_div_div1_div4_div4:{
+        width:'20%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+    input: {
+        //display: 'none',
     },
 
 
