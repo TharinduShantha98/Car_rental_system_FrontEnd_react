@@ -120,7 +120,7 @@ export const  styleSheet = {
         // width:'100vw',
         height:'200vh',
         display:'flex',
-        backgroundColor:'#faf9f9',
+        backgroundColor:'#fcfcfc',
         flexDirection:'column'
         // alignItems:'center',
         // justifyContent:'center',

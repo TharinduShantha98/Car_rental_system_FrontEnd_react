@@ -61,8 +61,8 @@ class  CustomerView extends Component{
                     <div className={classes.container_div_div1}>
                         <Typography component="h1" variant="h5"  style={{
                             fontSize:'30px',
-                            fontWeight:'bold',
-                            color:'#59a027',
+                            // fontWeight:'bold',
+                            color:'#0c1308',
 
                         }}>
                            All customer view
