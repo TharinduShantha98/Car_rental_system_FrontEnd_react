@@ -29,6 +29,8 @@ export const styleSheet= {
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
+        flexDirection:'row',
+
 
 
 
@@ -82,6 +84,11 @@ export const styleSheet= {
 
 
     },
+    root: {
+        maxWidth: 345,
+        width:'20%',
+    },
+
 
 
 
