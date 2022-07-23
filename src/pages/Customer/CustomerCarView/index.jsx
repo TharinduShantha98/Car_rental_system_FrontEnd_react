@@ -9,9 +9,13 @@ import car4 from "../../../assets/img/cars/car4.jpg";
 import car5 from "../../../assets/img/cars/kodiaq_vrs.png";
 import car6 from "../../../assets/img/cars/skoda.png";
 import car7 from "../../../assets/img/cars/skoda3.png";
-import car8 from "../../../assets/img/cars/car6.jpg";
-import car9 from "../../../assets/img/cars/car6.jpg";
-import car10 from "../../../assets/img/cars/car6.jpg";
+import car8 from "../../../assets/img/cars/businessclasstamplate.jpg";
+import car9 from "../../../assets/img/cars/backGroung.jpg";
+import car10 from "../../../assets/img/cars/alphardnew.jpg";
+import car11 from "../../../assets/img/cars/discoverytamplate.jpg";
+import car12 from "../../../assets/img/cars/rangerover.jpg";
+import car13 from "../../../assets/img/cars/harrier1991.jpg";
+
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -76,7 +80,6 @@ class CarView extends Component{
                             </Button>
                         </CardActions>
                     </Card>
-
 
                     <Card className={classes.root}>
                         <CardActionArea>
@@ -216,20 +219,31 @@ class CarView extends Component{
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    Lizard
+                                    LKR 22000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                    across all continents except Antarctica
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button size="small" color="primary">
-                                Share
-                            </Button>
-                            <Button size="small" color="primary">
-                                Learn More
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
                             </Button>
                         </CardActions>
                     </Card>
@@ -245,20 +259,31 @@ class CarView extends Component{
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    Lizard
+                                    LKR 25000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                    across all continents except Antarctica
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button size="small" color="primary">
-                                Share
-                            </Button>
-                            <Button size="small" color="primary">
-                                Learn More
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
                             </Button>
                         </CardActions>
                     </Card>
@@ -270,25 +295,36 @@ class CarView extends Component{
                                 component="img"
                                 alt="Contemplative Reptile"
                                 height="140"
-                                image={car7}
+                                image={car6}
                                 title="Contemplative Reptile"
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    Lizard
+                                    LKR 22000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                    across all continents except Antarctica
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button size="small" color="primary">
-                                Share
-                            </Button>
-                            <Button size="small" color="primary">
-                                Learn More
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
                             </Button>
                         </CardActions>
                     </Card>
@@ -297,6 +333,166 @@ class CarView extends Component{
                 </div>
 
                 <div className={classes.container_main3}>
+
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image={car8}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    LKR 10000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
+                            </Button>
+                        </CardActions>
+                    </Card>
+
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image={car10}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    LKR 15000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
+                            </Button>
+                        </CardActions>
+                    </Card>
+
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image={car12}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    LKR 15000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
+                            </Button>
+                        </CardActions>
+                    </Card>
+
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image={car13}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    LKR 15000 Per day
+                                </Typography>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    Hatchback
+                                    Manual
+                                    Petrol
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Passengers: 2 Adults + 3 Children
+                                    Luggage Capacity: 2 Suitcases
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Share*/}
+                            {/*</Button>*/}
+                            <Button
+                                size="small"
+                                color="primary"
+                                variant="contained"
+                                fullWidth
+                                startIcon={<LocalTaxiIcon/>}
+                            >
+                                Book Online
+                            </Button>
+                        </CardActions>
+                    </Card>
 
                 </div>
 

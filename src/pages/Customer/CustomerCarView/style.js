@@ -1,11 +1,12 @@
 import {hover} from "@testing-library/user-event/dist/hover";
+import backGround from "../../../assets/img/cars/dashbord2.png";
 
 export const styleSheet= {
 
     container:{
        // width:'100vw',
         height:'240vh',
-        backgroundColor:'#d2b08e',
+    //    backgroundColor:'#d2b08e',
         // backgroundSize: 'cover',
         //filter: 'brightness(20%)',
         //brightness: '50%',
@@ -25,7 +26,7 @@ export const styleSheet= {
     container_main1:{
         width:'100%',
         height:'60vh',
-        backgroundColor:'#63472b',
+    //    backgroundColor:'#63472b',
         display:'flex',
         alignItems:'center',
         justifyContent:'space-around',
@@ -43,7 +44,7 @@ export const styleSheet= {
     container_main2:{
         width:'100%',
         height:'60vh',
-        backgroundColor:'#63322b',
+   //     backgroundColor:'#63322b',
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
@@ -60,10 +61,12 @@ export const styleSheet= {
     container_main3:{
         width:'100%',
         height:'60vh',
-        backgroundColor:'#2b5e63',
+     //   backgroundColor:'#2b5e63',
         display:'flex',
         alignItems:'center',
-        justifyContent:'center',
+        justifyContent:'space-around',
+        flexDirection:'row',
+
 
 
 
@@ -75,10 +78,13 @@ export const styleSheet= {
     container_main4:{
         width:'100%',
         height:'60vh',
-        backgroundColor:'#42632b',
+    //    backgroundColor:'#42632b',
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
+        backgroundImage: `url(${backGround})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
 
 
 
