@@ -17,6 +17,7 @@ import CarAdd from "../pages/admin/CarAdd";
 import CustomerProfile from "../pages/Customer/CustomerProfile";
 import Rental from "../pages/admin/Rental";
 import AdminOrderView from "../pages/admin/AdminOrderViews";
+import DriverTime from "../pages/Driver/TimeTable";
 
 
 function App() {
@@ -43,8 +44,10 @@ function App() {
               <Route path="adminLog" element={<AdminLog/>}/>
               <Route path="carAdd" element={<CarAdd/>}/>
               <Route path="profile" element={<CustomerProfile/>}/>
-              <Route path="rental" element={<Rental/>}/>
+              <Route path="driverTime" element={<DriverTime/>}/>
               <Route path="AdminOrder" element={<AdminOrderView/>}/>
+
+
 
 
           </Route>

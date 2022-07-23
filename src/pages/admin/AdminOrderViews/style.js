@@ -1,7 +1,7 @@
 export  const styleSheet = {
     container:{
        // width:'100vw',
-        height:'150vh',
+        height:'180vh',
    //     backgroundColor: '#e07a7a',
         display:'flex',
         alignItems:'center',
@@ -60,14 +60,75 @@ export  const styleSheet = {
 
     container_main5:{
         width: '100%',
-        height: '40vh',
+        height: '70vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+ //       backgroundColor: '#25359e',
+
+    },
+
+    container_main5_div1:{
+        width:'80%',
+        height:'20%',
+  //      backgroundColor: "#e06c6c",
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
-        backgroundColor: '#25359e',
+        justifyContent: 'space-around',
+
+
 
     },
+
+    container_main5_div2:{
+        width:'80%',
+        height:'50%',
+//        backgroundColor: "#e5d3d3"
+
+    },
+
+    container_main5_div1_div1:{
+        width:'20%',
+        height:'100%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+    container_main5_div3:{
+        width:'80%',
+        height:'28%',
+ //       backgroundColor: "#d75a5a",
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection:'column'
+
+    },
+    container_main5_div3_div1:{
+        width:'100%',
+        height:'50%',
+        display:'flex',
+//        backgroundColor: "#6dd75a",
+        alignItems:'center',
+        justifyContent:'start'
+
+
+    },
+
+    container_main5_div3_div2:{
+        width:'100%',
+        height:'50%',
+        display:'flex',
+ //       backgroundColor: "#5a8cd7",
+        alignItems:'center',
+        justifyContent:'end'
+
+
+    }
+
 
 
 }
