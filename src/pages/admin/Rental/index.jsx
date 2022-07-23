@@ -1,4 +1,6 @@
-import {Component} from "react";
+import React, {Component} from "react";
+import {styleSheet} from "./style";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 class Rental extends Component{
 
@@ -9,7 +11,24 @@ class Rental extends Component{
 
 
     render() {
-        let classes = this.props
+        let {classes} = this.props;
+
+
+
+        return(
+
+            <div className={classes}>
+
+
+
+
+            </div>
+
+
+
+        )
     }
 
 }
+
+export default withStyles(styleSheet)(Rental)
