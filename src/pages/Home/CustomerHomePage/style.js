@@ -42,7 +42,8 @@ export  const  styleSheet = {
         //width:'100vw',
         height:'50vh',
         display:'flex',
-        backgroundColor:'#c23838',
+       // backgroundColor:'#c23838',
+        backgroundColor:'#ffffff',
         flexDirection: 'column',
         justifyContent:'center',
         overflow:'hidden',
@@ -54,7 +55,8 @@ export  const  styleSheet = {
         width:'100%',
         height:'20%',
         display:'flex',
-        backgroundColor:'#c7d5ec',
+        backgroundColor:'#ffffff',
+      //  backgroundColor:'#c7d5ec',
        // flexDirection: 'column',
         justifyContent:'center',
 
@@ -65,7 +67,8 @@ export  const  styleSheet = {
         width:'100%',
         height:'80%',
         display:'flex',
-        backgroundColor:'#c7d5ec',
+
+      //  backgroundColor:'#c7d5ec',
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
@@ -109,20 +112,47 @@ export  const  styleSheet = {
 
     },
     icon:{
-        fontSize:'30px',
+        fontSize:'40px',
+        color:"#7b610e !important"
 
     },
 
 
     container_part2_div3:{
        // width:'100vw',
-        height:'50vh',
+        height:'100vh',
         display:'flex',
-        backgroundColor:'#fdfdfd',
+       backgroundColor:'#fdfdfd',
         flexDirection: 'column',
         justifyContent:'center',
 
     },
+
+
+    root2: {
+        maxWidth: 345,
+        width:'20%',
+        height:'95%',
+    },
+
+    root2_cardMedia:{
+        height:'65%',
+        width:'100%',
+
+    },
+
+    roo2_CarActions:{
+        height:'70%',
+
+    },
+    linkStyle:{
+        // listStyle: 'none'
+        textDecoration:'none',
+        width:'100%',
+    },
+
+
+
     container_part2_div3_div1:{
         width:'100%',
         height:'20%',
@@ -142,7 +172,7 @@ export  const  styleSheet = {
     container_part2_div4:{
         height:'50vh',
         display:'flex',
-      backgroundColor:'#494747',
+        backgroundColor:'#fdfdfd',
         flexDirection: 'column',
         justifyContent:'center',
         alignItems: 'center',
@@ -151,22 +181,35 @@ export  const  styleSheet = {
 
     },
 
-    container_part2_div4_p:{
+    container_part2_div4_form:{
         display:'flex',
-        width:'80%',
+        width:'40%',
         height:'90%',
-        backgroundColor:'#bab6b6',
-        textAlign:'center',
-        opacity:'0.7',
-        fontSize: '17px',
-        fontWeight:'bold',
-
-
-
-
+     //   backgroundColor:'#bab6b6',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
 
 
     },
+    textField: {
+        marginTop:'2%!important',
+
+    },
+    btn:{
+        width:'50%',
+        height:"20%",
+       // backgroundColor:'#aa5555',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+
+
+
+
     container_part2_div5:{
         height:'50vh',
         display:'flex',

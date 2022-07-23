@@ -83,6 +83,14 @@ class  NavBar extends Component{
                                 <Button>profile</Button>
                             </Link>
 
+                            <Link to={"rental"} className={classes.linkStyle}>
+                                <Button>Rental</Button>
+                            </Link>
+
+                            <Link to={"AdminOrder"} className={classes.linkStyle}>
+                                <Button>AdminOrderView</Button>
+                            </Link>
+
                         </Toolbar>
                     </AppBar>
 

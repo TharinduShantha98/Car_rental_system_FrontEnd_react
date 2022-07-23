@@ -95,9 +95,17 @@ export const styleSheet= {
     root: {
         maxWidth: 345,
         width:'20%',
-        height:'95%',
+        height:'98%',
     },
+    linkStyle:{
+        // listStyle: 'none'
+        textDecoration:'none'
+    },
+    root2_cardMedia:{
+        height:'45%',
+        width:'100%',
 
+    },
 
 
 

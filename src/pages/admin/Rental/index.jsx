@@ -17,7 +17,7 @@ class Rental extends Component{
 
         return(
 
-            <div className={classes}>
+            <div className={classes.container}>
 
 
 

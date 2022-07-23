@@ -15,6 +15,8 @@ import AdminLog from "../pages/admin/AdminLoging";
 import FileUpload from "../pages/admin/CarAdd";
 import CarAdd from "../pages/admin/CarAdd";
 import CustomerProfile from "../pages/Customer/CustomerProfile";
+import Rental from "../pages/admin/Rental";
+import AdminOrderView from "../pages/admin/AdminOrderViews";
 
 
 function App() {
@@ -41,9 +43,14 @@ function App() {
               <Route path="adminLog" element={<AdminLog/>}/>
               <Route path="carAdd" element={<CarAdd/>}/>
               <Route path="profile" element={<CustomerProfile/>}/>
+              <Route path="rental" element={<Rental/>}/>
+              <Route path="AdminOrder" element={<AdminOrderView/>}/>
 
 
           </Route>
+
+
+          <Route path="carView" element={<CarView/>}/>
 
 
 

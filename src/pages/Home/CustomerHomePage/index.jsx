@@ -18,10 +18,27 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
 import Icon from '@material-ui/core/Icon';
 import green from "@material-ui/core/colors/green";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import MessageIcon from "@material-ui/icons/Message";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardMedia from "@material-ui/core/CardMedia";
+import car4 from "../../../assets/img/cars/car4.jpg";
+import {Link} from "react-router-dom";
 
 class CustomerHome extends Component{
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            position: [
+                { label: 'AirPort'},
+                { label: 'Trip' },
+                { label: 'Wedding' },
+
+            ]
+        }
 
     }
 
@@ -50,6 +67,248 @@ class CustomerHome extends Component{
                   </div>
 
               </div>
+
+              <div className={classes.container_part2_div4}>
+                 <div className={classes.container_part2_div4_form}>
+                     <TextField
+                         id="date"
+                         label="Starting Date"
+                         type="date"
+                         fullWidth
+                         defaultValue="2022-07-23"
+                         className={classes.textField}
+                         variant="outlined"
+                         size={'small'}
+                         InputLabelProps={{
+                             shrink: true,
+                         }}
+                     />
+
+                     <TextField
+                         id="date"
+                         label="Ending Date"
+                         type="date"
+                         fullWidth
+                         defaultValue="2022-07-23"
+                         className={classes.textField}
+                         variant="outlined"
+                         size={'small'}
+                         InputLabelProps={{
+                             shrink: true,
+                         }}
+                     />
+
+                     <Autocomplete
+                         disablePortal
+                         id="combo-box-demo"
+                         options={this.state.position}
+                         sx={{ width: 300 }}
+                         renderInput={(params) => <TextField {...params}
+                                                             label="Option"
+                                                             variant="outlined"
+                                                             size={"small"}
+
+                         />}
+                         getOptionLabel={
+                             (option) => option.label
+                         }
+                         onChange={(e, value) => {
+                             console.log(value.label);
+                         }}
+                         size="small"
+                         //variant="outlined"
+
+
+                         style={
+                             { width: '100%',
+                                marginTop:'2%'
+                             }
+                         }
+                     />
+
+
+                     <div className={classes.btn}>
+                         <Button
+                             type="submit"
+                             fullWidth
+                             variant="contained"
+                             sx={{ mt: 3, mb: 2 }}
+                             color={'primary'}
+                             startIcon={<MessageIcon/>}
+                         >
+                             Car Filters
+                         </Button>
+                     </div>
+
+
+
+
+                 </div>
+
+
+
+              </div>
+
+
+              <div className={classes.container_part2_div3}>
+                  <div className={classes.container_part2_div3_div1}>
+                      <Typography variant="h3">Our Available business class vehicle</Typography>
+                  </div>
+
+                  <div  className={classes.container_part2_div3_div2}>
+                     {/* <img src={dasBord1}/>
+                      <img src={dasBord2}/>
+                      <img src={dasBord3}/>*/}
+
+
+                      <Card className={classes.root2}>
+                          <CardActionArea>
+                              <CardMedia
+                                  component="img"
+                                  alt="Contemplative Reptile"
+                                  height="140"
+                                  image={car4}
+                                  title="Contemplative Reptile"
+                                  className={classes.root2_cardMedia}
+                              />
+                              <CardContent>
+                                  <Typography gutterBottom variant="h5" component="h2">
+                                      General Cars
+                                  </Typography>
+                                  <Typography variant="body1" color="textSecondary" component="p">
+                                      Hatchback
+                                      Manual
+                                      Petrol
+                                  </Typography>
+                                  <Typography variant="body2" color="textSecondary" component="p">
+                                      Passengers: 2 Adults + 3 Children
+                                      Luggage Capacity: 2 Suitcases
+                                  </Typography>
+                              </CardContent>
+                          </CardActionArea>
+                          <CardActions>
+                              {/*<Button size="small" color="primary">*/}
+                              {/*    Share*/}
+                              {/*</Button>*/}
+
+                              <Link to="/carView" className={classes.linkStyle} >
+                                  <Button
+                                      size="small"
+                                      color="primary"
+                                      variant="contained"
+                                      fullWidth
+                                      startIcon={<LocalTaxiIcon/>}
+                                  >
+                                      View cars
+                                  </Button>
+
+                              </Link>
+
+
+                          </CardActions>
+                      </Card>
+                      <Card className={classes.root2}>
+                          <CardActionArea>
+                              <CardMedia
+                                  component="img"
+                                  alt="Contemplative Reptile"
+                                  height="140"
+                                  image={dasBord3}
+                                  title="Contemplative Reptile"
+                                  className={classes.root2_cardMedia}
+                              />
+                              <CardContent>
+                                  <Typography gutterBottom variant="h5" component="h2">
+                                      Premium Cars
+                                  </Typography>
+                                  <Typography variant="body1" color="textSecondary" component="p">
+                                      Hatchback
+                                      Manual
+                                      Petrol
+                                  </Typography>
+                                  <Typography variant="body2" color="textSecondary" component="p">
+                                      Passengers: 2 Adults + 3 Children
+                                      Luggage Capacity: 2 Suitcases
+                                  </Typography>
+                              </CardContent>
+                          </CardActionArea>
+                          <CardActions>
+                              {/*<Button size="small" color="primary">*/}
+                              {/*    Share*/}
+                              {/*</Button>*/}
+                              <Link to="/carView" className={classes.linkStyle} >
+                                  <Button
+                                      size="small"
+                                      color="primary"
+                                      variant="contained"
+                                      fullWidth
+                                      startIcon={<LocalTaxiIcon/>}
+                                  >
+                                      View cars
+                                  </Button>
+
+                              </Link>
+                          </CardActions>
+                      </Card>
+
+                      <Card className={classes.root2}>
+                          <CardActionArea>
+                              <CardMedia
+                                  component="img"
+                                  alt="Contemplative Reptile"
+                                  height="140"
+                                  image={dasBord2}
+                                  title="Contemplative Reptile"
+                                  className={classes.root2_cardMedia}
+                              />
+                              <CardContent>
+                                  <Typography gutterBottom variant="h5" component="h2">
+                                      Luxury Cars
+                                  </Typography>
+                                  <Typography variant="body1" color="textSecondary" component="p">
+                                      Hatchback
+                                      Manual
+                                      Petrol
+                                  </Typography>
+                                  <Typography variant="body2" color="textSecondary" component="p">
+                                      Passengers: 2 Adults + 3 Children
+                                      Luggage Capacity: 2 Suitcases
+                                  </Typography>
+                              </CardContent>
+                          </CardActionArea>
+                          <CardActions>
+                              {/*<Button size="small" color="primary">*/}
+                              {/*    Share*/}
+                              {/*</Button>*/}
+
+
+
+
+                              <Link to="carView" className={classes.linkStyle} >
+                                  <Button
+                                      size="small"
+                                      color="primary"
+                                      variant="contained"
+                                      fullWidth
+                                      startIcon={<LocalTaxiIcon/>}
+                                  >
+                                      View cars
+                                  </Button>
+
+                              </Link>
+                          </CardActions>
+                      </Card>
+
+                  </div>
+              </div>
+
+            {/*  <div className={classes.container_bachGroundImg}>
+
+              </div>*/}
+
+
+
+
 
               <div className={classes.container_part2}>
                   <div className={classes.container_part2_div}>
@@ -84,7 +343,7 @@ class CustomerHome extends Component{
                                   Our Strength
                               </Typography>
                               <Typography variant="body2" component="p" className={classes.pos2} >
-                                  30 In-house Operational Staff, 18 Automobile Technicians and 90
+                                  30 In-house Operational Staff,18 Automobile and 90
                                   permanent Drivers from every part of the Island
                               </Typography>
                           </CardContent>
@@ -132,42 +391,11 @@ class CustomerHome extends Component{
               </div>
 
 
-              <div className={classes.container_part2_div3}>
-                    <div className={classes.container_part2_div3_div1}>
-                        <Typography variant="h3">Our business class vehicle</Typography>
-                    </div>
-
-                    <div  className={classes.container_part2_div3_div2}>
-                        <img src={dasBord1}/>
-                        <img src={dasBord2}/>
-                        <img src={dasBord3}/>
 
 
-                    </div>
-              </div>
 
 
-              <div className={classes.container_bachGroundImg}>
 
-              </div>
-
-              <div className={classes.container_part2_div4}>
-                  <Typography variant="h3"  className={classes.container_part2_div4_p}>
-                      A big thank you to Casons-Rent-A-Car for the beyond satisfactory help
-                      with my trip planning and airport drop and pick up! The moment I landed<br/>
-                      in BIA I was greeted with smiles – Sri Lanka the nation that forever
-                      smiles. I visited Sri Lanka with my fiancé and we were transported to
-                      the lively beach town of Unuwatuna, a slow but comfortable drive.<br/>
-                      The Unuwatuna bay beach was breathtaking at sunset and makes you feel
-                      like you’re in Hawaii but it’s a dozen times cheaper! Plenty of cafés,
-                      curios, hotels,<br/> lodgings and restaurants galore the streets suitable for<br/>
-                      everyone and anyone. We decided to settle at the Lavendish Beach Resort,
-                      on our first day we enjoyed a small but happening party by a cafe on
-                      the beach! Sri Lanka loves to<br/> party!! We loved every part of our trip
-                      and it’s all thanks to Casons for organising everything and total ease
-                      of mind!
-                  </Typography>
-              </div>
 
               <div className={classes.container_part2_div5}>
                   <div className={classes.container_part2_div5_div1}>

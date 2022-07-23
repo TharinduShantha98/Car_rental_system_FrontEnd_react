@@ -49,6 +49,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car4}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -89,6 +90,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car1}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -130,6 +132,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car2}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -170,6 +173,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car3}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -216,6 +220,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car6}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -256,6 +261,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car5}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -297,6 +303,7 @@ class CarView extends Component{
                                 height="140"
                                 image={car6}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
@@ -342,10 +349,11 @@ class CarView extends Component{
                                 height="140"
                                 image={car8}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    LKR 10000 Per day
+                                    LKR 25000 Per day
                                 </Typography>
                                 <Typography variant="body1" color="textSecondary" component="p">
                                     Hatchback
@@ -382,10 +390,11 @@ class CarView extends Component{
                                 height="140"
                                 image={car10}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    LKR 15000 Per day
+                                    LKR 20000 Per day
                                 </Typography>
                                 <Typography variant="body1" color="textSecondary" component="p">
                                     Hatchback
@@ -422,10 +431,11 @@ class CarView extends Component{
                                 height="140"
                                 image={car12}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    LKR 15000 Per day
+                                    LKR 25000 Per day
                                 </Typography>
                                 <Typography variant="body1" color="textSecondary" component="p">
                                     Hatchback
@@ -462,10 +472,11 @@ class CarView extends Component{
                                 height="140"
                                 image={car13}
                                 title="Contemplative Reptile"
+                                className={classes.root2_cardMedia}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    LKR 15000 Per day
+                                    LKR 18000 Per day
                                 </Typography>
                                 <Typography variant="body1" color="textSecondary" component="p">
                                     Hatchback
