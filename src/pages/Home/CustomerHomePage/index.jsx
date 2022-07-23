@@ -10,8 +10,10 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-
-
+import DriveEtaIcon from '@material-ui/icons/DriveEta';
+import PersonIcon from '@material-ui/icons/Person';
+import StarIcon from '@material-ui/icons/Star';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
 import Icon from '@material-ui/core/Icon';
@@ -58,14 +60,15 @@ class CustomerHome extends Component{
 
                   <div className={classes.container_part2_div2}  >
                       <Card className={classes.root}>
-                          <CardContent>
+                          <CardContent className={classes.root_card}>
+                              <DriveEtaIcon className={classes.icon}/>
                               <Typography className={classes.pos} color="textSecondary">
-                                  adjective
+                                  Over 200 Vehicle
                               </Typography>
-                              <Typography variant="body2" component="p">
-                                  well meaning and kindly.
-                                  <br />
-                                  {'"a benevolent smile"'}
+                              <Typography variant="body2" component="p" className={classes.pos2} >
+                                  4WD Jeeps, 50 Vans, 200 Cars,
+                                  Double Cabs, Luxury Coaches,
+                                  Lorries etc
                               </Typography>
                           </CardContent>
                           <CardActions>
@@ -75,14 +78,14 @@ class CustomerHome extends Component{
 
 
                       <Card className={classes.root}>
-                          <CardContent>
+                          <CardContent className={classes.root_card}>
+                              <PersonIcon className={classes.icon}/>
                               <Typography className={classes.pos} color="textSecondary">
-                                  adjective
+                                  Our Strength
                               </Typography>
-                              <Typography variant="body2" component="p">
-                                  well meaning and kindly.
-                                  <br />
-                                  {'"a benevolent smile"'}
+                              <Typography variant="body2" component="p" className={classes.pos2} >
+                                  30 In-house Operational Staff, 18 Automobile Technicians and 90
+                                  permanent Drivers from every part of the Island
                               </Typography>
                           </CardContent>
                           <CardActions>
@@ -93,14 +96,14 @@ class CustomerHome extends Component{
 
 
                       <Card className={classes.root}>
-                          <CardContent>
+                          <CardContent className={classes.root_card}>
+                              <StarIcon className={classes.icon}/>
                               <Typography className={classes.pos} color="textSecondary">
-                                  adjective
+                                  Insurance
                               </Typography>
-                              <Typography variant="body2" component="p">
-                                  well meaning and kindly.
-                                  <br />
-                                  {'"a benevolent smile"'}
+                              <Typography variant="body2" component="p" className={classes.pos2} >
+                                  Comprehensive Insurance available for
+                                  all our vehicles including Passengers
                               </Typography>
                           </CardContent>
                           <CardActions>
@@ -110,14 +113,14 @@ class CustomerHome extends Component{
 
 
                       <Card className={classes.root}>
-                          <CardContent>
+                          <CardContent className={classes.root_card}>
+                              <SettingsIcon className={classes.icon}/>
                               <Typography className={classes.pos} color="textSecondary">
-                                  adjective
+                                  24/7 Breakdown Service
                               </Typography>
-                              <Typography variant="body2" component="p">
-                                  well meaning and kindly.
-                                  <br />
-                                  {'"a benevolent smile"'}
+                              <Typography variant="body2" component="p" className={classes.pos2} >
+                                  24 hrs Island wide backup services
+                                  with affiliated Garages and Mobile units
                               </Typography>
                           </CardContent>
                           <CardActions>
@@ -143,8 +146,13 @@ class CustomerHome extends Component{
                     </div>
               </div>
 
+
+              <div className={classes.container_bachGroundImg}>
+
+              </div>
+
               <div className={classes.container_part2_div4}>
-                  <p  className={classes.container_part2_div4_p}>
+                  <Typography variant="h3"  className={classes.container_part2_div4_p}>
                       A big thank you to Casons-Rent-A-Car for the beyond satisfactory help
                       with my trip planning and airport drop and pick up! The moment I landed<br/>
                       in BIA I was greeted with smiles – Sri Lanka the nation that forever
@@ -152,19 +160,19 @@ class CustomerHome extends Component{
                       the lively beach town of Unuwatuna, a slow but comfortable drive.<br/>
                       The Unuwatuna bay beach was breathtaking at sunset and makes you feel
                       like you’re in Hawaii but it’s a dozen times cheaper! Plenty of cafés,
-                      curios, hotels, lodgings and restaurants galore the streets suitable for<br/>
+                      curios, hotels,<br/> lodgings and restaurants galore the streets suitable for<br/>
                       everyone and anyone. We decided to settle at the Lavendish Beach Resort,
                       on our first day we enjoyed a small but happening party by a cafe on
-                      the beach! Sri Lanka loves to party!! We loved every part of our trip
+                      the beach! Sri Lanka loves to<br/> party!! We loved every part of our trip
                       and it’s all thanks to Casons for organising everything and total ease
                       of mind!
-                  </p>
+                  </Typography>
               </div>
 
               <div className={classes.container_part2_div5}>
                   <div className={classes.container_part2_div5_div1}>
-                      <Typography variant="h6">Service</Typography>
-                      <ol>
+                      <Typography variant="h6" >Service</Typography>
+                      <ol className={classes.listStyle}>
                           <li>Weddings & VIP Hires</li>
                           <li>Breakdown Services</li>
                           <li>Corporate Rental</li>
@@ -177,7 +185,7 @@ class CustomerHome extends Component{
                   </div>
                   <div className={classes.container_part2_div5_div1}>
                       <Typography variant="h6">Contact Us</Typography>
-                      <ol>
+                      <ol className={classes.listStyle}>
                           <li>176/1 galle road</li>
                           <li>aluthgama</li>
                           <li>sri lanka</li>
@@ -192,7 +200,7 @@ class CustomerHome extends Component{
                   </div>
                   <div className={classes.container_part2_div5_div1}>
                       <Typography variant="h6">Vehicle Fleet</Typography>
-                      <ol>
+                      <ol className={classes.listStyle}>
                           <li>Cars</li>
                           <li>SUVs</li>
                           <li>Vans & Busses</li>

@@ -1,10 +1,11 @@
 import backGround from '../../../assets/img/cars/backGroung.jpg'
 import image4 from "../../../assets/img/image4.jpg";
+import rentCar from '../../../assets/img/cars/rentacar.jpg'
 
 export  const  styleSheet = {
     container:{
         //width:'100vw',
-        height:'250vh',
+        height:'300vh',
         display:'flex',
         backgroundColor:'#282626',
         flexDirection:'column',
@@ -67,11 +68,31 @@ export  const  styleSheet = {
         backgroundColor:'#c7d5ec',
         flexDirection: 'row',
         justifyContent:'center',
+        alignItems:'center',
 
     },
     root: {
         //minWidth: 275,
+        width:'15%',
+        height:'90%',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+
     },
+    root_card: {
+        //minWidth: 275,
+        width:'100%',
+        height:'100%',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+
+
     bullet: {
         display: 'inline-block',
         margin: '0 2px',
@@ -83,13 +104,21 @@ export  const  styleSheet = {
     pos: {
         marginBottom: 12,
     },
+    pos2:{
+        textAlign: 'center',
+
+    },
+    icon:{
+        fontSize:'30px',
+
+    },
 
 
     container_part2_div3:{
        // width:'100vw',
         height:'50vh',
         display:'flex',
-        backgroundColor:'#fcf9f9',
+        backgroundColor:'#fdfdfd',
         flexDirection: 'column',
         justifyContent:'center',
 
@@ -113,13 +142,11 @@ export  const  styleSheet = {
     container_part2_div4:{
         height:'50vh',
         display:'flex',
-      //  backgroundColor:'#d74b4b',
+      backgroundColor:'#494747',
         flexDirection: 'column',
         justifyContent:'center',
         alignItems: 'center',
-        backgroundImage: `url(${backGround})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+
 
 
     },
@@ -127,8 +154,8 @@ export  const  styleSheet = {
     container_part2_div4_p:{
         display:'flex',
         width:'80%',
-        height:'50%',
-        backgroundColor:'#a5a2a2',
+        height:'90%',
+        backgroundColor:'#bab6b6',
         textAlign:'center',
         opacity:'0.7',
         fontSize: '17px',
@@ -137,11 +164,13 @@ export  const  styleSheet = {
 
 
 
+
+
     },
     container_part2_div5:{
         height:'50vh',
         display:'flex',
-        backgroundColor:'#f8f5f5',
+        backgroundColor:'#fdfdfd',
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
@@ -150,14 +179,24 @@ export  const  styleSheet = {
     container_part2_div5_div1:{
         height:'100%',
         width:'20%',
-        backgroundColor:'#f5eeee',
+     //   backgroundColor:'#f5eeee',
         display:'flex',
         flexDirection:'column',
-        // justifyContent:'center',
-        // alignItems: 'center',
+        justifyContent:'center',
+        alignItems: 'center',
 
 
-    }
+    },
+    container_bachGroundImg:{
+        width:"100%",
+        height:'50vh',
+        backgroundImage: `url(${rentCar})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    },
+    listStyle:{
+        listStyle: 'none'
+    },
 
 
 

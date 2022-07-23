@@ -1,18 +1,76 @@
+import order from "../../../assets/img/profile/order.png"
+
 export const styleSheet = {
 
 
-    container: {
-        width: '100vw',
+    container:{
+        height:'150vh',
+      //  backgroundColor:'#232222',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+    },
+    container_main1:{
+        width:'50%',
+        height:'100vh',
+       //backgroundColor: '#77ef6e',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+
+
+    },
+    textField: {
+       marginTop:'2%!important',
+
+    },
+
+    container_main2:{
+        width: '100%',
+        height:'50vh',
+        display:'flex',
+        flexDirection:'column',
+        position:'relative',
+        // left:"0",
+        // right:'0',
+        // bottom:'10%',
+        // margin:'auto',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
+    container_main1_div1:{
+
+    },
+
+    container_main2_div1:{
+        width:'40%',
+        height:'100%',
+        backgroundImage: `url(${order})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        //border:'3px solid white'
+    },
+
+
+
+   /* container: {
+        //width: '100vw',
         height: '100vh',
         backgroundColor:'#232222',
-        display: 'grid',
+        display: 'flex',
         placeItems: 'center',
 
     },
 
     container_main:{
         width: '80%',
-        height: '90%',
+        height: '90vh',
         backgroundColor:'#fdfdfd',
         //display: 'grid',
         display:'flex',
@@ -103,7 +161,7 @@ export const styleSheet = {
     },
 
     container_main_form_div:{
-     //   backgroundColor: '#2b1c11',
+       backgroundColor: '#2b1c11',
         height:'90%',
         display:'flex',
         flexDirection:'row',
@@ -150,7 +208,7 @@ export const styleSheet = {
         width:'80px !important',
         height:'50px !important',
 
-    },
+    },*/
 
 
 

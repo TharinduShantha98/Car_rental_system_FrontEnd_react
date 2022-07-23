@@ -21,14 +21,45 @@ class CarView extends Component{
 
 
         return (
-            <Grid container spacing={3} className={classes.container}>
+            <div className={classes.container}>
+                <div className={classes.container_main1}>
+
+                </div>
+
+                <div className={classes.container_main2}>
+
+                </div>
+
+                <div className={classes.container_main3}>
+
+                </div>
+
+                <div className={classes.container_main4}>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            /*<Grid container spacing={3} className={classes.container}>
                 <Grid item xs={12} lg={11} sm={12} md={12} xm={12} className={classes.container_carContainer}>
 
                     <Grid  className={classes.container_carContainer_grid}>
                         <img src={car1} alt={"ca1.png"} className={classes.container_carContainer_grid_img}/>
-                       {/* <Button variant="contained" color="primary" className={classes.container_carContainer_grid_button}>
+                       {/!* <Button variant="contained" color="primary" className={classes.container_carContainer_grid_button}>
                             inquiry this
-                        </Button>*/}
+                        </Button>*!/}
 
 
                     </Grid>
@@ -77,10 +108,10 @@ class CarView extends Component{
                         <img src={car6} alt={"ca6.png"} className={classes.container_carContainer_grid_img}/>
                     </Grid>
                 </Grid>
-                {/*<Grid item xs={12} lg={12} sm={12} md={12} xm={12} className={classes.container_carContainer}>*/}
+                {/!*<Grid item xs={12} lg={12} sm={12} md={12} xm={12} className={classes.container_carContainer}>*!/}
 
-                {/*</Grid>*/}
-            </Grid>
+                {/!*</Grid>*!/}
+            </Grid>*/
 
         )
 

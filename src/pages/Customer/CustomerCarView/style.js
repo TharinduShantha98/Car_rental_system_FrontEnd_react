@@ -3,21 +3,97 @@ import {hover} from "@testing-library/user-event/dist/hover";
 export const styleSheet= {
 
     container:{
-        width:'100vw',
-        height:'100vh',
-        backgroundColor:'#f5f3f1',
-        backgroundSize: 'cover',
+       // width:'100vw',
+        height:'240vh',
+        backgroundColor:'#d2b08e',
+        // backgroundSize: 'cover',
         //filter: 'brightness(20%)',
         //brightness: '50%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        flexDirection: 'column',
+
+
 
 
 
 
 
     },
+
+    container_main1:{
+        width:'100%',
+        height:'60vh',
+        backgroundColor:'#63472b',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+
+
+
+
+    },
+
+
+    container_main2:{
+        width:'100%',
+        height:'60vh',
+        backgroundColor:'#63322b',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+
+
+
+
+    },
+
+    container_main3:{
+        width:'100%',
+        height:'60vh',
+        backgroundColor:'#2b5e63',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+
+
+
+
+    },
+
+    container_main4:{
+        width:'100%',
+        height:'60vh',
+        backgroundColor:'#42632b',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+
+
+
+
+
+    },
+
+
+
+
+
+
+
+
+
+
+
+
     container_carContainer:{
         height: '30%',
 

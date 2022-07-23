@@ -2,7 +2,7 @@ import carRental from "../../../assets/img/profile/rentalCar22.jpg";
 
 export const styleSheet={
     container:{
-        width:'100vw',
+       // width:'100vw',
         height:'150vh',
      //   backgroundColor:"#6e8eef",
         display:'flex',

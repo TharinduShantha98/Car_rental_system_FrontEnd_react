@@ -5,13 +5,20 @@ import {withStyles} from "@mui/styles";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import 'date-fns'
-import DateFnsUtils from "@date-io/date-fns";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker
-} from "@material-ui/pickers";
-import car1 from "../../../assets/img/cars/car1.jpg";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import HomeIcon from "@material-ui/icons/Home";
+import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
+import PaymentIcon from "@material-ui/icons/Payment";
+import EmailIcon from "@material-ui/icons/Email";
+import LockIcon from "@material-ui/icons/Lock";
+import Button from "@material-ui/core/Button";
+import profile from "../../../assets/img/profile/profile1.jpg";
+import Autocomplete from "@mui/material/Autocomplete";
+import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
+import MessageIcon from '@material-ui/icons/Message';
+import AdjustIcon from '@material-ui/icons/Adjust';
+
 
 
 class Order extends Component{
@@ -24,8 +31,16 @@ class Order extends Component{
         this.state = {
 
             selectedDate: new Date("2022-07-20T12:00:00"),
-            setSelectedDate: new Date("2022-07-20T12:00:00")
+            setSelectedDate: new Date("2022-07-20T12:00:00"),
 
+
+
+            position: [
+                { label: 'AirPort'},
+                { label: 'Trip' },
+                { label: 'Wedding' },
+
+            ]
         }
 
 
@@ -54,157 +69,229 @@ class Order extends Component{
 
 
         return(
-            <Grid  container spacing={3} className={classes.container}>
-                <Grid iitem xs={12} lg={12} sm={12} md={12} xm={12} className={classes.container_main}>
-                    <div className={classes.container_main_carImage} >
-                        {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <Grid container justifyContent='space-around'>
-                                <keyBoardDatePicker
-                                    disableToolBar
-                                    variant= 'inline'
-                                    formate='MM/dd/yyy'
-                                    margin='normal'
-                                    id='date-picker'
-                                    label='Date picker'
-                                    value={this.state.selectedDate}
-                                    onChange={this.handleDateChange}
-                                    className={classes.container_main_datePiceker}
-                                    keyBoardButtonProps = {{
-                                        'aria-label':'change date'
-                                    }}
-                                />
+            <div className={classes.container}>
 
-
-                            </Grid>
-
-
-
-
-
-                        </MuiPickersUtilsProvider>*/}
-
-                        <Typography variant="h6" gutterBottom  >
-                            car
+                <div className={classes.container_main1}>
+                    <div className={classes.container_main1_div1}>
+                        <Typography variant="h6" gutterBottom   >
+                            Booking Car
                         </Typography>
-                        <img src={car1} alt={"ca1.png"} className={classes.container_carContainer_main_img}/>
-
 
                     </div>
+                    <div className={classes.container_main1_div2}>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="Your name"
+                            label="Your name"
+                            name="Your name"
+                            //  autoComplete="email"
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <AccountCircleIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            size={'small'}
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="address"
+                            label="address"
+                            name="address"
+                            //  autoComplete="email"
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <HomeIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
 
-                    <div className={classes.container_main_description} >
-                        <Typography variant="h6" gutterBottom  >
-                            specifications
-                        </Typography>
-                       <div className={classes.container_main_description_div}>
+                            size={'small'}
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="contact number"
+                            label="contact number"
+                            name="contact number"
+                            //  autoComplete="email"
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <PhoneIphoneIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            size={'small'}
+                        />
 
-
-                           <div className={classes.container_main_description_div_div1}>
-                               <Typography variant="h6" gutterBottom  >
-                                   Passengers
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   Transmission
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   air condition
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   Fuel type
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   Doors
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   Engine capacity
-                               </Typography>
-
-                           </div>
-
-                           <div className={classes.container_main_description_div_div2}>
-                               <Typography variant="h6" gutterBottom  >
-                                   5
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   auto
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   yes
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   petrol
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   5
-                               </Typography>
-
-                               <Typography variant="h6" gutterBottom  >
-                                   1500 cc
-                               </Typography>
-
-
-                           </div>
-
-                       </div>
-                    </div>
-
-                    <div  className={classes.container_main_form}>
-                        <Typography variant="h4" gutterBottom  className={classes.container_main_form_header} >
-                            place order
-                        </Typography>
-
-                        <div   className={classes.container_main_form_div}>
-                            <div  className={classes.container_main_form_div_div1}>
-
-
-                                <TextField id="outlined-basic" label="fist Name" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-                                <TextField id="outlined-basic" label="Email address" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-                                <TextField id="outlined-basic" label="address" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-                                <TextField id="outlined-basic" label="Starting date" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="Email"
+                            label="Email"
+                            name="Email"
+                            //  autoComplete="email"
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <EmailIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            size={'small'}
+                        />
+                       {/* <TextField
+                            id="standard-basic"
+                            label=""
+                            type={'file'}
+                            fullWidth
+                            variant="outlined"
+                            size={'small'}
+                        />*/}
 
 
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={this.state.position}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params}
+                                                                label="Option"
+                                                                variant="outlined"
+                                                                size={"small"}
 
-                            </div>
-
-                            <div  className={classes.container_main_form_div_div2}>
-
-                                <TextField id="outlined-basic" label="Contact num" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-                                <TextField id="outlined-basic" label="down payment clip" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-
-                                <TextField id="outlined-basic" label="Type of service" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
-
-                                <TextField id="outlined-basic" label="Ending date" variant="outlined" size='small'
-                                           className={classes.container_main_form_div_textTittle}/>
+                            />}
+                            getOptionLabel={
+                                (option) => option.label
+                            }
+                            onChange={(e, value) => {
+                                console.log(value.label);
+                            }}
+                            size="small"
+                            //variant="outlined"
 
 
+                            style={{ width: '100%' }}
+                        />
 
-                            </div>
+
+                        <TextField
+                            id="date"
+                            label="Starting Date"
+                            type="date"
+                            fullWidth
+                            defaultValue="2022-07-23"
+                            className={classes.textField}
+                            variant="outlined"
+                            size={'small'}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+
+
+                        <TextField
+                            id="date"
+                            label="Ending Date"
+                            type="date"
+                            fullWidth
+                            defaultValue="2022-07-23"
+                            className={classes.textField}
+                            variant="outlined"
+                            size={'small'}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="conform password"
+                            label="Conform Password"
+                            type="password"
+                            id="conform password"
+                            variant="outlined"
+                            autoComplete="current-password"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LockIcon/>
+                                    </InputAdornment>
+                                ),
+                            }}
+                            size={'small'}
+                        />
+
+
+                        <div>
+
+
                         </div>
+
+
+
+
+                    </div>
+                    <div className={classes.container_main1_div2_div1}>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                            color={'primary'}
+                            startIcon={<AirportShuttleIcon/>}
+                        >
+                            place Order
+                        </Button>
+
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                            color={'secondary'}
+                            startIcon={<MessageIcon/>}
+                        >
+                           SEND MESSAGE
+                        </Button>
+
+
                     </div>
 
-                </Grid>
 
-            </Grid>
+                </div>
+
+
+                <div className={classes.container_main2}>
+                    <div className={classes.container_main2_div1}>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
 
         )
     }

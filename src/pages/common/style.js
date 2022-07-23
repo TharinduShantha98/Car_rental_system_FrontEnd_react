@@ -18,7 +18,7 @@ export const styleSheet = {
     container_div:{
         width:'100%',
         height:'70%',
-    //    backgroundColor:'#5de2d2',
+      // backgroundColor:'#5de2d2',
         display: 'flex',
         flexDirection: 'row',
         alignItems:'center',
