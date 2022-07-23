@@ -28,7 +28,7 @@ export const styleSheet= {
         backgroundColor:'#63472b',
         display:'flex',
         alignItems:'center',
-        justifyContent:'center',
+        justifyContent:'space-around',
         flexDirection:'row',
 
 
@@ -47,6 +47,8 @@ export const styleSheet= {
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
+        flexDirection:'row',
+
 
 
 
@@ -87,6 +89,7 @@ export const styleSheet= {
     root: {
         maxWidth: 345,
         width:'20%',
+        height:'95%',
     },
 
 
