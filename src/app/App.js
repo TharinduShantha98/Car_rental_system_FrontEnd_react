@@ -19,6 +19,8 @@ import Rental from "../pages/admin/Rental";
 import AdminOrderView from "../pages/admin/AdminOrderViews";
 import DriverTime from "../pages/Driver/TimeTable";
 import AdminHome from "../pages/Home/AdminHomePage";
+import Chart from "../pages/common/FileUpload";
+import ChartFile from "../pages/common/FileUpload";
 
 
 function App() {
@@ -56,6 +58,8 @@ function App() {
 
 
           <Route path="carView" element={<CarView/>}/>
+          <Route path="chart" element={<ChartFile/>}/>
+
 
 
 

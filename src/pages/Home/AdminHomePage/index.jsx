@@ -15,6 +15,8 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Typography from "@material-ui/core/Typography";
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import PeopleIcon from '@material-ui/icons/People';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import Paper from '@mui/material/Paper';
 import {
     Chart,
@@ -27,6 +29,7 @@ import {
 import {ValueScale, Animation} from '@devexpress/dx-react-chart';
 import { sales as data } from '../AdminHomePage/demo-data/data-vizualization'
 import {ErrorBoundary} from "@mui/x-data-grid/components/ErrorBoundary";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 
 
@@ -43,10 +46,14 @@ class AdminHome extends Component{
 
 
 
+
+
+
     render() {
 
         let {classes} = this.props;
        // const { data: chartData } = this.state;
+
 
         const data = [
             { argument: 1, value: 10 },
@@ -145,14 +152,39 @@ class AdminHome extends Component{
                                 </div>
 
                                 <div className={classes. constraint_main2_div2_div1_div}>
+                                    <PeopleIcon/>
+                                    <Typography
+                                        variant="h6"
+                                        gutterBottom
+                                        style={{fontWeight:'bold'}}
 
+
+                                    >
+                                        Customer view
+                                    </Typography>
                                 </div >
 
                                 <div className={classes. constraint_main2_div2_div1_div}>
+                                    <ShoppingCartIcon/>
+                                    <Typography
+                                        variant="h6"
+                                        gutterBottom
+                                        style={{fontWeight:'bold'}}
 
+
+                                    >
+                                       Order check
+                                    </Typography>
                                 </div>
                                 <div className={classes. constraint_main2_div2_div1_div}>
-
+                                    <RadioButtonUncheckedIcon/>
+                                    <Typography
+                                        variant="h6"
+                                        gutterBottom
+                                        style={{fontWeight:'bold'}}
+                                    >
+                                        Driver view
+                                    </Typography>
                                 </div>
                             </div>
 
@@ -160,13 +192,18 @@ class AdminHome extends Component{
                         </div>
 
 
+
+                        <div className={classes. constraint_main2_div3}>
+
+
+
+
+
+
+                        </div>
+
+
                 </div>
-
-
-
-
-
-
 
 
             </div>
