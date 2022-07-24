@@ -18,6 +18,7 @@ import CustomerProfile from "../pages/Customer/CustomerProfile";
 import Rental from "../pages/admin/Rental";
 import AdminOrderView from "../pages/admin/AdminOrderViews";
 import DriverTime from "../pages/Driver/TimeTable";
+import AdminHome from "../pages/Home/AdminHomePage";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
               <Route path="profile" element={<CustomerProfile/>}/>
               <Route path="driverTime" element={<DriverTime/>}/>
               <Route path="AdminOrder" element={<AdminOrderView/>}/>
+              <Route path="adminHome" element={<AdminHome/>}/>
 
 
 
@@ -54,6 +56,7 @@ function App() {
 
 
           <Route path="carView" element={<CarView/>}/>
+
 
 
 
