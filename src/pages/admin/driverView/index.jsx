@@ -14,8 +14,9 @@ import SaveIcon from "@material-ui/icons/Save";
 import SystemUpdateAltIcon from "@material-ui/icons/SystemUpdateAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {DataGrid} from "@mui/x-data-grid";
-import PostService from "../../../services/PostService";
+import PostService from "../../../services/DriverService";
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import DriverService from "../../../services/DriverService";
 
 
 class Driver extends Component{
@@ -34,12 +35,13 @@ class Driver extends Component{
                 contactNum:'',
                 licenseId:'',
                 status:'available'
-            }
+            },
+
+            data: [],
+
 
 
         }
-
-
 
     }
 
@@ -48,51 +50,73 @@ class Driver extends Component{
 
         console.log('save button click');
         console.log(this.state.formData)
-
-
         let formData =  this.state.formData;
         let response = await PostService.createPost(formData);
+        if(response.status === 200){
+            console.log("successFully");
 
-        // if(response.status === 200){
-        //     console.log("successFully");
-        //
-        // }else{
-        //     console.log("not successFully");
-        // }
-
-
-
+        }else{
+            console.log("not successFully");
+        }
 
     }
 
 
+    loadDriver = async ()=>{
+        let res = await DriverService.fetchDriver();
+        console.log(res.data);
+        if(res.data.code === 200){
+             console.log(res.data.data);
+             this.setState({
+                 data: res.data.data
+
+             });
+        }else{
+            console.log("wrong")
+        }
+
+    }
+
+
+    componentDidMount() {
+        this.loadDriver().then(r => {
+
+        });
+
+    }
 
 
     render() {
 
         const columns = [
             { field: 'driverId', headerName: 'driverId', width: 70 },
-            { field: 'FirstName', headerName: 'FirstName', width: 120 },
-            { field: 'lastName1', headerName: 'lastName', width: 120 },
-            { field: 'age1', headerName: 'age', width: 120 },
-            { field: 'Id num', headerName: 'Id num', width: 130 },
-            { field: 'license num', headerName: 'license num', width: 130 },
+            { field: 'firstName', headerName: 'FirstName', width: 120 },
+            { field: 'lastName', headerName: 'lastName', width: 120 },
+            { field: 'age', headerName: 'age', width: 120 },
+            { field: 'contactNum', headerName: 'Id num', width: 130 },
+            { field: 'licenseId', headerName: 'license num', width: 130 },
 
 
         ];
 
+        console.log(this.state.data[0]);
+        console.log(this.state.data.length);
+       // console.log(this.state.tableDataArray[0])
 
-        const rows = [
-            { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-            { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-            { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-            { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-            { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-            { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-            { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-            { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-            { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        ];
+
+        const rows = [];
+
+        for(let i=0; i < this.state.data.length;i++){
+                rows.push( { id: i,
+                    firstName: this.state.data[i].firstName,
+                    lastName: this.state.data[i].lastName,
+                    age: this.state.data[i].age,
+                    contactNum:this.state.data[i].contactNum,
+                    licenseId:this.state.data[i].licenseId})
+
+
+
+        }
 
 
         let {classes} = this.props;
@@ -298,66 +322,6 @@ class Driver extends Component{
 
 
                         <div className={classes.container_div_div1_div3}>
-
-                           {/* <div className={classes.container_div_div1_div2_div2}>
-                                <label >Font view</label>
-                                <TextField
-                                    id="standard-basic"
-                                    label="" type={'file'}
-                                    fullWidth
-                                    variant="outlined"
-                                />
-                                <label>Side view </label>
-                                <TextField
-                                    id="standard-basic"
-                                    label=""
-                                    type={'file'}
-                                    fullWidth
-                                    variant="outlined"
-                                />
-                            </div>
-
-                            <div className={classes.container_div_div1_div2_div1}>
-
-
-                                <input
-                                    accept="image/*"
-                                    className={classes.input}
-                                    id="contained-button-file"
-                                    multiple
-                                    type="file"
-                                />
-                                <label htmlFor="contained-button-file">
-                                    <Button variant="contained" color="primary" component="span">
-                                        Upload
-                                    </Button>
-                                </label>
-                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-                                <label htmlFor="icon-button-file">
-                                    <IconButton color="primary" aria-label="upload picture" component="span">
-                                        <PhotoCamera />
-                                    </IconButton>
-                                </label>
-
-
-
-                                <label>back view  </label>
-                                <TextField
-                                    id="standard-basic"
-                                    label=""
-                                    type={'file'}
-                                    fullWidth
-                                    variant="outlined" />
-                                <label>Interior</label>
-                                <TextField
-                                    id="standard-basic"
-                                    label=""
-                                    type={'file'}
-                                    fullWidth
-                                    variant="outlined"
-                                />
-                            </div>*/}
-
                         </div>
 
 

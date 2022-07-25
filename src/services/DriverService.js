@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 
-class PostService {
+class DriverService {
     createPost =  async (data) =>{
         console.log("form data: " + data);
 
@@ -24,7 +24,27 @@ class PostService {
 
     }
 
+
+    fetchDriver = async ()=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get('http://localhost:8080/rental_system_war/api/driver')
+                .then((res) =>{
+                   return resolve(res);
+
+                })
+                .catch((err)=>{
+                    return resolve(err);
+
+                })
+
+
+        })
+
+        return  await promise;
+
+
+    }
     
 }
 
-export default new PostService();
+export default new DriverService();
