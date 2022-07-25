@@ -42,9 +42,7 @@ class Driver extends Component{
             driverId:'',
 
 
-
-
-
+            btnId: 'save',
 
 
         }
@@ -55,15 +53,37 @@ class Driver extends Component{
     handleSubmit =async ()=>{
 
        // console.log('save button click');
-       // console.log(this.state.formData)
-        let formData =  this.state.formData;
-        let response = await DriverService.createPost(formData);
-        if(response.status === 200){
-            console.log("successFully");
+       // console.log(this.state.formData);
 
-        }else{
-            console.log("not successFully");
-        }
+         console.log(this.state.btnId);
+
+
+         if(this.state.btnId ==="save"){
+
+             let formData =  this.state.formData;
+             let response = await DriverService.createPost(formData);
+             if(response.date.code === 200){
+                 console.log("successFully");
+                 await this.loadDriver();
+
+             }else{
+                 console.log("not successFully");
+             }
+
+
+
+         }else{
+
+
+
+
+
+
+         }
+
+
+
+
 
 
 
@@ -96,6 +116,8 @@ class Driver extends Component{
 
         let res = await DriverService.searchDriver(params);
         let searchDriver = res.data.data;
+
+
         let formData = this.state.formData
         formData.driverId = searchDriver.driverId;
         formData.firstName = searchDriver.firstName;
@@ -115,14 +137,38 @@ class Driver extends Component{
     }
 
 
-    updateDriver = async ()=>{
+        updateDriver = async (data)=>{
 
+        let res  = await DriverService.updateDriver(data);
+        console.log(res);
+        if(res.status === 200){
+            console.log("success")
 
-
-        DriverService.updateDriver()
+        }else{
+            console.log("not success")
+        }
 
 
     }
+
+
+    deleteDriver = async (driverId)=>{
+        let params = {
+            id: driverId
+        }
+
+
+        let res = await DriverService.deleteCustomer(params)
+        console.log(res);
+
+    }
+
+
+
+
+
+
+
 
 
 
@@ -344,7 +390,7 @@ class Driver extends Component{
                             <div className={classes.container_div_div1_div4_div1}>
                                 <TextField
                                     id="outlined-basic"
-                                    label="searchCar"
+                                    label="searchDriver"
                                     variant="outlined"
                                     size={"small"}
                                     InputProps={{
@@ -355,13 +401,11 @@ class Driver extends Component{
                                         ),
                                     }}
                                     onChange={(e)=>{
-                                        //console.log(e);
+
                                     }}
                                     onKeyPress={(ev)=>{
-                                       // console.log(ev)
                                         if(ev.key === "Enter"){
-                                           // ev.preventDefault();
-                                            //console.log(ev.target.value)
+                                            this.setState({driverId:ev.target.value})
                                             this.searchDriver(ev.target.value)
                                                 .then(r => {
 
@@ -378,16 +422,22 @@ class Driver extends Component{
                                     variant="contained"
                                     startIcon={<SaveIcon />}
                                     type={"submit"}
-
+                                    id={this.state.btnId}
                                 >
-                                    add car
+                                    save
                                 </Button>
                             </div>
                             <div className={classes.container_div_div1_div4_div3}>
                                 <Button variant="contained"
                                         color="primary"
-                                        id=""
                                         startIcon={<SystemUpdateAltIcon/>}
+                                        onClick={()=>{
+                                            let formData = this.state.formData;
+                                            this.updateDriver(formData).then(r => {
+
+                                            });
+
+                                        }}
                                 >
                                     update
                                 </Button>
@@ -396,6 +446,12 @@ class Driver extends Component{
                                 <Button variant="contained"
                                         color="secondary"
                                         startIcon={<DeleteIcon/>}
+                                        onClick={()=>{
+                                            let driverId =  this.state.driverId;
+                                            this.deleteDriver(driverId).then(r => {
+
+                                            })
+                                        }}
                                 >
                                     delete
                                 </Button>

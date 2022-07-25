@@ -83,6 +83,24 @@ class DriverService {
     }
 
 
+    deleteCustomer = async (param)=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('http://localhost:8080/rental_system_war/api/driver',{params:param})
+                .then((res)=>{
+                    return resolve(res)
+
+                })
+                .catch((err)=>{
+                    return resolve(err)
+                })
+
+        })
+
+        return await promise;
+
+    }
+
+
     
 }
 
