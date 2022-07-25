@@ -17,6 +17,7 @@ import {DataGrid} from "@mui/x-data-grid";
 import PostService from "../../../services/DriverService";
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import DriverService from "../../../services/DriverService";
+import ClearIcon from '@material-ui/icons/Clear';
 
 
 class Driver extends Component{
@@ -38,6 +39,11 @@ class Driver extends Component{
             },
 
             data: [],
+            driverId:'',
+
+
+
+
 
 
 
@@ -48,16 +54,20 @@ class Driver extends Component{
 
     handleSubmit =async ()=>{
 
-        console.log('save button click');
-        console.log(this.state.formData)
+       // console.log('save button click');
+       // console.log(this.state.formData)
         let formData =  this.state.formData;
-        let response = await PostService.createPost(formData);
+        let response = await DriverService.createPost(formData);
         if(response.status === 200){
             console.log("successFully");
 
         }else{
             console.log("not successFully");
         }
+
+
+
+
 
     }
 
@@ -76,6 +86,65 @@ class Driver extends Component{
         }
 
     }
+
+
+    searchDriver = async (searchId)=>{
+        let params = {
+            id: searchId,
+
+        }
+
+        let res = await DriverService.searchDriver(params);
+        let searchDriver = res.data.data;
+        let formData = this.state.formData
+        formData.driverId = searchDriver.driverId;
+        formData.firstName = searchDriver.firstName;
+        formData.lastName= searchDriver.lastName;
+        formData.contactNum = searchDriver.contactNum;
+        formData.age=searchDriver.age;
+        formData.licenseId = searchDriver.licenseId;
+        formData.status = searchDriver.status;
+
+        this.setState({formData:formData});
+
+
+        // console.log(res.data.data);
+        // console.log("hello");
+        // console.log( this.state.formData)
+
+    }
+
+
+    updateDriver = async ()=>{
+
+
+
+        DriverService.updateDriver()
+
+
+    }
+
+
+
+
+
+
+
+    cleartextField = ()=>{
+        this.setState({
+            formData:{
+                driverId:'',
+                firstName:'',
+                lastName:'',
+                age:'',
+                contactNum:'',
+                licenseId:'',
+                status:'available'
+            }
+        })
+    }
+
+
 
 
     componentDidMount() {
@@ -99,8 +168,8 @@ class Driver extends Component{
 
         ];
 
-        console.log(this.state.data[0]);
-        console.log(this.state.data.length);
+       // console.log(this.state.data[0]);
+       // console.log(this.state.data.length);
        // console.log(this.state.tableDataArray[0])
 
 
@@ -108,14 +177,12 @@ class Driver extends Component{
 
         for(let i=0; i < this.state.data.length;i++){
                 rows.push( { id: i,
+                    driverId:this.state.data[i].driverId,
                     firstName: this.state.data[i].firstName,
                     lastName: this.state.data[i].lastName,
                     age: this.state.data[i].age,
                     contactNum:this.state.data[i].contactNum,
                     licenseId:this.state.data[i].licenseId})
-
-
-
         }
 
 
@@ -152,6 +219,8 @@ class Driver extends Component{
                                     // autoComplete="carType"
                                     variant="outlined"
                                     size={'small'}
+
+                                    value={this.state.formData.driverId}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.driverId = e.target.value
@@ -172,7 +241,7 @@ class Driver extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
-
+                                    value={this.state.formData.lastName}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.lastName = e.target.value
@@ -193,6 +262,7 @@ class Driver extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.contactNum}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.contactNum = e.target.value
@@ -216,6 +286,7 @@ class Driver extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.firstName}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.firstName = e.target.value
@@ -233,6 +304,7 @@ class Driver extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.age}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.age = e.target.value
@@ -246,20 +318,22 @@ class Driver extends Component{
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="license num"
+                                    id="licenseNum"
                                     label="license num"
                                     name="license num"
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.licenseId}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.licenseId = e.target.value
                                         this.setState(formData);
                                     }}
 
-                                />
 
+
+                                />
 
                             </div>
 
@@ -280,6 +354,22 @@ class Driver extends Component{
                                             </InputAdornment>
                                         ),
                                     }}
+                                    onChange={(e)=>{
+                                        //console.log(e);
+                                    }}
+                                    onKeyPress={(ev)=>{
+                                       // console.log(ev)
+                                        if(ev.key === "Enter"){
+                                           // ev.preventDefault();
+                                            //console.log(ev.target.value)
+                                            this.searchDriver(ev.target.value)
+                                                .then(r => {
+
+                                            });
+
+                                        }
+
+                                    }}
                                 />
                             </div>
 
@@ -288,10 +378,6 @@ class Driver extends Component{
                                     variant="contained"
                                     startIcon={<SaveIcon />}
                                     type={"submit"}
-                                    // onClick={()=>{
-                                    //     console.log("add driver ------")
-                                    // }}
-
 
                                 >
                                     add car
@@ -300,6 +386,7 @@ class Driver extends Component{
                             <div className={classes.container_div_div1_div4_div3}>
                                 <Button variant="contained"
                                         color="primary"
+                                        id=""
                                         startIcon={<SystemUpdateAltIcon/>}
                                 >
                                     update
@@ -311,6 +398,20 @@ class Driver extends Component{
                                         startIcon={<DeleteIcon/>}
                                 >
                                     delete
+                                </Button>
+
+                            </div>
+                            <div className={classes.container_div_div1_div4_div5}>
+                                <Button variant="contained"
+                                        color=""
+                                        startIcon={<ClearIcon/>}
+                                        style={{backgroundColor:"#846e1d"}}
+                                        onClick={()=>{
+                                            this.cleartextField();
+                                        }}
+
+                                >
+                                    clear
                                 </Button>
 
                             </div>

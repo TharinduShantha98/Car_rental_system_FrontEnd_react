@@ -240,6 +240,14 @@ export const  styleSheet = {
         justifyContent:'center',
 
     },
+
+    container_div_div1_div4_div5:{
+        width:'20%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+
+    },
     input: {
         //display: 'none',
     },
