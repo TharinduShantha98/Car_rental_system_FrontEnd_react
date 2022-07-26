@@ -48,7 +48,7 @@ class CarAdd extends Component{
             },
             data:[],
 
-            driverId:'',
+            carId:'',
 
 
 
@@ -145,11 +145,22 @@ class CarAdd extends Component{
             console.log(this.state.formData.DailyRate);
 
 
+    }
 
 
+    deleteCar = async (carId)=>{
+        let params = {
+            id: carId
+        }
 
+        let res = await CarServices.deleteCar(params)
 
+        if(res.data.code === 200){
+            console.log("success");
+        }else{
+            console.log("not success");
 
+        }
 
     }
 
@@ -530,8 +541,7 @@ class CarAdd extends Component{
                                     onKeyPress={(ev)=>{
 
                                         if(ev.key === "Enter"){
-                                            this.setState({driverId:ev.target.value});
-
+                                            this.setState({carId:ev.target.value});
                                             this.searchCar(ev.target.value).then(r =>{
 
                                             })
@@ -567,6 +577,17 @@ class CarAdd extends Component{
                                 <Button variant="contained"
                                         color="secondary"
                                         startIcon={<DeleteIcon/>}
+
+                                        onClick={()=>{
+                                            let carId = this.state.carId;
+                                            console.log(carId);
+                                            this.deleteCar(carId).then(r => {
+
+                                            })
+
+                                        }}
+
+
                                 >
                                     delete
                                 </Button>
