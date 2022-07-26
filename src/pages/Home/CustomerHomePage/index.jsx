@@ -26,6 +26,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import car4 from "../../../assets/img/cars/car4.jpg";
 import {Link} from "react-router-dom";
 
+
 class CustomerHome extends Component{
     constructor(props) {
         super(props);
@@ -136,7 +137,13 @@ class CustomerHome extends Component{
                              color={'primary'}
                              startIcon={<MessageIcon/>}
                          >
-                             Car Filters
+
+                            <Link to={"/customerSignUp"}>
+                                Car Filters
+
+                            </Link>
+
+
                          </Button>
                      </div>
 

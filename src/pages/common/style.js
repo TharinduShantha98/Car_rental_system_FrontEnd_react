@@ -70,7 +70,15 @@ export const styleSheet = {
     linkStyle:{
        // listStyle: 'none'
         textDecoration:'none'
-    }
+    },
+    iconStyle2:{
+        fontSize:'40px',
+        margin:'5%',
+        marginTop:'20%'
+
+
+
+    },
 
 
 

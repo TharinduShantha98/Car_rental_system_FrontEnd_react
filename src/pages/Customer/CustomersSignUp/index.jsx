@@ -16,6 +16,7 @@ import PaymentIcon from "@material-ui/icons/Payment";
 import EmailIcon from "@material-ui/icons/Email";
 import LockIcon from "@material-ui/icons/Lock";
 import {ValidatorForm} from "react-material-ui-form-validator";
+import {Link} from "react-router-dom";
 
 class CustomerSignUp  extends Component{
 
@@ -208,7 +209,11 @@ class CustomerSignUp  extends Component{
                                             sx={{ mt: 3, mb: 2 }}
                                             color={'secondary'}
                                         >
-                                            LOGIN ACCOUNT
+
+                                            <Link to={"/signIn"}>
+                                                LOGIN ACCOUNT
+                                            </Link>
+
                                         </Button>
 
 

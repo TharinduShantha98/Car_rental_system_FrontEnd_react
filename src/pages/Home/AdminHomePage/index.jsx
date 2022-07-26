@@ -17,6 +17,7 @@ import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import PeopleIcon from '@material-ui/icons/People';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import {Link} from "react-router-dom";
 import Paper from '@mui/material/Paper';
 import {
     Chart,
@@ -137,19 +138,30 @@ class AdminHome extends Component{
 
                         <div className={classes. constraint_main2_div2}>
                             <div className={classes. constraint_main2_div2_div1}>
-                                <div className={classes. constraint_main2_div2_div1_div}>
-                                    <DirectionsCarIcon/>
-                                    <Typography
-                                        variant="h6"
-                                        gutterBottom
-                                        style={{fontWeight:'bold'}}
 
 
-                                    >
-                                        Car Add
-                                    </Typography>
 
-                                </div>
+                                   <div className={classes. constraint_main2_div2_div1_div}>
+                                       <DirectionsCarIcon/>
+                                       <Typography
+                                           variant="h6"
+                                           gutterBottom
+                                           style={{fontWeight:'bold'}}
+
+
+                                       >
+                                           <Link to={"/carAdd"} style={{textDecoration:'none',
+                                               color:'black'}}>
+                                           Car Add
+                                           </Link>
+                                       </Typography>
+
+                                   </div>
+
+
+
+
+
 
                                 <div className={classes. constraint_main2_div2_div1_div}>
                                     <PeopleIcon/>
@@ -160,7 +172,12 @@ class AdminHome extends Component{
 
 
                                     >
+
+                                        <Link to={"/customerView"} style={{textDecoration:'none',
+                                            color:'black'}}>
                                         Customer view
+
+                                        </Link>
                                     </Typography>
                                 </div >
 
@@ -173,7 +190,11 @@ class AdminHome extends Component{
 
 
                                     >
+
+                                        <Link to={"/AdminOrder"} style={{textDecoration:'none',
+                                            color:'black'}}>
                                        Order check
+                                        </Link>
                                     </Typography>
                                 </div>
                                 <div className={classes. constraint_main2_div2_div1_div}>
@@ -183,7 +204,11 @@ class AdminHome extends Component{
                                         gutterBottom
                                         style={{fontWeight:'bold'}}
                                     >
+
+                                        <Link to={"/driver"} style={{textDecoration:'none',
+                                         color:'black'}}>
                                         Driver view
+                                        </Link>
                                     </Typography>
                                 </div>
                             </div>
@@ -193,14 +218,16 @@ class AdminHome extends Component{
 
 
 
-                        <div className={classes. constraint_main2_div3}>
+
+
+
+                </div>
+
+                <div className={classes.constraint_main3}>
 
 
 
 
-
-
-                        </div>
 
 
                 </div>

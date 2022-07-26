@@ -14,6 +14,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import EmailIcon from '@material-ui/icons/Email';
 import {Link} from "react-router-dom";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 class  NavBar extends Component{
@@ -41,15 +42,18 @@ class  NavBar extends Component{
 
 
                             <Link to="CustomerHome"  className={classes.linkStyle}>
-                                <Button>home</Button>
+                                <Button>HOME</Button>
                             </Link>
-                            <Link to="adminHome"  className={classes.linkStyle}>
-                            <Button>AdminHome</Button>
+                            <Link to="adminLog"  className={classes.linkStyle}>
+                            <Button>ADMIN</Button>
                             </Link>
 
-                            <Button>Service</Button>
+                            <Link to={"driverTime"} className={classes.linkStyle}>
+                                <Button>DRIVER</Button>
+                            </Link>
 
-                            <Link to="carView" className={classes.linkStyle}>
+
+                           {/* <Link to="carView" className={classes.linkStyle}>
                                 <Button>CarView</Button>
                             </Link>
 
@@ -59,38 +63,29 @@ class  NavBar extends Component{
                             <Link to={"customerSignUp"} className={classes.linkStyle}>
                                 <Button>Login</Button>
                             </Link>
+*/}
 
-                            <Link to={"driver"} className={classes.linkStyle}>
-                                <Button>Driver</Button>
-                            </Link>
 
-                            <Link to={"customerView"} className={classes.linkStyle}>
-                                <Button>cusView</Button>
-                            </Link>
 
-                            <Link to={"signIn"} className={classes.linkStyle}>
-                                <Button>signIn</Button>
-                            </Link>
 
-                            <Link to={"adminLog"} className={classes.linkStyle}>
-                                <Button>adminLog</Button>
-                            </Link>
+                            {/*<Link to={"signIn"} className={classes.linkStyle}>*/}
+                            {/*    <Button>signIn</Button>*/}
+                            {/*</Link>*/}
 
-                            <Link to={"carAdd"} className={classes.linkStyle}>
-                                <Button>carAdd</Button>
-                            </Link>
+                            {/*<Link to={"adminLog"} className={classes.linkStyle}>*/}
+                            {/*    <Button>adminLog</Button>*/}
+                            {/*</Link>*/}
 
-                            <Link to={"profile"} className={classes.linkStyle}>
-                                <Button>profile</Button>
-                            </Link>
 
-                            <Link to={"driverTime"} className={classes.linkStyle}>
-                                <Button>TimeTable</Button>
-                            </Link>
+                            {/*<Link to={"profile"} className={classes.linkStyle}>*/}
+                            {/*    <Button>profile</Button>*/}
+                            {/*</Link>*/}
 
-                            <Link to={"AdminOrder"} className={classes.linkStyle}>
-                                <Button>AdminOrderView</Button>
-                            </Link>
+                            {/*<Link to={"driverTime"} className={classes.linkStyle}>*/}
+                            {/*    <Button>TimeTable</Button>*/}
+                            {/*</Link>*/}
+
+
 
                         </Toolbar>
                     </AppBar>
@@ -112,6 +107,12 @@ class  NavBar extends Component{
                                 <InstagramIcon className={classes.iconStyle}/>
                                 <WhatsAppIcon className={classes.iconStyle}/>
                                 <EmailIcon className={classes.iconStyle}/>
+                                <Link to={"/profile"}>
+                                    <AccountCircleIcon className={classes.iconStyle2}/>
+                                </Link>
+
+
+
                             </div>
                         </div>
 

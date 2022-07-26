@@ -59,6 +59,12 @@ function App() {
 
           <Route path="carView" element={<CarView/>}/>
           <Route path="chart" element={<ChartFile/>}/>
+          {/*<Route path="carAdd" element={<CarAdd/>}/>*/}
+
+
+
+
+
 
 
 
