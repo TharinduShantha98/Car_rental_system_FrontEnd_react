@@ -25,16 +25,16 @@ class CarAdd extends Component{
 
         this.state={
             formData:{
-                carId:'CA-101',
+                carId:'',
                 type:'',
-                numberOfPassengers:0,
+                numberOfPassengers:'',
                 transmissionType:'',
                 color:'',
                 registrationNum:'',
                 priceForExrKM:'',
                 freeMileage:'',
-                MonthlyRate:0,
-                DailyRate:0,
+                MonthlyRate:'',
+                DailyRate:'',
                 frontView:'frontView',
                 backView:'backView',
                 sideView:'sideView',
@@ -45,7 +45,12 @@ class CarAdd extends Component{
                 interiorViewImg:null,
 
 
-            }
+            },
+            data:[],
+
+            driverId:'',
+
+
 
 
 
@@ -55,7 +60,6 @@ class CarAdd extends Component{
 
     handleSubmit = async ()=>{
 
-
         let form_data  =  new FormData();
 
         form_data.append('carId', this.state.formData.carId);
@@ -63,6 +67,7 @@ class CarAdd extends Component{
         form_data.append('numberOfPassengers', this.state.formData.numberOfPassengers);
         form_data.append('transmissionType', this.state.formData.transmissionType);
         form_data.append('registrationNum', this.state.formData.registrationNum);
+        form_data.append('color', this.state.formData.color);
         form_data.append('priceForExrKM', this.state.formData.priceForExrKM);
         form_data.append('freeMileage', this.state.formData.freeMileage);
         form_data.append('MonthlyRate', this.state.formData.MonthlyRate);
@@ -79,10 +84,65 @@ class CarAdd extends Component{
 
         let promise = await CarServices.carSave(form_data);
         console.log(promise);
+        if(promise.status === 200){
+            console.log("success");
+        }else{
+            console.log("not success");
+        }
+    }
+
+
+    getAllCars = async ()=>{
+       let res =  await  CarServices.getAllCar();
+
+       console.log(res.data.data);
+       if(res.data.code === 200){
+           this.setState({data: res.data.data})
+       }else{
+           console.log("not success");
+
+       }
+
+    }
+
+
+    searchCar = async (searchId)=>{
+
+        let params = {
+            id:searchId
+        }
+
+        let res  =  await CarServices.searchCar(params)
+        console.log(res)
+
+        console.log(res.data.data)
+
+
+       // const searchCar  = res.date.data;
+
+       // console.log(searchCar.carId);
+        let formData = this.state.formData;
+        formData.carId = res.data.data.carId;
+        formData.type = res.data.data.type;
+        formData.numberOfPassengers = res.data.data.numberOfPassengers;
+        formData.transmissionType = res.data.data.transmissionType;
+        formData.color = res.data.data.color;
+        formData.registrationNum = res.data.data.registrationNum;
+        formData.freeMileage = res.data.data.freeMileage;
+        formData.MonthlyRate = res.data.data.monthlyRate;
+        formData.DailyRate = res.data.data.dailyRate;
+        formData.frontView = res.data.data.frontView;
+        formData.backView = res.data.data.backView;
+        formData.sideView = res.data.data.sideView;
+        formData.interiorView = res.data.data.interiorView;
 
 
 
+        this.setState({formData:formData})
 
+            console.log(this.state.formData.type);
+            console.log(this.state.formData.MonthlyRate);
+            console.log(this.state.formData.DailyRate);
 
 
 
@@ -101,42 +161,55 @@ class CarAdd extends Component{
 
 
 
+
+    componentDidMount() {
+        this.getAllCars().then(r => {
+
+
+        });
+    }
+
+
     render() {
         const columns = [
-            { field: 'CarId', headerName: 'CarId', width: 70 },
-            { field: 'carType', headerName: 'carType', width: 100 },
-            { field: 'Transmission Type', headerName: 'Transmission Type', width: 100 },
-            { field: 'Number of pasenager', headerName: 'Number of pasenager', width: 100 },
-            { field: 'color', headerName: 'color', width: 100 },
-            { field: 'registration num', headerName: 'registration num', width: 100 },
-            { field: 'fuel Type ', headerName: 'fuel Type', width: 100 },
-            { field: 'free mileage', headerName: 'free mileage', width: 100 },
-            { field: 'price of exr km', headerName: 'price of exr km', width: 100 },
-            { field: 'daily rate', headerName: 'daily rate', width: 100 },
-            { field: 'Monthly rate', headerName: 'Monthly rate', width: 100 },
+            { field: 'CarId', headerName: 'CarId', width: 80 },
+            { field: 'carType', headerName: 'carType', width: 120 },
+            { field: 'TransmissionType', headerName: 'Transmission Type', width: 120 },
+            { field: 'numberOfPassengers', headerName: 'number Of passengers', width: 120 },
+            { field: 'color', headerName: 'color', width: 120 },
+            { field: 'registrationNum', headerName: 'registration num', width: 150 },
+            { field: 'freeMileage', headerName: 'free mileage', width: 150 },
+            { field: 'priceOfExKm', headerName: 'price of exr km', width: 120 },
+            { field: 'dailyRate', headerName: 'daily rate', width: 120 },
+            { field: 'MonthlyRate', headerName: 'Monthly rate', width: 120 },
 
         ];
 
+        const rows = [];
+        for(let i =0; i <this.state.data.length; i++){
+            let car = this.state.data[i];
 
-        const rows = [
-            { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-            { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-            { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-            { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-            { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-            { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-            { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-            { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-            { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        ];
+            rows.push({ id: i,
+                CarId:car.carId,
+                carType: car.type,
+                TransmissionType: car.transmissionType,
+                numberOfPassengers:car.numberOfPassengers,
+                color:car.color,
+                registrationNum:car.registrationNum,
+                freeMileage:car.freeMileage,
+                priceOfExKm:car.priceForExrKM,
+                dailyRate:car.dailyRate,
+                MonthlyRate:car.monthlyRate,
+
+            })
+
+
+
+        }
+
 
         let {classes} = this.props;
        return(
-
-
-
-
-
 
         <div className={classes.container}>
 
@@ -160,22 +233,24 @@ class CarAdd extends Component{
 
                        <div className={classes.container_div_div1_div2}>
                             <div className={classes.container_div_div1_div2_div1}>
+
+
                                 <TextField
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="carType"
-                                    label="Car Type"
-                                    name="CarType"
-                                   // autoComplete="carType"
+                                    id="carId"
+                                    label="carId"
+                                    name="carId"
+                                    //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.carId}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
-                                        formData.type = e.target.value
+                                        formData.carId = e.target.value
                                         this.setState(formData)
                                     }}
-
 
 
                                 />
@@ -190,6 +265,7 @@ class CarAdd extends Component{
                                   //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.numberOfPassengers}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.numberOfPassengers = e.target.value
@@ -208,6 +284,7 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.registrationNum}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.registrationNum = e.target.value
@@ -225,6 +302,7 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.freeMileage}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.freeMileage = e.target.value
@@ -242,6 +320,8 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+
+                                    value={this.state.formData.DailyRate}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.DailyRate = e.target.value
@@ -265,6 +345,7 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.transmissionType}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.transmissionType = e.target.value
@@ -282,6 +363,7 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.color}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.color = e.target.value
@@ -294,15 +376,23 @@ class CarAdd extends Component{
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="Fuel type"
-                                    label="Fuel type"
-                                    name="Fuel type"
-                                    //  autoComplete="email"
+                                    id="car_Type"
+                                    label="Car Type"
+                                    name="Car_Type"
+                                    // autoComplete="carType"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.type}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.type = e.target.value
+                                        this.setState(formData)
+                                    }}
+
 
 
                                 />
+
 
                                 <TextField
                                     margin="normal"
@@ -314,6 +404,7 @@ class CarAdd extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+                                    value={this.state.formData.priceForExrKM}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.priceForExrKM = e.target.value
@@ -324,12 +415,17 @@ class CarAdd extends Component{
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="Monthly rate"
+                                    id="MonthlyRate"
                                     label="Monthly rate"
                                     name="Monthly rate"
                                     //  autoComplete="email"
                                     variant="outlined"
+
                                     size={'small'}
+                                    value={this.state.formData.MonthlyRate}
+
+
+
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.MonthlyRate = e.target.value
@@ -430,6 +526,21 @@ class CarAdd extends Component{
                                             </InputAdornment>
                                         ),
                                     }}
+
+                                    onKeyPress={(ev)=>{
+
+                                        if(ev.key === "Enter"){
+                                            this.setState({driverId:ev.target.value});
+
+                                            this.searchCar(ev.target.value).then(r =>{
+
+                                            })
+
+
+                                        }
+                                    }}
+
+
                                 />
                             </div>
 
