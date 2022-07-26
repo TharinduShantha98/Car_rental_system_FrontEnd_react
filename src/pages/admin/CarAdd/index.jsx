@@ -14,11 +14,51 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {DataGrid} from "@mui/x-data-grid";
+import {ValidatorForm} from "react-material-ui-form-validator";
 class CarAdd extends Component{
 
     constructor(props) {
         super(props);
+
+
+        this.state={
+            formData:{
+                carId:'CA-101',
+                type:'',
+                numberOfPassengers:0,
+                transmissionType:'',
+                color:'',
+                registrationNum:'',
+                priceForExrKM:'',
+                freeMileage:'',
+                MonthlyRate:0,
+                DailyRate:0,
+                frontView:'frontView',
+                backView:'backView',
+                sideView:'sideView',
+                interiorView:'interiorView',
+                frontViewImg: null,
+                backViewImg:null,
+                sideViewImg:null,
+                interiorViewImg:null,
+
+
+            }
+
+
+
+        }
     }
+
+
+
+
+
+
+
+
+
+
 
 
     render() {
@@ -60,7 +100,14 @@ class CarAdd extends Component{
 
         <div className={classes.container}>
 
+            <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
                <div className={classes.container_div}>
+
+
 
                    <div className={classes.container_div_div1}>
 
@@ -82,8 +129,15 @@ class CarAdd extends Component{
                                     name="CarType"
                                    // autoComplete="carType"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.type = e.target.value
+                                        this.setState(formData)
+                                    }}
+
+
+
                                 />
 
                                 <TextField
@@ -95,8 +149,12 @@ class CarAdd extends Component{
                                     name="numberOfPassenger"
                                   //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.numberOfPassengers = e.target.value
+                                        this.setState(formData)
+                                    }}
                                 />
 
 
@@ -109,8 +167,12 @@ class CarAdd extends Component{
                                     name="registration num"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.transmissionType = e.target.value
+                                        this.setState(formData)
+                                    }}
                                 />
 
                                 <TextField
@@ -122,8 +184,13 @@ class CarAdd extends Component{
                                     name="Free mileage"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.freeMileage = e.target.value
+                                        this.setState(formData)
+                                    }}
+
                                 />
                                 <TextField
                                     margin="normal"
@@ -134,8 +201,16 @@ class CarAdd extends Component{
                                     name="Daily rate"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.DailyRate = e.target.value
+                                        this.setState(formData)
+                                    }}
+
+
+
+
                                 />
 
                             </div>
@@ -149,8 +224,12 @@ class CarAdd extends Component{
                                     name="transmission type"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.transmissionType = e.target.value
+                                        this.setState(formData)
+                                    }}
                                 />
 
                                 <TextField
@@ -162,8 +241,12 @@ class CarAdd extends Component{
                                     name="color"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.color = e.target.value
+                                        this.setState(formData)
+                                    }}
                                 />
 
 
@@ -176,8 +259,9 @@ class CarAdd extends Component{
                                     name="Fuel type"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+
+
                                 />
 
                                 <TextField
@@ -189,8 +273,12 @@ class CarAdd extends Component{
                                     name="Price for exr Km"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.priceForExrKM = e.target.value
+                                        this.setState(formData)
+                                    }}
                                 />
                                 <TextField
                                     margin="normal"
@@ -201,8 +289,13 @@ class CarAdd extends Component{
                                     name="Monthly rate"
                                     //  autoComplete="email"
                                     variant="outlined"
-
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.MonthlyRate = e.target.value
+                                        this.setState(formData)
+                                    }}
+
                                 />
 
 
@@ -216,10 +309,18 @@ class CarAdd extends Component{
                            <div className={classes.container_div_div1_div2_div2}>
                                <label >Font view</label>
                               <TextField
-                                  id="standard-basic"
-                                  label="" type={'file'}
+                                  id="sideView"
+                                  label=""
+                                  type={'file'}
                                   fullWidth
                                   variant="outlined"
+                                  accept={"image/png,image/jpeg"}
+                                  onChange={(e)=>{
+                                      let formData = this.state.formData
+                                      formData.frontView = e.target.files[0]
+                                      this.setState(formData);
+
+                                  }}
                               />
                                <label>Side view </label>
                               <TextField
@@ -228,31 +329,16 @@ class CarAdd extends Component{
                                   type={'file'}
                                   fullWidth
                                   variant="outlined"
+                                  onChange={(e)=>{
+                                      let formData = this.state.formData
+                                      formData.sideView = e.target.files[0]
+                                      this.setState(formData);
+
+                                  }}
                               />
                            </div>
 
                            <div className={classes.container_div_div1_div2_div1}>
-
-
-                               {/*<input*/}
-                               {/*    accept="image/*"*/}
-                               {/*    className={classes.input}*/}
-                               {/*    id="contained-button-file"*/}
-                               {/*    multiple*/}
-                               {/*    type="file"*/}
-                               {/*/>*/}
-                               {/*<label htmlFor="contained-button-file">*/}
-                               {/*    <Button variant="contained" color="primary" component="span">*/}
-                               {/*        Upload*/}
-                               {/*    </Button>*/}
-                               {/*</label>*/}
-                               {/*<input accept="image/*" className={classes.input} id="icon-button-file" type="file" />*/}
-                               {/*<label htmlFor="icon-button-file">*/}
-                               {/*    <IconButton color="primary" aria-label="upload picture" component="span">*/}
-                               {/*        <PhotoCamera />*/}
-                               {/*    </IconButton>*/}
-                               {/*</label>*/}
-
 
 
                                <label>back view  </label>
@@ -261,7 +347,16 @@ class CarAdd extends Component{
                                    label=""
                                    type={'file'}
                                    fullWidth
-                                   variant="outlined" />
+                                   variant="outlined"
+                                   onChange={(e)=>{
+                                       let formData = this.state.formData
+                                       formData.backView = e.target.files[0]
+                                       this.setState(formData);
+
+                                   }}
+
+
+                               />
                                <label>Interior</label>
                                <TextField
                                    id="standard-basic"
@@ -269,6 +364,12 @@ class CarAdd extends Component{
                                    type={'file'}
                                    fullWidth
                                    variant="outlined"
+                                   onChange={(e)=>{
+                                       let formData = this.state.formData
+                                       formData.interiorView = e.target.files[0]
+                                       this.setState(formData);
+
+                                   }}
                                />
                            </div>
 
@@ -293,7 +394,13 @@ class CarAdd extends Component{
                             </div>
 
                             <div className={classes.container_div_div1_div4_div2}>
-                                <Button variant="contained" startIcon={<SaveIcon />}  >
+                                <Button
+                                    variant="contained"
+                                    startIcon={<SaveIcon />}
+                                    type={'submit'}
+
+
+                                >
                                     add car
                                 </Button>
                             </div>
@@ -322,6 +429,13 @@ class CarAdd extends Component{
 
 
                </div>
+
+            </ValidatorForm>
+
+
+
+
+
 
                <div className={classes.container_div2}>
 
