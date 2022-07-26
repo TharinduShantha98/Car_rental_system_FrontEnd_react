@@ -15,6 +15,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {DataGrid} from "@mui/x-data-grid";
 import {ValidatorForm} from "react-material-ui-form-validator";
+import {Form} from "semantic-ui-react";
+import CarServices from "../../../services/CarServices";
 class CarAdd extends Component{
 
     constructor(props) {
@@ -51,7 +53,45 @@ class CarAdd extends Component{
     }
 
 
+    handleSubmit = async ()=>{
 
+
+        let form_data  =  new FormData();
+
+        form_data.append('carId', this.state.formData.carId);
+        form_data.append('type', this.state.formData.type);
+        form_data.append('numberOfPassengers', this.state.formData.numberOfPassengers);
+        form_data.append('transmissionType', this.state.formData.transmissionType);
+        form_data.append('registrationNum', this.state.formData.registrationNum);
+        form_data.append('priceForExrKM', this.state.formData.priceForExrKM);
+        form_data.append('freeMileage', this.state.formData.freeMileage);
+        form_data.append('MonthlyRate', this.state.formData.MonthlyRate);
+        form_data.append('DailyRate', this.state.formData.DailyRate);
+        form_data.append('frontView', this.state.formData.frontView);
+        form_data.append('backView', this.state.formData.backView);
+        form_data.append('sideView', this.state.formData.sideView);
+        form_data.append('front', this.state.formData.frontViewImg);
+        form_data.append('back', this.state.formData.backViewImg);
+        form_data.append('side', this.state.formData.sideViewImg);
+        form_data.append('interior', this.state.formData.interiorViewImg);
+
+
+
+        let promise = await CarServices.carSave(form_data);
+        console.log(promise);
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 
 
@@ -170,7 +210,7 @@ class CarAdd extends Component{
                                     size={'small'}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
-                                        formData.transmissionType = e.target.value
+                                        formData.registrationNum = e.target.value
                                         this.setState(formData)
                                     }}
                                 />
@@ -317,7 +357,7 @@ class CarAdd extends Component{
                                   accept={"image/png,image/jpeg"}
                                   onChange={(e)=>{
                                       let formData = this.state.formData
-                                      formData.frontView = e.target.files[0]
+                                      formData.frontViewImg = e.target.files[0]
                                       this.setState(formData);
 
                                   }}
@@ -331,7 +371,7 @@ class CarAdd extends Component{
                                   variant="outlined"
                                   onChange={(e)=>{
                                       let formData = this.state.formData
-                                      formData.sideView = e.target.files[0]
+                                      formData.sideViewImg = e.target.files[0]
                                       this.setState(formData);
 
                                   }}
@@ -350,7 +390,7 @@ class CarAdd extends Component{
                                    variant="outlined"
                                    onChange={(e)=>{
                                        let formData = this.state.formData
-                                       formData.backView = e.target.files[0]
+                                       formData.backViewImg = e.target.files[0]
                                        this.setState(formData);
 
                                    }}
@@ -366,7 +406,7 @@ class CarAdd extends Component{
                                    variant="outlined"
                                    onChange={(e)=>{
                                        let formData = this.state.formData
-                                       formData.interiorView = e.target.files[0]
+                                       formData.interiorViewImg = e.target.files[0]
                                        this.setState(formData);
 
                                    }}

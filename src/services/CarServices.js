@@ -1,3 +1,6 @@
+import axios from "axios";
+
+
 class CarServices  {
     carSave =  async (data) =>{
         const promise = new Promise((resolve, reject) => {
@@ -22,3 +25,6 @@ class CarServices  {
     }
 
 }
+
+
+export default new CarServices();
