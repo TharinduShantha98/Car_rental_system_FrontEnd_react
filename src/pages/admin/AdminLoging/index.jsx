@@ -18,6 +18,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import {ValidatorForm} from "react-material-ui-form-validator";
 
 class AdminLog extends Component{
     constructor(props) {
@@ -30,13 +31,46 @@ class AdminLog extends Component{
                 { label: 'Manager' },
                 { label: 'ITAdmin' },
 
-            ]
+            ],
+
+
+            formData:{
+                adminId:'',
+                firstName:'',
+                lastName:'',
+                position:'',
+                email:'',
+                contactNum:'',
+                password:'',
+
+            },
+
+            conformPassword:'',
+
 
         }
+
+    }
+
+
+    handleSubmit = async ()=>{
+
+
+
+
+
 
 
 
     }
+
+
+
+
+
+
+
+
 
 
     render() {
@@ -45,11 +79,20 @@ class AdminLog extends Component{
 
 
 
-
-
-
         return (
+
+            <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
+
+
             <div className={classes.container}>
+
+
+
+
                 <div className={classes.container_div1}>
                     <div  className={classes.container_div1_div1} >
                         <AccountCircleIcon color={"success"}  className={classes.container_div1_icon}/>
@@ -71,6 +114,15 @@ class AdminLog extends Component{
                                     variant="outlined"
                                     autoFocus
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.firstName = e.target.value;
+                                        this.setState(formData);
+
+
+                                    }}
+
+
                                 />
                             </div>
 
@@ -84,6 +136,13 @@ class AdminLog extends Component{
                                     id="lastName"
                                     variant="outlined"
                                     size={'small'}
+                                    onChange={(e)=>{
+                                        let formData = this.state.formData
+                                        formData.lastName = e.target.value;
+                                        this.setState(formData);
+
+
+                                    }}
 
                                 />
 
@@ -120,6 +179,13 @@ class AdminLog extends Component{
                                 id="contactNum"
                                 variant="outlined"
                                 size={'small'}
+                                onChange={(e)=>{
+                                    let formData = this.state.formData
+                                    formData.contactNum = e.target.value;
+                                    this.setState(formData);
+
+
+                                }}
                             />
 
 
@@ -132,8 +198,14 @@ class AdminLog extends Component{
                                 name="email"
                                 autoComplete="email"
                                 variant="outlined"
-
                                 size={'small'}
+                                onChange={(e)=>{
+                                    let formData = this.state.formData
+                                    formData.email = e.target.value;
+                                    this.setState(formData);
+
+
+                                }}
                             />
                             <TextField
                                 margin="normal"
@@ -146,6 +218,13 @@ class AdminLog extends Component{
                                 variant="outlined"
                                 autoComplete="current-password"
                                 size={'small'}
+                                onChange={(e)=>{
+                                    let formData = this.state.formData
+                                    formData.password = e.target.value;
+                                    this.setState(formData);
+
+
+                                }}
                             />
 
                             <TextField
@@ -159,6 +238,14 @@ class AdminLog extends Component{
                                 variant="outlined"
                                 autoComplete="current-password"
                                 size={'small'}
+                                onChange={(e)=>{
+                                    let conformPassword = this.state.conformPassword;
+                                    conformPassword = e.target.value;
+                                    this.setState(conformPassword);
+
+
+                                }}
+
                             />
 
 
@@ -223,14 +310,10 @@ class AdminLog extends Component{
 
 
 
-
-
-
-
-
-
                 </div>
+
             </div>
+            </ValidatorForm>
         );
     }
 
