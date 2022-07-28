@@ -50,15 +50,14 @@ function App() {
               <Route path="driverTime" element={<DriverTime/>}/>
               <Route path="AdminOrder" element={<AdminOrderView/>}/>
               <Route path="adminHome" element={<AdminHome/>}/>
-
-
+              <Route path="chart" element={<ChartFile/>}/>
 
 
           </Route>
 
 
           <Route path="carView" element={<CarView/>}/>
-          <Route path="chart" element={<ChartFile/>}/>
+
           {/*<Route path="carAdd" element={<CarAdd/>}/>*/}
 
 

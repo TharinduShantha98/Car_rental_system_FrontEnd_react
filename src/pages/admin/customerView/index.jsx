@@ -4,10 +4,10 @@ import {styleSheet} from "./style";
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import Typography from "@material-ui/core/Typography";
-import { DataGrid } from '@mui/x-data-grid';
+import {DataGrid, GridToolbar} from '@mui/x-data-grid';
 import user from '../../../assets/img/cars/user.jpg';
 import license from '../../../assets/img/cars/license.jpg';
-
+import CustomerService from "../../../services/CustomerService";
 
 
 
@@ -16,6 +16,39 @@ import license from '../../../assets/img/cars/license.jpg';
 class  CustomerView extends Component{
     constructor(props) {
         super(props);
+
+
+        this.state={
+            data:[],
+
+        }
+
+
+
+    }
+
+
+
+
+    getAllCustomer = async()=>{
+        let res =  await CustomerService.getAllCustomer();
+        console.log(res);
+
+
+        if(res.data.code === 200 ){
+            this.setState({
+                data: res.data.data
+            })
+        }
+
+
+    }
+
+
+    componentDidMount() {
+        this.getAllCustomer().then(r=>{
+
+        })
     }
 
 
@@ -23,34 +56,28 @@ class  CustomerView extends Component{
         let {classes} = this.props;
 
         const columns = [
-            { field: 'id', headerName: 'CusId', width: 70 },
-            { field: 'firstName', headerName: 'UserName', width: 100 },
-            { field: 'lastName', headerName: 'Address', width: 100 },
-            { field: 'contactNum', headerName: 'Contact num', width: 100 },
-            { field: 'NICNumber', headerName: 'NIC number', width: 100 },
-            { field: 'NIC number', headerName: 'NIC number', width: 100 },
-            { field: 'Email ', headerName: 'Email', width: 160 },
-            { field: 'password', headerName: 'PassWord', width: 100 },
+            { field: 'customerId', headerName: 'CusId', width: 120 },
+            { field: 'firstName', headerName: 'UserName', width: 120 },
+            { field: 'contactNum', headerName: 'Contact num', width: 120 },
+            { field: 'NICNumber', headerName: 'NIC number', width: 170 },
+            { field: 'Email', headerName: 'Email', width: 220 },
+            { field: 'password', headerName: 'PassWord', width: 200 },
 
         ];
 
+        const rows = [];
+        for(let i=0; i < this.state.data.length;i++){
+           rows.push({ id: i,
 
-        const rows = [
-            { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-            { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-            { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-            { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-            { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-            { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-            { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-            { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-            { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        ];
+               firstName: this.state.data[i].firstName,
+               customerId:this.state.data[i].customerId,
+               contactNum:this.state.data[i].contactNum,
+               NICNumber:this.state.data[i].nicnumber,
+               Email:this.state.data[i].email,
+               password:this.state.data[i].password,
 
-
-
-
-
+               lastName: 'Jon', age: 35 },)
+        }
 
 
         return(
@@ -78,8 +105,24 @@ class  CustomerView extends Component{
                                     pageSize={5}
                                     rowsPerPageOptions={[5]}
                                     checkboxSelection
-                                />
+                                    components={{Toolbar: GridToolbar}}
+
+
+                                >
+
+
+
+                                </DataGrid>
                             </div>
+
+
+
+
+
+
+
+
+
 
 
 

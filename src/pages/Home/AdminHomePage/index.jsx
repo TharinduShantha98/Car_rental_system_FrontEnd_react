@@ -18,19 +18,19 @@ import PeopleIcon from '@material-ui/icons/People';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import {Link} from "react-router-dom";
-import Paper from '@mui/material/Paper';
+import '@progress/kendo-theme-default/dist/all.css';
+import { Calendar } from '@progress/kendo-react-dateinputs';
+// ES2015 module syntax
 import {
     Chart,
-    ArgumentAxis,
-    ValueAxis,
-    BarSeries,
-    SplineSeries,
-    Legend, LineSeries,
-} from '@devexpress/dx-react-chart-material-ui';
-import {ValueScale, Animation} from '@devexpress/dx-react-chart';
-import { sales as data } from '../AdminHomePage/demo-data/data-vizualization'
-import {ErrorBoundary} from "@mui/x-data-grid/components/ErrorBoundary";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+    ChartValueAxis,
+    ChartValueAxisItem,
+    ChartCategoryAxis,
+    ChartCategoryAxisItem,
+    ChartSeries,
+    ChartSeriesItem,
+} from "@progress/kendo-react-charts";
+import "hammerjs";
 
 
 
@@ -40,9 +40,12 @@ class AdminHome extends Component{
         super(props);
 
 
-        // this.state = {
-        //     data: data[2017],
-        // };
+        this.state = {
+           // data: data[2017],
+
+
+
+        };
     }
 
 
@@ -52,21 +55,21 @@ class AdminHome extends Component{
 
     render() {
 
+        const seriesData = [35,66,20, 40, 45, 30, 50];
+        const categories = ["sun","Mon", "Tue", "Wed", "Thu", "Fri",'sta'];
+
+
         let {classes} = this.props;
        // const { data: chartData } = this.state;
-
-
-        const data = [
-            { argument: 1, value: 10 },
-            { argument: 2, value: 20 },
-            { argument: 3, value: 30 },
-        ];
-
 
 
         return(
 
             <div className={classes.constraint}>
+
+
+
+
                 <div className={classes.constraint_main1} >
                     <Badge badgeContent={2} color="primary" >
                         <ListIcon />
@@ -134,15 +137,36 @@ class AdminHome extends Component{
 
 
                         </div>
+                        <div className={classes. constraint_main2_chart}>
+                            <Chart className={classes. constraint_main2_chart_chart} >
+                                <ChartValueAxis  >
+                                    <ChartValueAxisItem title={{
+                                        text: "total"
+                                    }} min={0} max={100} />
+                                </ChartValueAxis>
+                                <ChartCategoryAxis >
+                                    <ChartCategoryAxisItem categories={categories} />
+                                </ChartCategoryAxis>
+                                <ChartSeries >
+                                    <ChartSeriesItem data={seriesData} type="line" />
+                                </ChartSeries>
+                            </Chart>;
+
+
+
+                        </div>
+
+
+
 
 
                         <div className={classes. constraint_main2_div2}>
                             <div className={classes. constraint_main2_div2_div1}>
 
-
-
                                    <div className={classes. constraint_main2_div2_div1_div}>
-                                       <DirectionsCarIcon/>
+                                       <DirectionsCarIcon style={{fontSize:"45px",
+                                           color:"#e0c930"
+                                       }}/>
                                        <Typography
                                            variant="h6"
                                            gutterBottom
@@ -164,7 +188,9 @@ class AdminHome extends Component{
 
 
                                 <div className={classes. constraint_main2_div2_div1_div}>
-                                    <PeopleIcon/>
+                                    <PeopleIcon style={{fontSize:"45px",
+                                        color:"#e0c930"
+                                    }}/>
                                     <Typography
                                         variant="h6"
                                         gutterBottom
@@ -182,7 +208,9 @@ class AdminHome extends Component{
                                 </div >
 
                                 <div className={classes. constraint_main2_div2_div1_div}>
-                                    <ShoppingCartIcon/>
+                                    <ShoppingCartIcon style={{fontSize:"45px",
+                                        color:"#e0c930"
+                                    }}/>
                                     <Typography
                                         variant="h6"
                                         gutterBottom
@@ -198,7 +226,9 @@ class AdminHome extends Component{
                                     </Typography>
                                 </div>
                                 <div className={classes. constraint_main2_div2_div1_div}>
-                                    <RadioButtonUncheckedIcon/>
+                                    <RadioButtonUncheckedIcon style={{fontSize:"45px",
+                                        color:"#e0c930"
+                                    }}/>
                                     <Typography
                                         variant="h6"
                                         gutterBottom
@@ -224,11 +254,24 @@ class AdminHome extends Component{
                 </div>
 
                 <div className={classes.constraint_main3}>
+                        <div className={classes.constraint_main3_div1}>
 
 
 
+                        </div>
 
 
+                        <div className={classes.constraint_main3_div2}>
+                            <div className={classes.constraint_main3_div2_div1}>
+
+                            </div>
+
+                            <div className={classes.constraint_main3_div2_div2}>
+
+                            </div>
+
+
+                        </div>
 
                 </div>
 

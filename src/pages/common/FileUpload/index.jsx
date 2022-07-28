@@ -1,53 +1,72 @@
 import React, {Component} from "react";
 import {styleSheet} from "./style";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Paper from '@mui/material/Paper';
+import '@progress/kendo-theme-default/dist/all.css';
+import { Calendar } from '@progress/kendo-react-dateinputs';
+// ES2015 module syntax
 import {
-    ArgumentAxis,
-    ValueAxis,
     Chart,
-    LineSeries,
-} from '@devexpress/dx-react-chart-material-ui';
+    ChartValueAxis,
+    ChartValueAxisItem,
+    ChartCategoryAxis,
+    ChartCategoryAxisItem,
+    ChartSeries,
+    ChartSeriesItem,
+} from "@progress/kendo-react-charts";
+import "hammerjs";
 
 
-
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class ChartFile extends Component{
     constructor(props) {
         super(props);
 
 
-        this.state ={
-            data: [
-                { argument: '1', value: '10' },
-                { argument: '2', value: '20' },
-                { argument: '3', value: '30' },
-            ]
+
+        this.state = {
+
+            progress: 0
         }
+
     }
 
 
     render() {
+
+
+        // CommonJS format
+        const seriesData = [20, 40, 45, 30, 50];
+        const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
         let {classes} = this.props;
 
-
+        const data = [1, 2, 3, 5, 8, 13];
 
         return(
             <div className={classes.constraint}>
 
-                <Paper>
-                    <Chart
-                        data={this.state.data}
-                    >
-                        <ArgumentAxis />
-                        <ValueAxis />
-
-                        <LineSeries valueField="value" argumentField="argument" />
-                    </Chart>
-                </Paper>
+                <Chart>
+                    <ChartValueAxis>
+                        <ChartValueAxisItem title={{
+                            text: "Miles"
+                        }} min={0} max={100} />
+                    </ChartValueAxis>
+                    <ChartCategoryAxis>
+                        <ChartCategoryAxisItem categories={categories} />
+                    </ChartCategoryAxis>
+                    <ChartSeries>
+                        <ChartSeriesItem data={seriesData} type="line" />
+                    </ChartSeries>
+                </Chart>;
+                {/*<Calendar/>*/}
 
 
             </div>
+
+
+
+
         )
     }
 
