@@ -12,12 +12,18 @@ import {
     ChartCategoryAxisItem,
     ChartSeries,
     ChartSeriesItem,
+    ChartTitle,
+    ChartLegend,
 } from "@progress/kendo-react-charts";
 import "hammerjs";
 
 
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 
 class ChartFile extends Component{
     constructor(props) {
@@ -35,13 +41,46 @@ class ChartFile extends Component{
 
     render() {
 
+        const series = [
+            {
+                category: "0-14",
+                value: 0.2545,
+            },
+            {
+                category: "15-24",
+                value: 0.1552,
+            },
+            {
+                category: "25-54",
+                value: 0.4059,
+            },
+            {
+                category: "55-64",
+                value: 0.0911,
+            },
+            {
+                category: "65+",
+                value: 0.0933,
+            },
+        ];
+
 
         // CommonJS format
         const seriesData = [20, 40, 45, 30, 50];
         const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
         let {classes} = this.props;
-
         const data = [1, 2, 3, 5, 8, 13];
+
+
+        const labelContent = (props) => {
+            let formatedNumber = Number(props.dataItem.value).toLocaleString(undefined, {
+                style: "percent",
+                minimumFractionDigits: 2,
+            });
+            return `${props.dataItem.category} years old: ${formatedNumber}`;
+        };
+
+
 
         return(
             <div className={classes.constraint}>
@@ -60,6 +99,28 @@ class ChartFile extends Component{
                     </ChartSeries>
                 </Chart>;
                 {/*<Calendar/>*/}
+
+
+
+                <Chart>
+                    <ChartTitle text="World Population by Broad Age Groups" />
+                    <ChartLegend position="bottom" />
+                    <ChartSeries>
+                        <ChartSeriesItem
+                            type="pie"
+                            data={series}
+                            field="value"
+                            categoryField="category"
+                            labels={{
+                                visible: true,
+                                content: labelContent,
+                            }}
+                        />
+                    </ChartSeries>
+                </Chart>
+
+
+
 
 
             </div>

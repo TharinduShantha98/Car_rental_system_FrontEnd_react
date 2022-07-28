@@ -46,7 +46,7 @@ export const styleSheet ={
     constraint_main2_div2:{
         width: "100%",
         height: '25%',
-        backgroundColor:'#0c374b',
+//        backgroundColor:'#0c374b',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -57,7 +57,7 @@ export const styleSheet ={
     constraint_main2_chart:{
         width: "100%",
         height: '50%',
-        backgroundColor:'#0c4b35',
+ //       backgroundColor:'#0c4b35',
     },
 
 
@@ -65,7 +65,7 @@ export const styleSheet ={
     constraint_main2_div2_div1:{
         width: "100%",
         height: '100%',
-        backgroundColor:'#3d351d',
+  //      backgroundColor:'#3d351d',
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
@@ -75,7 +75,7 @@ export const styleSheet ={
     constraint_main2_div2_div1_div:{
         width: "15%",
         height: '90%',
-        backgroundColor:'#195261',
+  //      backgroundColor:'#195261',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -89,7 +89,7 @@ export const styleSheet ={
     constraint_main2_div3:{
         width: "100%",
         height: '100%',
-        backgroundColor:'#a5397d',
+  //      backgroundColor:'#a5397d',
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
@@ -108,7 +108,7 @@ export const styleSheet ={
     constraint_main3:{
         width: "100%",
         height: '70vh',
-        backgroundColor:'#52a8d0',
+   //     backgroundColor:'#52a8d0',
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
@@ -120,7 +120,7 @@ export const styleSheet ={
     constraint_main3_div1:{
         width: "70%",
         height: '100%',
-        backgroundColor:'#d0ca52',
+   //     backgroundColor:'#d0ca52',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -131,7 +131,7 @@ export const styleSheet ={
     constraint_main3_div2:{
         width: "30%",
         height: '100%',
-        backgroundColor:'#e0442f',
+   //     backgroundColor:'#e0442f',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -141,7 +141,7 @@ export const styleSheet ={
     constraint_main3_div2_div1:{
         width: "100%",
         height: '50%',
-        backgroundColor:'#96e02f',
+     //   backgroundColor:'#96e02f',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -151,7 +151,7 @@ export const styleSheet ={
     constraint_main3_div2_div2:{
         width: "100%",
         height: '50%',
-        backgroundColor:'#e02f8a',
+    //    backgroundColor:'#e02f8a',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',

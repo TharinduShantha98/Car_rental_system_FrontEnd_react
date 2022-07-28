@@ -29,8 +29,11 @@ import {
     ChartCategoryAxisItem,
     ChartSeries,
     ChartSeriesItem,
+    ChartTitle,
+    ChartLegend,
 } from "@progress/kendo-react-charts";
 import "hammerjs";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -54,14 +57,41 @@ class AdminHome extends Component{
 
 
     render() {
+        const series = [
+            {
+                category: "BMW",
+                value: 0.2545,
+            },
+            {
+                category: "Middle range vehicle",
+                value: 0.1552,
+            },
+            {
+                category: "luxury range vehicle",
+                value: 0.4059,
+            },
+            {
+                category: "Traveling bus",
+                value: 0.0911,
+            },
+            {
+                category: "VAN",
+                value: 0.0933,
+            },
+        ];
 
         const seriesData = [35,66,20, 40, 45, 30, 50];
         const categories = ["sun","Mon", "Tue", "Wed", "Thu", "Fri",'sta'];
-
-
         let {classes} = this.props;
        // const { data: chartData } = this.state;
 
+        const labelContent = (props) => {
+            let formatedNumber = Number(props.dataItem.value).toLocaleString(undefined, {
+                style: "percent",
+                minimumFractionDigits: 2,
+            });
+            return `${props.dataItem.category} years old: ${formatedNumber}`;
+        };
 
         return(
 
@@ -255,7 +285,25 @@ class AdminHome extends Component{
 
                 <div className={classes.constraint_main3}>
                         <div className={classes.constraint_main3_div1}>
+                            <Chart style={{width:"100%",
+                                    height:"100%",
 
+                            }}>
+                                <ChartTitle text="Company vehicle status" />
+                                <ChartLegend position="bottom" />
+                                <ChartSeries>
+                                    <ChartSeriesItem
+                                        type="pie"
+                                        data={series}
+                                        field="value"
+                                        categoryField="category"
+                                        labels={{
+                                            visible: true,
+                                            content: labelContent,
+                                        }}
+                                    />
+                                </ChartSeries>
+                            </Chart>
 
 
                         </div>
@@ -263,6 +311,9 @@ class AdminHome extends Component{
 
                         <div className={classes.constraint_main3_div2}>
                             <div className={classes.constraint_main3_div2_div1}>
+
+
+
 
                             </div>
 
