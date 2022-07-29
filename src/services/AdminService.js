@@ -9,7 +9,7 @@ class AdminServices {
                     return resolve(res)
                 })
                 .catch((err)=>{
-                    return resolve(er);
+                    return resolve(err);
                 })
 
 
@@ -17,9 +17,31 @@ class AdminServices {
         })
 
 
+        return await  promise;
+
+    }
+
+
+    getLastAdminObject = async ()=>{
+        const  promise =  new Promise((resolve, reject) => {
+
+            axios.get("http://localhost:8080/rental_system_war/api/admin/lastAdmin")
+                .then((res)=>{
+                    return resolve(res)
+                })
+                .catch((err)=>{
+                    return resolve(err)
+                })
+
+
+        })
+
+        return  await  promise;
+
 
 
     }
+
 
 
 
