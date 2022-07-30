@@ -42,7 +42,7 @@ export const styleSheet ={
     container_main1:{
         width:'80%',
         height:'100vh',
-     //   backgroundColor: '#77ef6e',
+    //    backgroundColor: '#77ef6e',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -54,8 +54,8 @@ export const styleSheet ={
     },
     container_main1_div1:{
         width:'100%',
-        height:'18%',
-      //  backgroundColor: '#4cc6f6',
+        height:'15%',
+    //    backgroundColor: '#4cc6f6',
         display:'flex',
         flexDirection:'row',
         alignItems: 'center',
@@ -72,9 +72,9 @@ export const styleSheet ={
 
     },
     container_main1_div2:{
-        width:'80%',
-        height:'83%',
-      //       backgroundColor:"#edeff1",
+        width:'100%',
+        height:'100%',
+  //      backgroundColor:"#edeff1",
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -109,11 +109,40 @@ export const styleSheet ={
         width:'100%',
         display:'flex',
         flexDirection:'row',
-        backgroundColor: '#c4804a',
+   //     backgroundColor: '#c4804a',
 
 
 
-    }
+    },
+    file:{
+        width:'100%',
+        height:"40%",
+    //    backgroundColor:"#efe3e3",
+        display:'flex',
+        flexDirection:'row',
+    },
+    file_div1:{
+        width:'50%',
+        height:"100%",
+    //    backgroundColor:"#403838",
+        display:'flex',
+        flexDirection:'column',
+
+
+
+    },
+
+    file_div2:{
+        width:'50%',
+        height:"100%",
+    //    backgroundColor:"#e59e9e",
+        display:'flex',
+        flexDirection:'column',
+
+
+
+    },
+
 
 
 
