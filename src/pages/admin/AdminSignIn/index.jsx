@@ -18,16 +18,16 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import {ValidatorForm} from "react-material-ui-form-validator";
+import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import AdminService from "../../../services/AdminService";
+import GDSESnackBar from "../../../components/common/snackBar";
+
 
 class AdminSignIn extends Component{
     constructor(props) {
         super(props);
 
         this.state={
-
-
 
 
             formData:{
@@ -46,6 +46,10 @@ class AdminSignIn extends Component{
             adminId:'',
 
 
+
+            alert: false,
+            message: '',
+            severity: '',
 
         }
 
@@ -69,16 +73,36 @@ class AdminSignIn extends Component{
             if(response.data.code === 200){
                 console.log("successfully ");
                 await this.lastObject();
+                this.setState({
+                    alert: true,
+                    message: response.data.message,
+                    severity: 'success'
+                });
+
 
 
             }else{
                 console.log("not success2");
 
+                this.setState({
+                    alert: true,
+                    message: response.data.message,
+                    severity: 'error'
+                });
+
+
             }
 
 
         }else{
-            console.log("not sucsess1");
+            console.log("not success 1");
+
+            this.setState({
+                alert: true,
+                message: "not match password",
+                severity: 'error'
+            });
+
 
         }
 
@@ -96,8 +120,17 @@ class AdminSignIn extends Component{
        // console.log(lastAdminObject.data.data);
 
         let formData =  this.state.formData;
-        formData.adminId = lastAdminObject.data.data
+
+        console.log(typeof  lastAdminObject.data.data);
+
+        let lastId =  lastAdminObject.data.data
+
+        formData.adminId = lastId;
         this.setState(formData);
+
+
+
+
 
 
 
@@ -112,6 +145,31 @@ class AdminSignIn extends Component{
         this.lastObject().then((r)=>{
 
         })
+
+
+
+
+        // this.props.history.push({
+        //     pathname: "/chart",
+        //     state: {
+        //         value:
+        //             "Your saving range is: $"
+        //     }
+        //
+        //
+        //
+        // })
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -148,15 +206,17 @@ class AdminSignIn extends Component{
                     <Box >
                         <div className={classes.container_div1_div2}>
                             <div className={classes.container_div1_div2_div1}>
-                                <TextField
+                                <TextValidator
                                     margin="normal"
-                                    required
+                                    //required
                                     fullWidth
                                     name="firstName"
                                     label="first Name"
                                     id="firstName"
                                     variant="outlined"
                                     //autoFocus
+                                    validators={['required', 'matchRegexp:^C-[0-9]$']}
+                                    errorMessages={['this field is required', 'email is not valid']}
                                     size={'small'}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
@@ -166,12 +226,11 @@ class AdminSignIn extends Component{
 
                                     }}
 
-
                                 />
                             </div>
 
                             <div className={classes.container_div1_div2_div2}>
-                                <TextField
+                                <TextValidator
                                     margin="normal"
                                     required
                                     fullWidth
@@ -223,7 +282,7 @@ class AdminSignIn extends Component{
                                 //variant="outlined"
                                 style={{ width: '100%' }}
                             />
-                            <TextField
+                            <TextValidator
                                 margin="normal"
                                 required
                                 fullWidth
@@ -242,7 +301,7 @@ class AdminSignIn extends Component{
                             />
 
 
-                            <TextField
+                            <TextValidator
                                 margin="normal"
                                 required
                                 fullWidth
@@ -260,7 +319,7 @@ class AdminSignIn extends Component{
 
                                 }}
                             />
-                            <TextField
+                            <TextValidator
                                 margin="normal"
                                 required
                                 fullWidth
@@ -280,7 +339,7 @@ class AdminSignIn extends Component{
                                 }}
                             />
 
-                            <TextField
+                            <TextValidator
                                 margin="normal"
                                 required
                                 fullWidth
@@ -366,8 +425,32 @@ class AdminSignIn extends Component{
 
                 </div>
 
+
+
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+
+
+
+
+
+                />
+
             </div>
+
+
+
             </ValidatorForm>
+
+
+
         );
     }
 

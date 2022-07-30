@@ -21,6 +21,7 @@ import DriverTime from "../pages/Driver/TimeTable";
 import AdminHome from "../pages/Home/AdminHomePage";
 import Chart from "../pages/common/FileUpload";
 import ChartFile from "../pages/common/FileUpload";
+import AdminSignIn from "../pages/admin/AdminSignIn";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
               <Route path="driver" element={<Driver/>}/>
               <Route path="CustomerHome" element={<CustomerHome/>}/>
               <Route path="signIn" element={<SignIn/>}/>
-              <Route path="adminLog" element={<AdminLog/>}/>
+              <Route path="adminSignIn" element={<AdminSignIn/>}/>
               <Route path="carAdd" element={<CarAdd/>}/>
               <Route path="profile" element={<CustomerProfile/>}/>
               <Route path="driverTime" element={<DriverTime/>}/>

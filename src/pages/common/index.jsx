@@ -44,7 +44,7 @@ class  NavBar extends Component{
                             <Link to="CustomerHome"  className={classes.linkStyle}>
                                 <Button>HOME</Button>
                             </Link>
-                            <Link to="adminLog"  className={classes.linkStyle}>
+                            <Link to="adminSignIn"  className={classes.linkStyle}>
                             <Button>ADMIN</Button>
                             </Link>
 
