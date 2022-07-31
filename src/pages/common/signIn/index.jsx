@@ -33,11 +33,7 @@ class SignIn extends Component{
             correctLocation:"#"
 
 
-
-
         }
-
-
 
 
     }
@@ -57,7 +53,6 @@ class SignIn extends Component{
         }
 
 
-
         let response = await  CustomerService.customerLoginObject(params);
         console.log(response);
         let correctLocation =  this.state.correctLocation
@@ -66,6 +61,10 @@ class SignIn extends Component{
             correctLocation = "/carView";
             this.setState({correctLocation:correctLocation})
             console.log(this.state.correctLocation);
+            localStorage.setItem("customerId",response.data.data.customerId);
+            history.push({
+                pathname:'/order'
+            })
 
         }
 

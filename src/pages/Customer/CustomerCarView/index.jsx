@@ -26,12 +26,83 @@ import CardActions from "@material-ui/core/CardActions";
 import DeleteIcon from "@material-ui/icons/Delete";
 import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
 import {Link} from "react-router-dom";
+import CarServices from "../../../services/CarServices";
+import history from "../../../history";
 
 
 class CarView extends Component{
     constructor(props) {
         super(props);
+
+
+        this.state= {
+            carData: {
+                car1Id: "",
+                car2Id: "",
+                car3Id: "",
+                car4Id: "",
+                car5Id: "",
+                car6Id: "",
+                car7Id: "",
+                car8Id: "",
+                car9Id: "",
+                car10Id: "",
+                car11Id: "",
+            },
+            carArray: [],
+
+
+        }
+
+
+
+
+
+
     }
+
+
+
+
+
+    getRelativeCarObject = (objectNumber)=>{
+        let carArray = this.state.carArray;
+        if (!carArray[objectNumber].isNull) {
+            let car  = carArray[objectNumber];
+            console.log(car);
+            localStorage.setItem("carId", car.carId);
+            history.push({
+                pathname:"/order"
+            })
+
+        }else{
+            console.log("wedak nh bm")
+        }
+
+
+    }
+
+
+    getAllCars =  async ()=>{
+        let response = await CarServices.getAllCar();
+      //console.log(response.data.data);
+        let carArray = this.state.carArray;
+        for(let i =0; i < response.data.data.length;i++){
+            carArray.push(response.data.data[i]);
+        }
+        this.setState({carArray: carArray});
+    }
+
+    componentDidMount() {
+        this.getAllCars().then(r => {
+
+
+        });
+
+    }
+
+
+
 
 
     render() {
@@ -77,6 +148,13 @@ class CarView extends Component{
                                 variant="contained"
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
+                                onClick={()=>{
+                                    this.getRelativeCarObject(0);
+
+
+                                }}
+
+
                             >
 
                                 <Link to={"/order"}>
@@ -123,6 +201,11 @@ class CarView extends Component{
                                 variant="contained"
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
+                                onClick={()=>{
+                                    this.getRelativeCarObject(1);
+
+
+                                }}
                             >
                                 <Link to={"/order"}>
                                     Book Online
@@ -166,6 +249,11 @@ class CarView extends Component{
                                 variant="contained"
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
+                                onClick={()=>{
+                                    this.getRelativeCarObject(2);
+
+
+                                }}
                             >
                                 <Link to={"/order"}>
                                     Book Online
@@ -209,6 +297,12 @@ class CarView extends Component{
                                 variant="contained"
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
+
+                                onClick={()=>{
+                                    this.getRelativeCarObject(9);
+
+
+                                }}
                             >
                                 <Link to={"/order"}>
                                     Book Online
