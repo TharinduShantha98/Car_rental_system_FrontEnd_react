@@ -20,6 +20,8 @@ import MessageIcon from '@material-ui/icons/Message';
 import AdjustIcon from '@material-ui/icons/Adjust';
 import history from "../../../history";
 import CarServices from "../../../services/CarServices";
+import CustomerService from "../../../services/CustomerService";
+import AdminService from "../../../services/AdminService";
 
 
 
@@ -53,8 +55,8 @@ class Order extends Component{
                 returnDate:"",
                 review:"",
                 totalPrice:"",
-                status:"",
-                downPaymentClip:"",
+                status:"pending",
+                downPaymentClip:"clip",
                 customer:{
                     customerId:"",
                     firstName:"",
@@ -73,7 +75,8 @@ class Order extends Component{
                     lastName:"",
                     position:"",
                     email:"",
-                    contactNum:""
+                    contactNum:"",
+                    password:""
                 },
                 orderDetails:[{
                     orderId:"",
@@ -81,10 +84,21 @@ class Order extends Component{
                     requiredDate:"",
                     returnDate:"",
                     price:""
-                }]
+                }],
 
 
 
+
+                type:"",
+                transmissionType:"",
+                monthlyRate:"",
+                dailyRate:"",
+                color:"",
+                passengers:"3",
+                luggage:"3",
+                airCondition:"available",
+
+                todayDate:"",
 
             }
 
@@ -112,27 +126,126 @@ class Order extends Component{
         let customerId = item2;
         this.setState({customerId:customerId});
 
+
+
+        this.getCustomerObject(customerId).then(r => {
+
+        })
+        this.getAvailableAdmin().then(r=>{
+
+        })
+
+        this.getCarObject(carId).then(r => {
+
+        })
+
+        this.todayDate();
+
+
     }
 
-    getCarObject = async (carId)=>{
-
+    getCustomerObject  = async (customerId)=>{
         let params =  {
-            id:carId
+            id:customerId
         }
 
-        let response  = await CarServices.searchCar(params);
+        let response  = await CustomerService.searchCustomer(params);
+        console.log(response);
+
+        let formData  = this.state.formData
+        formData.customer.customerId =  response.data.data.customerId;
+        formData.customer.address = response.data.data.address;
+        formData.customer.contactNum = response.data.data.contactNum;
+        formData.customer.drivingLicNum = response.data.data.drivingLicNum;
+        formData.customer.email = response.data.data.email;
+        formData.customer.firstName = response.data.data.firstName;
+        formData.customer.licenseImg1 = response.data.data.licenseImg1;
+        formData.customer.NICImg = response.data.data.nicimg;
+        formData.customer.nicnumber = response.data.data.NICImg;
+        formData.customer.password = response.data.data.password;
+
+        this.setState(formData)
+
+    }
+
+    getAvailableAdmin =  async ()=>{
+
+        let params = {
+            id:"A-100"
+
+        }
+
+        let response = await  AdminService.searchAdmin(params)
+        console.log(response.data);
+
+        let formData  = this.state.formData;
+        formData.admin.adminId = response.data.data.adminId;
+        formData.admin.contactNum = response.data.data.contactNum;
+        formData.admin.email = response.data.data.email;
+        formData.admin.firstName = response.data.data.firstName;
+        formData.admin.lastName = response.data.data.lastName;
+        formData.admin.password = response.data.data.password;
+        formData.admin.position = response.data.data.position;
+
+        this.setState(formData);
+
+    };
+
+
+
+    getCarObject = async (carId)=>{
+        let params ={
+            id: carId
+        }
+
+
+        let response = await CarServices.searchCar(params);
+        console.log(response);
+
+
+
+
+
+
+        this.setState({type:response.data.data.type})
+        this.setState({transmissionType:response.data.data.transmissionType})
+        this.setState({monthlyRate:response.data.data.monthlyRate})
+        this.setState({dailyRate:response.data.data.dailyRate})
+        this.setState({color:response.data.data.color})
+
 
 
 
 
 
     }
+
+    todayDate=  ()=>{
+        let today = new Date();
+
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        console.log(date);
+        this.setState({todayDate:date});
+
+
+
+
+
+    }
+
 
 
 
 
     printCarId = ()=>{
         console.log(this.state.carId);
+        console.log(this.state.formData.customer.address);
+        console.log(this.state.formData.admin.email);
+
+        this.todayDate();
+
+
+
     }
 
 
@@ -159,7 +272,6 @@ class Order extends Component{
                             <Typography variant="h6" gutterBottom   >
                                 Specification
                             </Typography>
-
                         </div>
 
 
@@ -167,7 +279,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={"toyota axio"}
+                            value={this.state.type}
                             fullWidth
                             id="carType"
                             label="cartType"
@@ -189,7 +301,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={3}
+                            value={this.state.passengers}
                             fullWidth
                             id="passenger"
                             label="passenger"
@@ -210,7 +322,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={"auto"}
+                            value={this.state.transmissionType}
                             fullWidth
                             id="transmissionType"
                             label="transmissionType"
@@ -232,7 +344,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={3}
+                            value={this.state.luggage}
                             fullWidth
                             id="luggage"
                             label="luggage"
@@ -254,7 +366,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={"available"}
+                            value={this.state.airCondition}
                             fullWidth
                             id="airCondition"
                             label="airCondition"
@@ -275,7 +387,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={"15000"}
+                            value={this.state.dailyRate}
                             fullWidth
                             id="dailyRate"
                             label="dailyRate"
@@ -296,7 +408,7 @@ class Order extends Component{
                             margin="normal"
                             disabled={true}
                             required
-                            value={"550000"}
+                            value={this.state.monthlyRate}
                             fullWidth
                             id="MonthlyRate"
                             label="MonthlyRate"
@@ -329,7 +441,7 @@ class Order extends Component{
                             <TextField
                                 margin="normal"
                                 required
-
+                                value={this.state.formData.customer.firstName}
                                 fullWidth
                                 id="Your name"
                                 label="Your name"
@@ -350,6 +462,7 @@ class Order extends Component{
                                 margin="normal"
                                 required
                                 fullWidth
+                                value={this.state.formData.customer.contactNum}
                                 id="contact number"
                                 label="contact number"
                                 name="contact number"
@@ -374,6 +487,7 @@ class Order extends Component{
                                 id="Email"
                                 label="Email"
                                 name="Email"
+                                value={this.state.formData.customer.email}
                                 //  autoComplete="email"
                                 variant="outlined"
                                 InputProps={{
@@ -392,13 +506,27 @@ class Order extends Component{
                                 label="Starting Date"
                                 type="date"
                                 fullWidth
-                                defaultValue="2022-07-23"
+                                defaultValue={this.state.todayDate}
                                 className={classes.textField}
                                 variant="outlined"
                                 size={'small'}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
+                                onChange={(e)=>{
+                                   // console.log(e.target.value);
+                                    console.log(typeof e.target.value);
+                                    let formData  = this.state.formData;
+                                    formData.returnDate = e.target.value;
+                                    formData.orderDetails.returnDate = e.target.value;
+                                    this.setState(formData);
+
+
+
+                                }}
+
+
+
                             />
 
 
@@ -407,13 +535,29 @@ class Order extends Component{
                                 label="Ending Date"
                                 type="date"
                                 fullWidth
-                                defaultValue="2022-07-23"
+                                defaultValue=""
                                 className={classes.textField}
                                 variant="outlined"
                                 size={'small'}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
+                                onChange={(e)=>{
+                                    console.log(e.target.value);
+                                    console.log(typeof e.target.value);
+                                    let formData  = this.state.formData;
+                                    formData.requiredDate = e.target.value;
+                                    formData.orderDetails.requiredDate = e.target.value;
+                                    this.setState(formData);
+
+
+
+                                }}
+
+
+
+
+
                             />
 
                             <Typography variant="body2" gutterBottom   >
