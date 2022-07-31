@@ -21,6 +21,7 @@ import profile1 from "../../../assets/img/profile/profile1.jpg";
 import person from "../../../assets/img/customer/p.png";
 import CustomerService from "../../../services/CustomerService";
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
+import history from "../../../history";
 
 
 
@@ -32,7 +33,7 @@ class CustomerSignUp  extends Component{
 
         this.state = {
             formData:{
-                customerId:"C-105",
+                customerId:"",
                 firstName:"",
                 address:"",
                 email:"",
@@ -48,7 +49,9 @@ class CustomerSignUp  extends Component{
             },
             conformPassWord:"",
 
-
+            cat:"tomCat",
+            cat1:"tomCat1",
+            cat2:"tomCat2"
 
 
 
@@ -58,6 +61,21 @@ class CustomerSignUp  extends Component{
 
 
     }
+
+
+    navigateToLoginWithData= ()=>{
+        localStorage.setItem("helloWorld",this.state.cat);
+        localStorage.setItem("helloWorld1",this.state.cat1);
+        localStorage.setItem("helloWorld2",this.state.cat2);
+        history.push({
+            pathname:"/signIn",
+
+        })
+
+
+
+    }
+
 
 
     handleSubmit = async ()=>{
@@ -78,12 +96,27 @@ class CustomerSignUp  extends Component{
         form_data.append('image3', this.state.formData.image3);
 
 
-        let response  = await CustomerService.saveCustomer(form_data);
-        console.log(response);
+       let password  =  this.state.formData.password;
+       let conformPassWord = this.state.conformPassWord;
+
+       if(password === conformPassWord){
+           let response  = await CustomerService.saveCustomer(form_data);
+           console.log(response);
+
+       }else{
+
+       }
 
 
+    }
 
 
+    getLastId = async ()=>{
+        let response = await  CustomerService.getLastId();
+        console.log(response.data.data);
+        let formData  = this.state.formData
+        formData.customerId =  response.data.data
+        this.setState(formData);
 
 
 
@@ -93,11 +126,12 @@ class CustomerSignUp  extends Component{
 
     }
 
+    componentDidMount() {
+        this.getLastId().then(r => {
 
+        });
 
-
-
-
+    }
 
 
     render() {
@@ -414,6 +448,13 @@ class CustomerSignUp  extends Component{
                                             variant="contained"
                                             sx={{ mt: 3, mb: 2 }}
                                             color={'secondary'}
+                                            onClick={()=>{
+
+                                                this.navigateToLoginWithData();
+
+
+                                            }}
+
                                         >
 
                                             <Link to={"/signIn"}>

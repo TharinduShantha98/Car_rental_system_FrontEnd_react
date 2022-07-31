@@ -11,17 +11,94 @@ import Grid from "@material-ui/core/Grid";
 import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
+import history from "../../../history";
+import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
+import CustomerService from "../../../services/CustomerService";
 
 
 class SignIn extends Component{
-    handleSubmit;
+
 
 
     constructor(props) {
         super(props);
+
+        this.state = {
+
+            formData:{
+                email:"",
+                password:"",
+
+            },
+            correctLocation:"#"
+
+
+
+
+        }
+
+
+
+
     }
 
 
+
+
+
+
+
+    getLoginObject = async (email, password)=>{
+
+        let params ={
+            email: email,
+            password:password
+
+        }
+
+
+
+        let response = await  CustomerService.customerLoginObject(params);
+        console.log(response);
+        let correctLocation =  this.state.correctLocation
+
+        if(response.data.data != null){
+            correctLocation = "/carView";
+            this.setState({correctLocation:correctLocation})
+            console.log(this.state.correctLocation);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+    componentDidMount() {
+
+        let item = localStorage.getItem("helloWorld");
+        let item1 = localStorage.getItem("helloWorld1");
+        let item2 = localStorage.getItem("helloWorld2");
+
+        console.log(item);
+        console.log(item1);
+        console.log(item2);
+
+
+    }
 
 
     render() {
@@ -29,6 +106,16 @@ class SignIn extends Component{
 
 
         return(
+
+
+            <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
+
+
+
             <div className={classes.container}>
 
                 <div className={classes.container_div1}>
@@ -36,8 +123,8 @@ class SignIn extends Component{
                     <Typography component="h1" variant="h5">
                        Log in
                     </Typography>
-                    <Box component="form" onSubmit={this.handleSubmit} noValidate sx={{ mt: 1 }}>
-                        <TextField
+                    <Box>
+                        <TextValidator
                             margin="normal"
                             required
                             fullWidth
@@ -47,6 +134,14 @@ class SignIn extends Component{
                             autoComplete="email"
                             variant="outlined"
                             autoFocus
+                            onChange={(e)=>{
+                                let formData = this.state.formData;
+                                formData.email = e.target.value;
+                                this.setState(formData);
+
+                            }}
+
+
                         />
                         <TextField
                             margin="normal"
@@ -58,6 +153,15 @@ class SignIn extends Component{
                             id="password"
                             variant="outlined"
                             autoComplete="current-password"
+                            onChange={(e)=>{
+                                let formData = this.state.formData;
+                                formData.password = e.target.value;
+                                this.setState(formData);
+
+                            }}
+
+
+
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
@@ -68,8 +172,20 @@ class SignIn extends Component{
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
+                            onClick={()=>{
+                                this.getLoginObject(this.state.formData.email,
+                                    this.state.formData.password)
+                                    .then(r => {
+
+
+                                    })
+
+
+                            }}
+
+
                         >
-                            <Link to={"/carView"}>
+                            <Link to={this.state.correctLocation}>
                                 Log In
                             </Link>
 
@@ -92,11 +208,9 @@ class SignIn extends Component{
 
                 </div>
 
-
-
-
             </div>
 
+            </ValidatorForm>
 
         )
     }

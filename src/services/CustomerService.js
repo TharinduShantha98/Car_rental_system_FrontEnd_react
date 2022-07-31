@@ -45,6 +45,44 @@ class CustomerService {
     }
 
 
+    getLastId = async()=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get("http://localhost:8080/rental_system_war/api/customer/lastCustomer")
+                .then((res)=>{
+                    return resolve(res);
+                })
+                .catch((err)=>{
+                    return resolve(err);
+                })
+
+
+        })
+
+
+        return await promise;
+    }
+
+
+    customerLoginObject = async (params)=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get("http://localhost:8080/rental_system_war/api/customer/loginObject", {params:params})
+                .then((res)=>{
+                    return resolve(res)
+                })
+                .catch((err)=>{
+                    return resolve(err);
+                })
+
+
+
+        })
+
+        return await promise;
+
+
+    }
+
+
 
 
 }
