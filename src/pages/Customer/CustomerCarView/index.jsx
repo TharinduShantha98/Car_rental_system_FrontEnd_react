@@ -91,7 +91,10 @@ class CarView extends Component{
             carArray.push(response.data.data[i]);
         }
         this.setState({carArray: carArray});
+
+
     }
+
 
     componentDidMount() {
         this.getAllCars().then(r => {
@@ -150,7 +153,6 @@ class CarView extends Component{
                                 startIcon={<LocalTaxiIcon/>}
                                 onClick={()=>{
                                     this.getRelativeCarObject(0);
-
 
                                 }}
 
