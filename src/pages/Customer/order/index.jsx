@@ -22,6 +22,9 @@ import history from "../../../history";
 import CarServices from "../../../services/CarServices";
 import CustomerService from "../../../services/CustomerService";
 import AdminService from "../../../services/AdminService";
+import {ValidatorForm} from "react-material-ui-form-validator";
+import orderService from "../../../services/OrderService";
+import OrderService from "../../../services/OrderService";
 
 
 
@@ -50,10 +53,10 @@ class Order extends Component{
 
             formData:{
 
-                orderId:"O-100",
+                orderId:"",
                 requiredDate:"",
                 returnDate:"",
-                review:"",
+                review:"Airport",
                 totalPrice:"",
                 status:"pending",
                 downPaymentClip:"clip",
@@ -86,21 +89,19 @@ class Order extends Component{
                     price:""
                 }],
 
+            },
 
 
+            type:"",
+            transmissionType:"",
+            monthlyRate:"",
+            dailyRate:"",
+            color:"",
+            passengers:"3",
+            luggage:"3",
+            airCondition:"available",
 
-                type:"",
-                transmissionType:"",
-                monthlyRate:"",
-                dailyRate:"",
-                color:"",
-                passengers:"3",
-                luggage:"3",
-                airCondition:"available",
-
-                todayDate:"",
-
-            }
+            todayDate:"",
 
 
 
@@ -142,6 +143,11 @@ class Order extends Component{
         this.todayDate();
 
 
+        this.getOrderLastId().then(r => {
+
+        })
+
+
     }
 
     getCustomerObject  = async (customerId)=>{
@@ -150,7 +156,7 @@ class Order extends Component{
         }
 
         let response  = await CustomerService.searchCustomer(params);
-        console.log(response);
+        console.log(response.data.data);
 
         let formData  = this.state.formData
         formData.customer.customerId =  response.data.data.customerId;
@@ -176,7 +182,7 @@ class Order extends Component{
         }
 
         let response = await  AdminService.searchAdmin(params)
-        console.log(response.data);
+        console.log(response.data.data);
 
         let formData  = this.state.formData;
         formData.admin.adminId = response.data.data.adminId;
@@ -200,10 +206,14 @@ class Order extends Component{
 
 
         let response = await CarServices.searchCar(params);
-        console.log(response);
+        console.log(response.data.data);
 
+        let formData = this.state.formData;
+        formData.orderDetails[0].carId = response.data.data.carId;
+        formData.orderDetails[0].price = response.data.data.dailyRate;
+        formData.totalPrice = response.data.data.dailyRate;
 
-
+        this.setState(formData);
 
 
 
@@ -219,6 +229,25 @@ class Order extends Component{
 
 
     }
+
+    getOrderLastId = async ()=>{
+
+       let response  =  await  OrderService.getLastOrderId();
+      // console.log(response.data.data)
+       let formData = this.state.formData;
+       formData.orderId =  response.data.data;
+       formData.orderDetails[0].orderId = response.data.data;
+       this.setState(formData);
+
+
+
+
+
+    }
+
+
+
+
 
     todayDate=  ()=>{
         let today = new Date();
@@ -241,6 +270,10 @@ class Order extends Component{
         console.log(this.state.carId);
         console.log(this.state.formData.customer.address);
         console.log(this.state.formData.admin.email);
+        console.log(this.state.formData.orderId);
+        console.log(this.state.formData.orderDetails.orderId);
+        console.log(this.state.formData.orderDetails[0].returnDate)
+
 
         this.todayDate();
 
@@ -255,6 +288,18 @@ class Order extends Component{
     }
 
 
+    handleSubmit = async ()=>{
+
+        let formData = this.state.formData;
+        let response = await orderService.saveOrder(formData);
+        console.log(response);
+
+
+
+
+    }
+
+
 
 
     render() {
@@ -262,6 +307,14 @@ class Order extends Component{
 
 
         return(
+            <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
+
+
+
             <div className={classes.container}>
 
                 <div className={classes.container_main1}>
@@ -506,6 +559,7 @@ class Order extends Component{
                                 label="Starting Date"
                                 type="date"
                                 fullWidth
+                                required
                                 defaultValue={this.state.todayDate}
                                 className={classes.textField}
                                 variant="outlined"
@@ -514,13 +568,12 @@ class Order extends Component{
                                     shrink: true,
                                 }}
                                 onChange={(e)=>{
-                                   // console.log(e.target.value);
+                                    console.log(e.target.value);
                                     console.log(typeof e.target.value);
                                     let formData  = this.state.formData;
-                                    formData.returnDate = e.target.value;
-                                    formData.orderDetails.returnDate = e.target.value;
+                                    formData.requiredDate = e.target.value;
+                                    formData.orderDetails[0].requiredDate = e.target.value;
                                     this.setState(formData);
-
 
 
                                 }}
@@ -535,6 +588,7 @@ class Order extends Component{
                                 label="Ending Date"
                                 type="date"
                                 fullWidth
+                                required
                                 defaultValue=""
                                 className={classes.textField}
                                 variant="outlined"
@@ -546,15 +600,12 @@ class Order extends Component{
                                     console.log(e.target.value);
                                     console.log(typeof e.target.value);
                                     let formData  = this.state.formData;
-                                    formData.requiredDate = e.target.value;
-                                    formData.orderDetails.requiredDate = e.target.value;
+                                    formData.returnDate = e.target.value;
+                                    formData.orderDetails[0].returnDate = e.target.value;
                                     this.setState(formData);
 
 
-
                                 }}
-
-
 
 
 
@@ -679,7 +730,7 @@ class Order extends Component{
             </div>
 
 
-
+            </ValidatorForm>
 
 
 
