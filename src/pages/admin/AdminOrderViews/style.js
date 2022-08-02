@@ -83,7 +83,7 @@ export  const styleSheet = {
     },
 
     container_main5_div2:{
-        width:'80%',
+        width:'90%',
         height:'50%',
  //       backgroundColor: "#e5d3d3"
 

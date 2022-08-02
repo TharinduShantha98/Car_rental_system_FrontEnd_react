@@ -28,6 +28,8 @@ import AdminService from "../../../services/AdminService";
 import DriverService from "../../../services/DriverService";
 import RefreshIcon from '@material-ui/icons/Refresh';
 import CustomerService from "../../../services/CustomerService";
+import {ValidatorForm} from "react-material-ui-form-validator";
+import RentalServices from "../../../services/RentalServices";
 
 class AdminOrderView extends Component{
 
@@ -45,7 +47,8 @@ class AdminOrderView extends Component{
 
             formData:{
 
-                rentalId:"R-100",
+                rentalId:"",
+                orderId:"",
                 rentalDate:"",
                 returnDate:"",
                 totalPayment:"",
@@ -101,6 +104,8 @@ class AdminOrderView extends Component{
             selectRowOrderObject:"",
 
             adminId:"A-100",
+
+            allRental:[],
 
 
 
@@ -187,12 +192,13 @@ class AdminOrderView extends Component{
 
     }
 
-    otherDataset = async ()=>{
+    setOtherDataset = async ()=>{
         if(this.state.selectRowOrderObject != null){
            let formData =  this.state.formData;
            formData.returnDate =  this.state.selectRowOrderObject.returnDate;
            formData.rentalDate =  this.state.selectRowOrderObject.requiredDate;
            formData.totalPayment = this.state.selectRowOrderObject.totalPrice;
+           formData.orderId = this.state.selectRowOrderObject.orderId;
 
             this.setState(formData);
 
@@ -259,10 +265,53 @@ class AdminOrderView extends Component{
 
     }
 
-    //set autoComplete
+
+
+    postRentalTable = async ()=>{
+
+        let formData = this.state.formData;
+
+         let response = await RentalServices.rentalPost(formData);
+
+
+         console.log(response);
 
 
 
+    }
+
+
+    getAllRentals = async ()=>{
+
+        let response = await  RentalServices.getAllRental();
+        console.log(response);
+        if(response.data.code === 200){
+           let allRental =  this.state.allRental;
+           allRental = response.data.data
+           this.setState({allRental: allRental})
+        }
+
+
+
+
+    }
+
+    getNextRentalId = async ()=>{
+        let response  =  await RentalServices.nextRentalId();
+
+        if(response.data.code  === 200){
+            let formData = this.state.formData;
+            formData.rentalId =  response.data.data;
+            this.setState(formData)
+
+
+        }
+
+
+
+
+
+    }
 
 
 
@@ -270,10 +319,18 @@ class AdminOrderView extends Component{
 
 
     componentDidMount() {
-
         this.getAllOrders().then(r => {
 
         })
+        this.getAllRentals().then(r => {
+
+
+        })
+
+        this.getNextRentalId().then(r => {
+
+        })
+
 
 
 
@@ -302,6 +359,7 @@ class AdminOrderView extends Component{
 
         for (let i=0; i < this.state.data.length;i++){
 
+            console.log(i)
 
 
             rows.push({ id:i,
@@ -320,44 +378,57 @@ class AdminOrderView extends Component{
         }
 
 
-
-        // const rows = [
-        //     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-        //     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-        //     { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-        //     { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-        //     { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-        //     { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-        //     { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-        //     { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-        //     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        // ];
-
-
         const columns2 = [
-            { field: 'rentalID', headerName: 'rental Id', width: 140 ,},
-            { field: 'orderId', headerName: 'order Id', width: 120 },
-            { field: 'startingDate2', headerName: 'starting Date', width: 140 },
-            { field: 'endingDate2', headerName: 'Ending Date', width: 140 },
-            { field: 'driverId', headerName: 'DriverId', width: 120 },
-            { field: 'status', headerName: 'status', width: 140 },
-            { field: 'damagePayment', headerName: 'damagePayment', width: 140 },
-            { field: 'fullPayment', headerName: 'Full payment', width: 140 },
+            { field: 'rentalID', headerName: 'rental Id', width: 80 ,},
+            { field: 'orderId', headerName: 'order Id', width: 80 },
+            { field: 'customerId', headerName: 'customerId', width: 80 },
+            { field: 'carId', headerName: 'car Id', width: 80 },
+            { field: 'AdminId', headerName: 'admin Id', width: 80 },
+            { field: 'startingDate2', headerName: 'starting Date', width: 100 },
+            { field: 'endingDate2', headerName: 'Ending Date', width: 100 },
+            { field: 'driverId', headerName: 'DriverId', width: 100 },
+            { field: 'status', headerName: 'status', width: 100 },
+            { field: 'downPayment', headerName: 'down payment', width: 100 },
+            { field: 'damagePayment', headerName: 'damagePayment', width: 100 },
+            { field: 'fullPayment', headerName: 'Full payment', width: 100 },
+
 
         ];
 
 
-        const rows2 = [
-            { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-            { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-            { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-            { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-            { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-            { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-            { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-            { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-            { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        ];
+
+        const rows2 = [];
+
+        for(let i=0; i < this.state.allRental.length; i++){
+
+            console.log(this.state.allRental[0].rentalId)
+            rows2.push(
+
+                { id: i,
+                  //  rentalID: "R-100",
+                   rentalID: this.state.allRental[i].rentalId,
+                    orderId: this.state.allRental[i].orderId,
+                    startingDate2: this.state.allRental[i].rentalDate,
+                    endingDate2: this.state.allRental[i].returnDate,
+                    fullPayment: this.state.allRental[i].totalPayment,
+                    damagePayment: this.state.allRental[i].damagePayment,
+                    downPayment: this.state.allRental[i].downPayment,
+                    driverId: this.state.allRental[i].driverId,
+                    status: this.state.allRental[i].status,
+                    customerId: this.state.allRental[i].customer.customerId,
+                    carId: this.state.allRental[i].car.carId,
+                    AdminId: this.state.allRental[i].admin.adminId,
+
+
+                },
+
+            )
+
+
+
+        }
+
+
 
 
 
@@ -389,6 +460,13 @@ class AdminOrderView extends Component{
 
 
         return (
+
+            <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
+
 
 
             <div className={classes.container}>
@@ -504,7 +582,7 @@ class AdminOrderView extends Component{
                             onClick={()=>{
                                 confirmAlert({
                                     title: 'Update & Rental to submit',
-                                    message: 'Are you sure to do this.',
+                                    message: 'Are you sure update  this order Id  '+ this.state.selectRowOrderId,
                                     buttons: [
                                         {
                                             label: 'Yes',
@@ -513,6 +591,17 @@ class AdminOrderView extends Component{
                                                     console.log(this.state.selectRowOrderObject);
                                                     this.updateOrder().then(r => {
                                                         this.getCarDetails().then(r => {
+                                                            this.getCustomerDetails().then(r => {
+                                                                this.getAdminDetail().then(r => {
+                                                                    this.setOtherDataset().then(r => {
+                                                                        this.postRentalTable().then(r => {
+                                                                            this.getAllRentals().then(r => {
+
+                                                                            })
+                                                                        })
+                                                                    })
+                                                                })
+                                                            })
 
                                                         })
 
@@ -548,6 +637,7 @@ class AdminOrderView extends Component{
 
                             onClick={()=>{
                                 console.log(this.state.formData.car.carId)
+                                console.log(this.state.allRental[0].rentalId)
 
 
 
@@ -565,11 +655,12 @@ class AdminOrderView extends Component{
                             onClick={()=>{
                                 confirmAlert({
                                     title: 'Confirm to submit',
-                                    message: 'Are you sure to do this.',
+                                    message: 'Are you sure to do this orderId ',
                                     buttons: [
                                         {
                                             label: 'Yes',
                                             onClick: () => alert('Click Yes')
+
                                         },
                                         {
                                             label: 'No',
@@ -605,7 +696,7 @@ class AdminOrderView extends Component{
                             <TextField
 
                                 id="outlined-basic"
-                                label="Advance Payment"
+                                label="Down Payment"
                                 variant="outlined"
                                 size={"small"}
                                 InputProps={{
@@ -704,6 +795,48 @@ class AdminOrderView extends Component{
                                 rowsPerPageOptions={[5]}
                                 checkboxSelection
                                 components={{Toolbar: GridToolbar}}
+                                onRowClick={(e)=>{
+                                    console.log("ahhh harii harii ")
+                                    console.log(e);
+                                    confirmAlert({
+                                        title: 'Confirm to submit',
+                                        message: 'Are you sure update this RentalId '+  e.row.rentalID,
+                                        buttons: [
+                                            {
+                                                label: 'Yes',
+                                                onClick: () =>{
+                                                    // console.log("ahhh harii harii ")
+                                                    // console.log(e);
+                                                    // console.log(e.row.orderId)
+
+
+
+
+
+
+
+
+                                                }
+
+                                            },
+                                            {
+                                                label: 'No',
+                                                onClick: () => alert('Click No')
+                                            }
+                                        ]
+                                    });
+
+
+
+
+
+
+
+
+                                    //this.setState({selectRowOrderId:e.row.orderId})
+
+
+                                }}
                             />
                         </div>
                     </div >
@@ -755,7 +888,7 @@ class AdminOrderView extends Component{
 
             </div>
 
-
+            </ValidatorForm>
         )
     }
 }
