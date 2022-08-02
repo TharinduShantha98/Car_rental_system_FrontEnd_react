@@ -20,10 +20,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@mui/material/Autocomplete";
 import MoneyIcon from '@material-ui/icons/Money';
 import OrderService from "../../../services/OrderService";
-import {drawDOM} from "@progress/kendo-drawing";
+import {drawDOM, drawing} from "@progress/kendo-drawing";
 import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css';
-import CarServices from "../../../services/CarServices"; // Import css
+import 'react-confirm-alert/src/react-confirm-alert.css';// Import css
+import CarServices from "../../../services/CarServices";
+import AdminService from "../../../services/AdminService";
+import DriverService from "../../../services/DriverService";
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 class AdminOrderView extends Component{
 
@@ -33,9 +36,9 @@ class AdminOrderView extends Component{
 
         this.state = {
             position: [
-                { label: 'D-100'},
-                { label: 'D-101' },
-                { label: 'D-102' },
+                // { label: 'D-100'},
+                // { label: 'D-101' },
+                // { label: 'D-102' },
 
             ],
 
@@ -97,6 +100,9 @@ class AdminOrderView extends Component{
 
 
 
+
+
+            availableDriver:[],
 
 
 
@@ -175,6 +181,39 @@ class AdminOrderView extends Component{
         }
     }
 
+// get available drives
+
+    getAvailableDrives =  async ()=>{
+        let position1 = this.state.position;
+        position1 = [];
+        this.setState({position:position1})
+
+        let  response  = await DriverService.availableDrives();
+       //console.log(response);
+        let data  = response.data.data;
+
+        let position = this.state.position;
+        for(let i =0; i < data.length; i++){
+            position.push(
+                 { label: data[i]},
+
+            )
+
+
+        }
+
+        this.setState({position:position})
+
+
+
+
+    }
+
+    //set autoComplete
+
+
+
+
 
 
 
@@ -185,6 +224,12 @@ class AdminOrderView extends Component{
         this.getAllOrders().then(r => {
 
         })
+
+
+
+        let length = this.state.availableDriver.length;
+        console.log(length);
+
 
     }
 
@@ -294,6 +339,8 @@ class AdminOrderView extends Component{
 
 
         return (
+
+
             <div className={classes.container}>
                 <div className={classes.container_main1}>
 
@@ -425,14 +472,6 @@ class AdminOrderView extends Component{
                                 });
 
 
-
-
-
-
-
-
-
-
                             }}
 
 
@@ -444,6 +483,14 @@ class AdminOrderView extends Component{
                     <Button variant="contained"
                             color="primary"
                             startIcon={<PeopleAltIcon/>}
+
+
+                            onClick={()=>{
+                                console.log(this.state.formData.car.carId)
+
+
+
+                            }}
 
                     >
                         Customer Page
@@ -485,14 +532,42 @@ class AdminOrderView extends Component{
 
                 <div className={classes.container_main5}  >
                     <div className={classes.container_main5_div1}>
-                        <Typography variant="h5">Rental View</Typography>
+                        <Typography
+                            variant="h3"
+                            style={{color:"#000",
+                                fontWeight:"30px"
+                            }}
+
+                        >Rental View</Typography>
 
                         <div className={classes.container_main5_div1_div1} >
+                            <TextField
+                                id="outlined-basic"
+                                label="Advance Payment"
+                                variant="outlined"
+                                size={"small"}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <MoneyIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+
+                                style={
+                                    { width: '80%',
+                                        marginTop:'2%'
+                                    }
+                                }
+                            />
+
+
+
                             <Autocomplete
                                 disablePortal
                                 id="combo-box-demo"
                                 options={this.state.position}
-                                sx={{ width: 100 }}
+                               // sx={{ width: 100 }}
                                 renderInput={(params) => <TextField {...params}
                                                                     label="Driver add "
                                                                     variant="outlined"
@@ -504,17 +579,48 @@ class AdminOrderView extends Component{
                                 }
                                 onChange={(e, value) => {
                                     console.log(value.label);
+
+
+
                                 }}
                                 size="small"
                                 //variant="outlined"
 
+                                popupIcon={<RefreshIcon
+                                    onClick={()=>{
+                                        console.log("hello machan");
+                                        this.getAvailableDrives().then(r => {
+                                            console.log(this.state.position.length)
 
+                                        })
+                                    }}
+
+
+                                />}
                                 style={
-                                    { width: '100%',
+                                    { width: '80%',
                                         marginTop:'2%'
                                     }
                                 }
+
                             />
+
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                style={
+                                    { width: '80%',
+                                        marginTop:'2%'
+                                    }
+                                }
+
+
+                            >
+                                update Rental
+
+                            </Button>
+
+
 
 
                         </div>
@@ -586,6 +692,8 @@ class AdminOrderView extends Component{
 
 
             </div>
+
+
         )
     }
 }

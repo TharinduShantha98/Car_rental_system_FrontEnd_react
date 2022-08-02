@@ -1,7 +1,7 @@
 export  const styleSheet = {
     container:{
        // width:'100vw',
-        height:'180vh',
+        height:'210vh',
    //     backgroundColor: '#e07a7a',
         display:'flex',
         alignItems:'center',
@@ -60,19 +60,19 @@ export  const styleSheet = {
 
     container_main5:{
         width: '100%',
-        height: '70vh',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
- //       backgroundColor: '#25359e',
+   //     backgroundColor: '#25359e',
 
     },
 
     container_main5_div1:{
         width:'80%',
-        height:'20%',
-  //      backgroundColor: "#e06c6c",
+        height:'40%',
+ //       backgroundColor: "#e06c6c",
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -85,16 +85,19 @@ export  const styleSheet = {
     container_main5_div2:{
         width:'80%',
         height:'50%',
-//        backgroundColor: "#e5d3d3"
+ //       backgroundColor: "#e5d3d3"
 
     },
 
     container_main5_div1_div1:{
-        width:'20%',
+        width:'50%',
         height:'100%',
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
+  //      backgroundColor:"#e8a9a9",
+        flexDirection:'column',
+
 
     },
     container_main5_div3:{
