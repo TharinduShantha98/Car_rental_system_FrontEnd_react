@@ -66,6 +66,50 @@ class RentalServices {
 
     }
 
+    searchRental =  async (params)=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get("http://localhost:8080/rental_system_war/api/rental/search",{params:params})
+                .then((res)=>{
+                    return resolve(res)
+                })
+                .catch((err)=>{
+                    return resolve(err)
+
+                })
+
+
+
+
+        })
+
+
+        return await  promise;
+
+
+    }
+
+    updateRental = async (data)=>{
+        const promise = new Promise((resolve, reject) => {
+            axios.put("http://localhost:8080/rental_system_war/api/rental",data)
+                .then((res)=>{
+                    return resolve(res)
+                })
+                .catch((err)=>{
+                    return resolve(err)
+                })
+
+
+
+        })
+
+
+        return await promise;
+
+
+    }
+
+
+
 
 
 }

@@ -8,21 +8,19 @@ import EmailIcon from '@material-ui/icons/Email';
 import MessageIcon from '@material-ui/icons/Message';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Typography from "@material-ui/core/Typography";
-import {DataGrid,GridToolbar} from "@mui/x-data-grid";
+import {DataGrid, GridToolbar} from "@mui/x-data-grid";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CheckIcon from '@material-ui/icons/Check';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@mui/material/Autocomplete";
 import MoneyIcon from '@material-ui/icons/Money';
 import OrderService from "../../../services/OrderService";
-import {drawDOM, drawing} from "@progress/kendo-drawing";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css';// Import css
+import {confirmAlert} from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import CarServices from "../../../services/CarServices";
 import AdminService from "../../../services/AdminService";
 import DriverService from "../../../services/DriverService";
@@ -106,6 +104,17 @@ class AdminOrderView extends Component{
             adminId:"A-100",
 
             allRental:[],
+
+            searchRental:"",
+
+
+            rentalDriverId:"",
+
+            rentalDownPayment:"",
+
+            balance:"",
+
+            damagePayment:"",
 
 
 
@@ -313,6 +322,59 @@ class AdminOrderView extends Component{
 
     }
 
+
+
+    searchRental = async (rentalId)=>{
+
+        let params= {
+                id:rentalId
+        }
+
+        let response  = await RentalServices.searchRental(params);
+       // console.log(response);
+        if(response.data.code === 200){
+            let searchRental = this.state.searchRental
+            searchRental = response.data.data;
+            this.setState({searchRental:searchRental});
+
+
+        }
+
+    }
+
+
+
+    updateRentalFirst = async ()=>{
+
+        let response  =  await RentalServices.updateRental(this.state.searchRental);
+
+        if(response.data.code === 200){
+            alert("update Driver and DownPayment in rental success");
+        }else{
+            alert("Not success");
+        }
+
+    }
+
+
+
+    shouldPayment  = async ()=>{
+        let searchRental =  await  this.state.searchRental;
+
+        console.log(searchRental);
+
+        let balance = this.state.balance;
+        let fullPayment = parseFloat(searchRental.totalPayment)
+        let downPayment  = parseFloat(searchRental.downPayment)
+        console.log(fullPayment);
+
+        balance = fullPayment - downPayment
+        console.log(balance)
+        this.setState({balance: balance});
+
+
+
+    }
 
 
 
@@ -707,6 +769,14 @@ class AdminOrderView extends Component{
                                     ),
                                 }}
 
+
+                                onChange={(e)=>{
+                                    let searchRental = this.state.searchRental;
+                                    searchRental.downPayment = e.target.value;
+                                    this.setState(searchRental);
+
+                                }}
+
                                 style={
                                     { width: '80%',
                                         marginTop:'2%'
@@ -732,6 +802,9 @@ class AdminOrderView extends Component{
                                 }
                                 onChange={(e, value) => {
                                     console.log(value.label);
+                                    let searchRental = this.state.searchRental;
+                                    searchRental.driverId = value.label;
+                                    this.setState(searchRental);
 
 
 
@@ -766,6 +839,12 @@ class AdminOrderView extends Component{
                                         marginTop:'2%'
                                     }
                                 }
+
+                                onClick={()=>{
+                                    this.updateRentalFirst().then(r => {
+
+                                    });
+                                }}
 
 
                             >
@@ -809,6 +888,14 @@ class AdminOrderView extends Component{
                                                     // console.log(e);
                                                     // console.log(e.row.orderId)
 
+                                                    this.searchRental(e.row.rentalID).then(r => {
+                                                         this.shouldPayment().then(r => {
+
+                                                        });
+
+                                                    })
+
+
 
 
 
@@ -821,15 +908,10 @@ class AdminOrderView extends Component{
                                             },
                                             {
                                                 label: 'No',
-                                                onClick: () => alert('Click No')
+                                                onClick: () => {}
                                             }
                                         ]
                                     });
-
-
-
-
-
 
 
 
@@ -844,15 +926,52 @@ class AdminOrderView extends Component{
 
                     <div className={classes.container_main5_div3}>
                         <div className={classes.container_main5_div3_div1}>
+
                             <TextField
                                 id="outlined-basic"
-                                label="Order Balance"
+                                label="damage "
                                 variant="outlined"
                                 size={"small"}
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
                                             <MoneyIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                onChange={(e)=>{
+                                    let damagePayment  =  this.state.damagePayment;
+                                    this.setState({damagePayment: e.target.value})
+
+
+
+
+
+                                }}
+
+
+
+
+                            />
+                            <TextField
+                                id="outlined-basic"
+                                label="Order Balance"
+                                disabled
+                                value={this.state.balance}
+                                variant="outlined"
+                                size={"small"}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <RefreshIcon
+                                            onClick={()=>{
+                                                this.shouldPayment().then(r => {
+
+                                                })
+                                            }}
+
+
+                                            />
                                         </InputAdornment>
                                     ),
                                 }}
@@ -865,6 +984,22 @@ class AdminOrderView extends Component{
                             <Button variant="contained"
                                     color="secondary"
                                     startIcon={<CheckIcon/>}
+
+                                    onClick={()=>{
+                                        const searchRental = this.state.searchRental;
+                                        let totalPayment = parseFloat(searchRental.totalPayment)
+                                        let damagePayment = parseFloat(this.state.damagePayment)
+                                        searchRental.totalPayment = totalPayment+ damagePayment;
+                                        searchRental.damagePayment = this.state.damagePayment;
+                                        searchRental.status= "success";
+                                        this.setState(searchRental);
+                                        this.updateRentalFirst().then(r => {
+                                            this.getAllRentals().then(r => {
+
+                                            })
+
+                                        })
+                                    }}
                                     style={
                                         {backgroundColor: '#345e17',
                                             //marginLeft:'10%',
