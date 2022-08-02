@@ -27,6 +27,7 @@ import CarServices from "../../../services/CarServices";
 import AdminService from "../../../services/AdminService";
 import DriverService from "../../../services/DriverService";
 import RefreshIcon from '@material-ui/icons/Refresh';
+import CustomerService from "../../../services/CustomerService";
 
 class AdminOrderView extends Component{
 
@@ -47,9 +48,11 @@ class AdminOrderView extends Component{
                 rentalId:"R-100",
                 rentalDate:"",
                 returnDate:"",
-                totalPayment:"Airport",
-                damagePayment:"",
+                totalPayment:"",
+                damagePayment:"0",
+                downPayment:"0",
                 status:"pending",
+                driverId:"NON SELECT",
                 customer:{
                     customerId:"",
                     firstName:"",
@@ -61,15 +64,6 @@ class AdminOrderView extends Component{
                     password:"",
                     licenseImg1:"",
                     NICImg:""
-                },
-                driver:{
-                    driverId:"",
-                    firstName:"",
-                    lastName:"",
-                    age:"",
-                    contactNum:"",
-                    licenseId:"",
-                    status:"",
                 },
                 car:{
                     carId:"",
@@ -98,22 +92,15 @@ class AdminOrderView extends Component{
 
             },
 
-
-
-
-
             availableDriver:[],
-
-
-
-
-
 
             data:[],
 
             selectRowOrderId:"",
 
             selectRowOrderObject:"",
+
+            adminId:"A-100",
 
 
 
@@ -165,7 +152,7 @@ class AdminOrderView extends Component{
 // get car detail and set state
     getCarDetails = async ()=>{
         if(this.state.selectRowOrderObject != null){
-
+            console.log(this.state.selectRowOrderObject);
             let params = {
                 id:this.state.selectRowOrderObject.orderDetails[0].carId
             }
@@ -180,6 +167,70 @@ class AdminOrderView extends Component{
 
         }
     }
+
+    // get customer detail and set state
+
+    getCustomerDetails =  async ()=>{
+        if(this.state.selectRowOrderObject != null){
+            let params = {
+                id:this.state.selectRowOrderObject.customer.customerId
+
+            }
+            let response  =  await CustomerService.searchCustomer(params);
+
+
+            let formData = this.state.formData;
+            formData.customer = response.data.data;
+            this.setState(formData);
+
+        }
+
+    }
+
+    otherDataset = async ()=>{
+        if(this.state.selectRowOrderObject != null){
+           let formData =  this.state.formData;
+           formData.returnDate =  this.state.selectRowOrderObject.returnDate;
+           formData.rentalDate =  this.state.selectRowOrderObject.requiredDate;
+           formData.totalPayment = this.state.selectRowOrderObject.totalPrice;
+
+            this.setState(formData);
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+    //getAdminDetail and set state
+    getAdminDetail =  async ()=>{
+        if (this.state.adminId != null) {
+            let params ={
+                id: this.state.adminId
+            }
+
+            let response  = await AdminService.searchAdmin(params);
+            let formData  = this.state.formData;
+            formData.admin = response.data.data;
+            this.setState(formData);
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
 
 // get available drives
 
@@ -198,7 +249,6 @@ class AdminOrderView extends Component{
                  { label: data[i]},
 
             )
-
 
         }
 
@@ -368,6 +418,17 @@ class AdminOrderView extends Component{
                             <WhatsAppIcon />
                         </StyledBadge>
                     </IconButton>
+
+                    <Typography variant="h6"
+                        style={{margin:"1%"}}
+
+                    >AdminId</Typography>
+                    <Typography variant="h6"
+                                style={{margin:"1%"}}
+
+                    >
+                        {this.state.adminId}
+                    </Typography>
 
 
 
@@ -542,6 +603,7 @@ class AdminOrderView extends Component{
 
                         <div className={classes.container_main5_div1_div1} >
                             <TextField
+
                                 id="outlined-basic"
                                 label="Advance Payment"
                                 variant="outlined"
