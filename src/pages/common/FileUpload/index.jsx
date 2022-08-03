@@ -86,6 +86,9 @@ class ChartFile extends Component{
 
             <div className={classes.constraint}>
                 <h2>You could save between</h2>
+
+
+                <Calendar/>
                 <NavLink to="/adminSignIn">Use Calculator Again</NavLink>
 
 

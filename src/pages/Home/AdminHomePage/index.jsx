@@ -19,6 +19,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import {Link} from "react-router-dom";
 import '@progress/kendo-theme-default/dist/all.css';
+
 import { Calendar } from '@progress/kendo-react-dateinputs';
 // ES2015 module syntax
 import {
@@ -312,14 +313,14 @@ class AdminHome extends Component{
                         <div className={classes.constraint_main3_div2}>
                             <div className={classes.constraint_main3_div2_div1}>
 
-
+                                <Calendar/>
 
 
                             </div>
 
-                            <div className={classes.constraint_main3_div2_div2}>
+                            {/*<div className={classes.constraint_main3_div2_div2}>*/}
 
-                            </div>
+                            {/*</div>*/}
 
 
                         </div>

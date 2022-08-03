@@ -131,7 +131,7 @@ export const styleSheet ={
     constraint_main3_div2:{
         width: "30%",
         height: '100%',
-   //     backgroundColor:'#e0442f',
+  //      backgroundColor:'#e0442f',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -140,8 +140,8 @@ export const styleSheet ={
 
     constraint_main3_div2_div1:{
         width: "100%",
-        height: '50%',
-     //   backgroundColor:'#96e02f',
+        height: '100%',
+   //     backgroundColor:'#96e02f',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
