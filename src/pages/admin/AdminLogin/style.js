@@ -26,6 +26,11 @@ export const styleSheet = {
         fontSize:'50px !important',
 
     },
+    linkStyle:{
+        // listStyle: 'none'
+        textDecoration:'none',
+        color:'#f8f5f5'
+    },
 
 
 }

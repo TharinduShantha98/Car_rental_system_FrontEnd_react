@@ -21,6 +21,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import AdminService from "../../../services/AdminService";
 import GDSESnackBar from "../../../components/common/snackBar";
+import {confirmAlert} from "react-confirm-alert";
 
 
 class AdminSignIn extends Component{
@@ -64,47 +65,77 @@ class AdminSignIn extends Component{
         console.log(password);
         console.log(conformPassword);
 
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure sign in  ',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: async () =>{
+                        if(password === conformPassword){
 
-        if(password === conformPassword){
+                            let formData  = this.state.formData;
+                            let response  = await AdminService.AdminSave(formData);
 
-            let formData  = this.state.formData;
-            let response  = await AdminService.carSave(formData);
-
-            if(response.data.code === 200){
-                console.log("successfully ");
-                await this.lastObject();
-                this.setState({
-                    alert: true,
-                    message: response.data.message,
-                    severity: 'success'
-                });
-
-
-
-            }else{
-                console.log("not success2");
-
-                this.setState({
-                    alert: true,
-                    message: response.data.message,
-                    severity: 'error'
-                });
+                            if(response.data.code === 200){
+                                console.log("successfully ");
+                                await this.lastObject();
+                                this.setState({
+                                    alert: true,
+                                    message: response.data.message,
+                                    severity: 'success'
+                                });
 
 
-            }
+
+                            }else{
+                                console.log("not success2");
+
+                                this.setState({
+                                    alert: true,
+                                    message: response.data.message,
+                                    severity: 'error'
+                                });
 
 
-        }else{
-            console.log("not success 1");
-
-            this.setState({
-                alert: true,
-                message: "not match password",
-                severity: 'error'
-            });
+                            }
 
 
-        }
+                        }else{
+                            console.log("not success 1");
+
+                            this.setState({
+                                alert: true,
+                                message: "not match password",
+                                severity: 'error'
+                            });
+
+
+                        }
+
+
+
+                    }
+
+                },
+                {
+                    label: 'No',
+                    onClick: () => {}
+                }
+            ]
+        });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -215,8 +246,8 @@ class AdminSignIn extends Component{
                                     id="firstName"
                                     variant="outlined"
                                     //autoFocus
-                                    validators={['required', 'matchRegexp:^C-[0-9]$']}
-                                    errorMessages={['this field is required', 'email is not valid']}
+                                    //validators={['required']}
+                                    //errorMessages={['this field is required']}
                                     size={'small'}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
@@ -386,7 +417,7 @@ class AdminSignIn extends Component{
                                 sx={{ mt: 3, mb: 2 }}
                                 color={'secondary'}
                             >
-                                <Link to={"/adminHome"}>
+                                <Link to={"/adminHome"} className={classes.linkStyle}>
                                     Log In
                                 </Link>
 

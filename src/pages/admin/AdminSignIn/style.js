@@ -53,7 +53,12 @@ export const styleSheet = {
     container_div1_div2_div2:{
         width:'50%',
 
-    }
+    },
+    linkStyle:{
+        // listStyle: 'none'
+        textDecoration:'none',
+        color:'#f8f5f5'
+    },
 
 
 
