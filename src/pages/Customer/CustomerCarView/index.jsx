@@ -79,8 +79,23 @@ class CarView extends Component{
             console.log("wedak nh bm")
         }
 
+    }
+
+    displayCarObject = (objectNumber)=>{
+        let carArray = this.state.carArray;
+        if (!carArray[objectNumber].isNull) {
+            let car  = carArray[objectNumber];
+            return car
+        }else{
+            console.log("wedak nh bm")
+        }
+
+
 
     }
+
+
+
 
 
     getAllCars =  async ()=>{
@@ -159,7 +174,7 @@ class CarView extends Component{
 
                             >
 
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
 
@@ -209,7 +224,7 @@ class CarView extends Component{
 
                                 }}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -257,7 +272,7 @@ class CarView extends Component{
 
                                 }}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -306,7 +321,7 @@ class CarView extends Component{
 
                                 }}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -355,7 +370,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -398,7 +413,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -442,7 +457,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -490,7 +505,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -533,7 +548,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -576,7 +591,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>
@@ -619,7 +634,7 @@ class CarView extends Component{
                                 fullWidth
                                 startIcon={<LocalTaxiIcon/>}
                             >
-                                <Link to={"/order"}>
+                                <Link to={"/order"} className={classes.linkStyle}>
                                     Book Online
                                 </Link>
                             </Button>

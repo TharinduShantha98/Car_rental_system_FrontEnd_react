@@ -99,13 +99,16 @@ export const styleSheet= {
     },
     linkStyle:{
         // listStyle: 'none'
-        textDecoration:'none'
+        textDecoration:'none',
+        color:'#f8f5f5'
     },
     root2_cardMedia:{
         height:'45%',
         width:'100%',
 
     },
+
+
 
 
 

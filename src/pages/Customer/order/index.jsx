@@ -25,6 +25,7 @@ import AdminService from "../../../services/AdminService";
 import {ValidatorForm} from "react-material-ui-form-validator";
 import orderService from "../../../services/OrderService";
 import OrderService from "../../../services/OrderService";
+import {confirmAlert} from "react-confirm-alert";
 
 
 
@@ -44,6 +45,8 @@ class Order extends Component{
                 { label: 'AirPort'},
                 { label: 'Trip' },
                 { label: 'Wedding' },
+                { label: 'self driving' },
+                { label: 'add driver' },
 
             ],
 
@@ -104,6 +107,10 @@ class Order extends Component{
             todayDate:"",
 
 
+            formData2:{
+                orderId:"",
+                downPaymentClip:"",
+            }
 
 
         }
@@ -174,6 +181,23 @@ class Order extends Component{
 
     }
 
+    imageUpload = async ()=>{
+        let formData = new FormData();
+        formData.append("orderId", this.state.formData.orderId );
+        formData.append("bankClip",this.state.formData2.downPaymentClip);
+
+        let response  = await OrderService.uploadBankClip(formData);
+
+
+
+
+    }
+
+
+
+
+
+
     getAvailableAdmin =  async ()=>{
 
         let params = {
@@ -211,11 +235,11 @@ class Order extends Component{
         let formData = this.state.formData;
         formData.orderDetails[0].carId = response.data.data.carId;
         formData.orderDetails[0].price = response.data.data.dailyRate;
-        formData.totalPrice = response.data.data.dailyRate;
+
+
+
 
         this.setState(formData);
-
-
 
         this.setState({type:response.data.data.type})
         this.setState({transmissionType:response.data.data.transmissionType})
@@ -290,9 +314,69 @@ class Order extends Component{
 
     handleSubmit = async ()=>{
 
+        this.calculateTotalPrice();
+
+
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure put order  ',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: async () =>{
+                        let formData = this.state.formData;
+                        let response = await orderService.saveOrder(formData);
+                        console.log(response);
+                        if(response.data.code === 200){
+                            await this.imageUpload();
+                            alert("success place order");
+
+
+                        }
+
+                    }
+
+                },
+                {
+                    label: 'No',
+                    onClick: () => { alert("reject place order");}
+                }
+            ]
+        });
+
+
+
+
+
+
+
+
+    }
+
+
+    calculateTotalPrice = ()=>{
+
+        //calculate total price;
+
+        let startingDate  =  new Date(this.state.formData.requiredDate);
+        let returnDate =  new Date(this.state.formData.returnDate);
+        let difference_in_time =  returnDate.getTime() - startingDate.getTime();
+        let difference_in_date =  difference_in_time /(1000* 3600*24);
+        console.log(difference_in_date);
+
+
+        let dailyRate =  parseFloat(this.state.dailyRate);
+        let totalPayment =  difference_in_date * dailyRate;
+
+        console.log(totalPayment);
+
         let formData = this.state.formData;
-        let response = await orderService.saveOrder(formData);
-        console.log(response);
+        formData.totalPrice =totalPayment;
+        this.setState(formData);
+
+       //formData.totalPrice = totalPayment;
+
+
 
 
 
@@ -624,6 +708,12 @@ class Order extends Component{
                                 accept={"image/png,image/jpeg"}
                                 size={"small"}
                                 style={{marginTop:"1px",marginBottom:'8px'}}
+                                onChange={(e)=>{
+                                    let formData = this.state.formData2
+                                    formData.downPaymentClip = e.target.files[0]
+                                    this.setState(formData);
+
+                                }}
 
 
                             />
@@ -631,6 +721,7 @@ class Order extends Component{
                             <Autocomplete
                                 disablePortal
                                 id="combo-box-demo"
+
                                 options={this.state.position}
                                 sx={{ width: 300 }}
                                 renderInput={(params) => <TextField {...params}
@@ -644,6 +735,12 @@ class Order extends Component{
                                 }
                                 onChange={(e, value) => {
                                     console.log(value.label);
+                                    let formData  = this.state.formData;
+                                    formData.review = value.label;
+                                    this.setState(formData);
+
+
+
                                 }}
                                 size="small"
                                 //variant="outlined"
@@ -653,7 +750,7 @@ class Order extends Component{
                             />
 
 
-                            <TextField
+                           {/* <TextField
                                 margin="normal"
                                 required
                                 fullWidth
@@ -671,7 +768,7 @@ class Order extends Component{
                                     ),
                                 }}
                                 size={'small'}
-                            />
+                            />*/}
                         </div>
 
                         <div>
@@ -682,6 +779,9 @@ class Order extends Component{
                                 sx={{ mt: 3, mb: 2 }}
                                 color={'primary'}
                                 startIcon={<AirportShuttleIcon/>}
+                                style={{marginTop:"10px"}}
+
+
                             >
                                 place Order
                             </Button>
@@ -695,7 +795,10 @@ class Order extends Component{
                                 startIcon={<MessageIcon/>}
                                 onClick={()=>{
                                     this.printCarId();
+                                    this.calculateTotalPrice();
                                 }}
+
+                                style={{marginTop:"10px"}}
 
 
                             >

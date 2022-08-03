@@ -88,6 +88,35 @@ class OrderService{
 
     }
 
+    uploadBankClip =  async (data) =>{
+        let promise = new Promise((resolve, reject) => {
+            axios.post("http://localhost:8080/rental_system_war/api/order/upload/image",
+                data,
+                {
+                 headers:{
+                     'content-type':'multipart/form-data'
+                 }
+
+                })
+                .then((res)=>{
+                    return resolve(res)
+                })
+                .catch((err)=>{
+                    return resolve(err)
+                })
+
+
+
+
+
+        })
+
+
+        return await promise;
+
+
+    }
+
 
 
 
