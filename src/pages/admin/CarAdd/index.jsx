@@ -86,8 +86,12 @@ class CarAdd extends Component{
         console.log(promise);
         if(promise.status === 200){
             console.log("success");
+            alert("success full add car ")
+            window.location.reload();
         }else{
             console.log("not success");
+            alert("not success please try again ")
+            window.location.reload();
         }
     }
 
@@ -116,33 +120,41 @@ class CarAdd extends Component{
         console.log(res)
 
         console.log(res.data.data)
+        if(res.data.code === 200){
+
+            // const searchCar  = res.date.data;
+
+            // console.log(searchCar.carId);
+            let formData = this.state.formData;
+            formData.carId = res.data.data.carId;
+            formData.type = res.data.data.type;
+            formData.numberOfPassengers = res.data.data.numberOfPassengers;
+            formData.transmissionType = res.data.data.transmissionType;
+            formData.color = res.data.data.color;
+            formData.registrationNum = res.data.data.registrationNum;
+            formData.freeMileage = res.data.data.freeMileage;
+            formData.MonthlyRate = res.data.data.monthlyRate;
+            formData.DailyRate = res.data.data.dailyRate;
+            formData.frontView = res.data.data.frontView;
+            formData.backView = res.data.data.backView;
+            formData.sideView = res.data.data.sideView;
+            formData.interiorView = res.data.data.interiorView;
 
 
-       // const searchCar  = res.date.data;
 
-       // console.log(searchCar.carId);
-        let formData = this.state.formData;
-        formData.carId = res.data.data.carId;
-        formData.type = res.data.data.type;
-        formData.numberOfPassengers = res.data.data.numberOfPassengers;
-        formData.transmissionType = res.data.data.transmissionType;
-        formData.color = res.data.data.color;
-        formData.registrationNum = res.data.data.registrationNum;
-        formData.freeMileage = res.data.data.freeMileage;
-        formData.MonthlyRate = res.data.data.monthlyRate;
-        formData.DailyRate = res.data.data.dailyRate;
-        formData.frontView = res.data.data.frontView;
-        formData.backView = res.data.data.backView;
-        formData.sideView = res.data.data.sideView;
-        formData.interiorView = res.data.data.interiorView;
-
-
-
-        this.setState({formData:formData})
+            this.setState({formData:formData})
 
             console.log(this.state.formData.type);
             console.log(this.state.formData.MonthlyRate);
             console.log(this.state.formData.DailyRate);
+
+            alert("success full search");
+
+
+        }else{
+            alert("not found ");
+
+        }
 
 
     }
@@ -157,8 +169,12 @@ class CarAdd extends Component{
 
         if(res.data.code === 200){
             console.log("success");
+            alert("delete success full");
+            window.location.reload();
+
         }else{
             console.log("not success");
+            alert("delete not success full");
 
         }
 

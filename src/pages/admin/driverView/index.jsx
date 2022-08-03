@@ -44,6 +44,8 @@ class Driver extends Component{
 
             btnId: 'save',
 
+            nextId:"",
+
 
         }
 
@@ -58,28 +60,22 @@ class Driver extends Component{
          console.log(this.state.btnId);
 
 
-         if(this.state.btnId ==="save"){
-
              let formData =  this.state.formData;
              let response = await DriverService.createPost(formData);
-             if(response.date.code === 200){
+             if(response.data.code === 200){
                  console.log("successFully");
-                 await this.loadDriver();
+                 //await this.loadDriver();
+                 alert("successFully add")
 
+                window.location.reload();
              }else{
                  console.log("not successFully");
+                 alert("not successFully add")
              }
 
 
 
-         }else{
 
-
-
-
-
-
-         }
 
 
 
@@ -143,9 +139,12 @@ class Driver extends Component{
         console.log(res);
         if(res.status === 200){
             console.log("success")
-
+            alert("update successfully")
+            window.location.reload();
         }else{
             console.log("not success")
+            alert("not successFully");
+
         }
 
 
@@ -157,9 +156,28 @@ class Driver extends Component{
             id: driverId
         }
 
-
         let res = await DriverService.deleteCustomer(params)
+
+        if(res.data.code === 200){
+            alert("delete successfully");
+        }else{
+            alert("not successfully ");
+
+        }
+
+
         console.log(res);
+
+    }
+
+    getNextId =  async ()=>{
+
+          let res = await DriverService.nextId();
+          console.log(res.data.data);
+
+          let formData  = this.state.formData
+        formData.driverId = res.data.data;
+          this.setState(formData);
 
     }
 
@@ -197,6 +215,11 @@ class Driver extends Component{
         this.loadDriver().then(r => {
 
         });
+
+
+        this.getNextId().then(r => {
+
+        })
 
     }
 
@@ -258,6 +281,7 @@ class Driver extends Component{
                                 <TextField
                                     margin="normal"
                                     required
+
                                     fullWidth
                                     id="driverId"
                                     label="driverId"
@@ -272,6 +296,8 @@ class Driver extends Component{
                                         formData.driverId = e.target.value
                                         this.setState(formData);
                                     }}
+                                   // validators={['required', 'isEmail']}
+                                  //  errorMessages={['this field is required', 'email is not valid']}
 
 
 
@@ -293,6 +319,8 @@ class Driver extends Component{
                                         formData.lastName = e.target.value
                                         this.setState(formData);
                                     }}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['this field is required', 'email is not valid']}
 
 
                                 />
@@ -314,6 +342,8 @@ class Driver extends Component{
                                         formData.contactNum = e.target.value
                                         this.setState(formData);
                                     }}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['this field is required', 'email is not valid']}
 
 
                                 />
@@ -338,6 +368,8 @@ class Driver extends Component{
                                         formData.firstName = e.target.value
                                         this.setState(formData);
                                     }}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['this field is required', 'email is not valid']}
                                 />
 
                                 <TextField
@@ -356,6 +388,8 @@ class Driver extends Component{
                                         formData.age = e.target.value
                                         this.setState(formData);
                                     }}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['this field is required', 'email is not valid']}
 
                                 />
 
@@ -370,12 +404,16 @@ class Driver extends Component{
                                     //  autoComplete="email"
                                     variant="outlined"
                                     size={'small'}
+
                                     value={this.state.formData.licenseId}
                                     onChange={(e)=>{
                                         let formData = this.state.formData
                                         formData.licenseId = e.target.value
                                         this.setState(formData);
                                     }}
+                                    // validators={['required', 'isEmail']}
+                                    // errorMessages={['this field is required', 'email is not valid']}
+                                    //style={{width:"100%"}}
 
 
 
