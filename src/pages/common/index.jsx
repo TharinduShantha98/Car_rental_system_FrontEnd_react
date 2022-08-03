@@ -53,9 +53,9 @@ class  NavBar extends Component{
                             </Link>
 
 
-                            <Link to={"chart"} className={classes.linkStyle}>
-                                <Button>test</Button>
-                            </Link>
+                            {/*<Link to={"chart"} className={classes.linkStyle}>*/}
+                            {/*    <Button>test</Button>*/}
+                            {/*</Link>*/}
 
 
                            {/* <Link to="carView" className={classes.linkStyle}>
