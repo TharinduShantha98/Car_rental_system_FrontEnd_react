@@ -5,21 +5,33 @@ export const itemData = [
         cols: 2,
     },
     {
-        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+        img: 'https://agentlemans.world/wp-content/uploads/2016/07/Rolls-Royce-Gentleman-1-1030x684.jpg',
         title: 'Burger',
     },
+
+    {
+        img: 'https://agentlemans.world/wp-content/uploads/2016/07/Rolls-1-1030x684.jpg',
+        title: 'Coffee',
+    },
+    {
+        img: 'https://casons.lk/uploads/slide2.jpg',
+        title: 'Bike',
+        cols: 2,
+    },
+    {
+        img: 'https://d8asu6slkrh4m.cloudfront.net/2013/04/wedding.jpg',
+        title: 'Hats',
+        cols: 3,
+        rows:2,
+
+    },
+
     {
         img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
         title: 'Camera',
     },
-    {
-        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-        title: 'Coffee',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-        title: 'Hats',
-    },
+
+
     {
         img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
         title: 'Honey',
@@ -48,9 +60,5 @@ export const itemData = [
         img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
         title: 'Bike',
     },
-    {
-        img: 'https://casons.lk/uploads/slide2.jpg',
-        title: 'Bike',
-        cols: 2,
-    },
+
 ];

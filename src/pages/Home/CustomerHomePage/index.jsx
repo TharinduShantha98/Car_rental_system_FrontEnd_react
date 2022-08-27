@@ -442,7 +442,7 @@ class CustomerHome extends Component{
                       <div className={classes.root3}>
                           <ImageList rowHeight={160} className={classes.imageList} cols={3}>
                               {itemData.map((item) => (
-                                  <ImageListItem key={item.img} cols={item.cols || 1}>
+                                  <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
                                       <img src={item.img} alt={item.title} />
                                   </ImageListItem>
                               ))}

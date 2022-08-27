@@ -272,8 +272,9 @@ export  const  styleSheet = {
        // backgroundColor: theme.palette.background.paper,
     },
     imageList: {
-        width: 500,
-        height: 450,
+        width: "100%",
+        height: 612,
+        //overflow: 'hidden',
     },
 
 
