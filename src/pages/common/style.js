@@ -1,10 +1,14 @@
+import home1 from "../../assets/img/profile/1.png"
+
+
 export const styleSheet = {
     container:{
         //width:'100vw',
         height:'35vh',
         display:'flex',
         flexDirection:'column',
-   //     backgroundColor:'#282626',
+        //     backgroundColor:'#282626',
+
 
 
 
@@ -18,7 +22,7 @@ export const styleSheet = {
     container_div:{
         width:'100%',
         height:'70%',
-      // backgroundColor:'#5de2d2',
+        // backgroundColor:'#5de2d2',
         display: 'flex',
         flexDirection: 'row',
         alignItems:'center',

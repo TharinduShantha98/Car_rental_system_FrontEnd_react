@@ -1,38 +1,44 @@
 import backGround from '../../../assets/img/cars/backGroung.jpg'
 import image4 from "../../../assets/img/image4.jpg";
 import rentCar from '../../../assets/img/cars/rentacar.jpg'
+import home2 from '../../../assets/img/profile/2.png'
+
 
 export  const  styleSheet = {
     container:{
         //width:'100vw',
-        height:'300vh',
+        height:'400vh',
         display:'flex',
-        backgroundColor:'#282626',
+    //    backgroundColor:'#282626',
         flexDirection:'column',
 
     },
     container_part1:{
        // width:'100vw',
-        height:'50vh',
+        height:'100vh',
         display:'flex',
-        backgroundColor:'#e56565',
+      //  backgroundColor:'#e56565',
         flexDirection:'row',
+        backgroundImage: `url(${home2})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
 
     },
     container_part1_img:{
-        width:'50%',
+        width:'60%',
         height:'100%',
         display:'flex',
-        backgroundColor:'#ffffff',
+       backgroundColor:'#242424',
         alignItems:'center',
         justifyContent:'center',
+        flexDirection:'column'
     },
     container_part1_des:{
-        width:'50%',
+        width:'40%',
         height:'100%',
         display:'flex',
-        backgroundColor:'#ffffff',
-        //alignItems:'center',
+      //  backgroundColor:'#ffffff',
+        alignItems:'center',
         flexDirection: 'column',
         justifyContent:'center',
 
@@ -122,7 +128,7 @@ export  const  styleSheet = {
        // width:'100vw',
         height:'100vh',
         display:'flex',
-       backgroundColor:'#fdfdfd',
+        backgroundColor:'#242424',
         flexDirection: 'column',
         justifyContent:'center',
 
@@ -131,7 +137,7 @@ export  const  styleSheet = {
 
     root2: {
         maxWidth: 345,
-        width:'20%',
+        width:'25%',
         height:'95%',
     },
 
@@ -160,6 +166,7 @@ export  const  styleSheet = {
        // backgroundColor:'#386bc2',
         // flexDirection: 'column',
         justifyContent:'center',
+        textAlign:"center",
     },
     container_part2_div3_div2:{
         width:'100%',
@@ -167,12 +174,12 @@ export  const  styleSheet = {
         display:'flex',
        // backgroundColor:'#90adde',
         flexDirection: 'row',
-        justifyContent:'center',
+        justifyContent:'space-around',
     },
     container_part2_div4:{
-        height:'50vh',
+        height:'100vh',
         display:'flex',
-        backgroundColor:'#fdfdfd',
+        backgroundColor:'#242424',
         flexDirection: 'column',
         justifyContent:'center',
         alignItems: 'center',
@@ -180,12 +187,23 @@ export  const  styleSheet = {
 
 
     },
+    container_imageList:{
+
+        width:"50%",
+        height:"100%",
+        backgroundColor:"#000"
+    },
+
+
+
+
+
 
     container_part2_div4_form:{
         display:'flex',
-        width:'40%',
-        height:'90%',
-     //   backgroundColor:'#bab6b6',
+        width:'80%',
+        height:'40%',
+    //    backgroundColor:'#bab6b6',
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center',
@@ -241,6 +259,22 @@ export  const  styleSheet = {
         listStyle: 'none'
     },
 
+
+    texFiled:{
+
+    },
+    root3: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+
+       // backgroundColor: theme.palette.background.paper,
+    },
+    imageList: {
+        width: 500,
+        height: 450,
+    },
 
 
 

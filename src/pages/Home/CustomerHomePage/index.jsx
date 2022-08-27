@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import {styleSheet} from "./style";
 import withStyles from "@material-ui/core/styles/withStyles";
-import dasBord from "../../../assets/img/cars/desktop.jpg";
-import dasBord1 from "../../../assets/img/cars/alphardnew.jpg";
 import dasBord2 from "../../../assets/img/cars/businessclasstamplate.jpg";
 import dasBord3 from "../../../assets/img/cars/premionw.jpg";
 import Typography from "@material-ui/core/Typography";
@@ -14,10 +12,7 @@ import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import PersonIcon from '@material-ui/icons/Person';
 import StarIcon from '@material-ui/icons/Star';
 import SettingsIcon from '@material-ui/icons/Settings';
-
 import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
-import Icon from '@material-ui/core/Icon';
-import green from "@material-ui/core/colors/green";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import MessageIcon from "@material-ui/icons/Message";
@@ -25,7 +20,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import car4 from "../../../assets/img/cars/car4.jpg";
 import {Link} from "react-router-dom";
-
+import { makeStyles } from '@material-ui/core/styles';
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+import {itemData} from './itemData';
 
 class CustomerHome extends Component{
     constructor(props) {
@@ -58,108 +56,168 @@ class CustomerHome extends Component{
 
               <div className={classes.container_part1}>
                   <div className={classes.container_part1_img}>
-                        <img src={dasBord}/>
+                      <Typography
+                          variant="h2"
+                        style={{
+                            color:"#f8f4f4",
+                            fontWeight:"bold",
+
+                        }}
+                      >
+                          Hertz Brookfield car rental PVT
+                      </Typography>
+                      <Typography
+                          variant="h4"
+                          style={{
+                              color:"#c28f0c",
+                              fontWeight:"bold"
+
+                          }}
+                      >
+                          VIP'S, VVIP'S DELEGATE AND CELEBRITY TRANSPORT
+                      </Typography>
+                      <Typography
+                          variant="h6"
+                          style={{
+                              color:"#f8f4f4",
+                              fontWeight:"bold"
+
+                          }}
+
+                      >
+                          Best car for special occasions VIP,
+                          VVIP Delegate and celebrities transfer
+
+                      </Typography>
+
+                      <div className={classes.container_part2_div4_form}>
+                          <TextField
+                              id="date"
+                              label="Starting Date"
+                              type="date"
+                              fullWidth
+                              defaultValue="2022-07-23"
+                              className={classes.textField}
+                              variant="outlined"
+                              size={'small'}
+                              InputLabelProps={{
+                                  shrink: true,
+                              }}
+                              style={{
+                                  color:"#f3eeee",
+                                  borderColor:"#f3eeee"
+                              }}
+
+
+                          />
+
+                          <TextField
+                              id="date"
+                              label="Ending Date"
+                              type="date"
+                              fullWidth
+                              defaultValue="2022-07-23"
+                              className={classes.textField}
+                              variant="outlined"
+                              size={'small'}
+                              InputLabelProps={{
+                                  shrink: true,
+                              }}
+                          />
+
+                          <Autocomplete
+                              disablePortal
+                              id="combo-box-demo"
+                              options={this.state.position}
+                              sx={{ width: 300 }}
+                              renderInput={(params) => <TextField {...params}
+                                                                  label="Option"
+                                                                  variant="outlined"
+                                                                  size={"small"}
+
+                              />}
+                              getOptionLabel={
+                                  (option) => option.label
+                              }
+                              onChange={(e, value) => {
+                                  console.log(value.label);
+                              }}
+                              size="small"
+                              //variant="outlined"
+
+
+                              style={
+                                  { width: '100%',
+                                      marginTop:'2%'
+                                  }
+                              }
+                          />
+
+
+                          <div className={classes.btn}>
+                              <Button
+                                  type="submit"
+                                  fullWidth
+                                  variant="contained"
+                                  sx={{ mt: 3, mb: 2 }}
+                                  color={'primary'}
+                                  startIcon={<MessageIcon/>}
+                                  style={{
+                                      backgroundColor:"#19a2a7",
+
+                                  }}
+
+
+
+                              >
+
+                                  <Link to={"/customerSignUp"}
+                                    style={{
+                                        color:"#000",
+                                        fontWeight:"bold",
+                                        textDecoration:'none'
+                                    }}
+
+                                  >
+                                      Car Filters
+
+                                  </Link>
+
+
+                              </Button>
+                          </div>
+
+
+                      </div>
+
+
                   </div>
                   <div className={classes.container_part1_des}>
-                      <Typography variant="h2" >Hertz Brookfield car rental PVT</Typography>
-                      <Typography variant="h4" >VIP'S, VVIP'S DELEGATE AND CELEBRITY TRANSPORT</Typography>
-                      <Typography variant="h6">Best car for special occasions VIP,
-                          VVIP Delegate and celebrities transfer </Typography>
+
                   </div>
 
               </div>
 
-              <div className={classes.container_part2_div4}>
-                 <div className={classes.container_part2_div4_form}>
-                     <TextField
-                         id="date"
-                         label="Starting Date"
-                         type="date"
-                         fullWidth
-                         defaultValue="2022-07-23"
-                         className={classes.textField}
-                         variant="outlined"
-                         size={'small'}
-                         InputLabelProps={{
-                             shrink: true,
-                         }}
-                     />
-
-                     <TextField
-                         id="date"
-                         label="Ending Date"
-                         type="date"
-                         fullWidth
-                         defaultValue="2022-07-23"
-                         className={classes.textField}
-                         variant="outlined"
-                         size={'small'}
-                         InputLabelProps={{
-                             shrink: true,
-                         }}
-                     />
-
-                     <Autocomplete
-                         disablePortal
-                         id="combo-box-demo"
-                         options={this.state.position}
-                         sx={{ width: 300 }}
-                         renderInput={(params) => <TextField {...params}
-                                                             label="Option"
-                                                             variant="outlined"
-                                                             size={"small"}
-
-                         />}
-                         getOptionLabel={
-                             (option) => option.label
-                         }
-                         onChange={(e, value) => {
-                             console.log(value.label);
-                         }}
-                         size="small"
-                         //variant="outlined"
-
-
-                         style={
-                             { width: '100%',
-                                marginTop:'2%'
-                             }
-                         }
-                     />
-
-
-                     <div className={classes.btn}>
-                         <Button
-                             type="submit"
-                             fullWidth
-                             variant="contained"
-                             sx={{ mt: 3, mb: 2 }}
-                             color={'primary'}
-                             startIcon={<MessageIcon/>}
-                         >
-
-                            <Link to={"/customerSignUp"}>
-                                Car Filters
-
-                            </Link>
-
-
-                         </Button>
-                     </div>
-
-
-
-
-                 </div>
-
-
-
-              </div>
 
 
               <div className={classes.container_part2_div3}>
                   <div className={classes.container_part2_div3_div1}>
-                      <Typography variant="h3">Our Available business class vehicle</Typography>
+                      <Typography
+                          variant="h2"
+                          style={{
+                              color:"#eae5e5",
+                              fontWeight:"bold",
+                           //   backgroundColor:"#000000",
+                              width:"100%",
+                              top:"2%",
+                              //margin:0,
+
+
+                          }}
+                      >
+                          Our Available business class vehicle
+
+                      </Typography>
                   </div>
 
                   <div  className={classes.container_part2_div3_div2}>
@@ -168,7 +226,12 @@ class CustomerHome extends Component{
                       <img src={dasBord3}/>*/}
 
 
-                      <Card className={classes.root2}>
+                      <Card
+                          className={classes.root2}
+                          style={{
+                              border:"5px solid #19a2a7 "
+                          }}
+                      >
                           <CardActionArea>
                               <CardMedia
                                   component="img"
@@ -179,7 +242,16 @@ class CustomerHome extends Component{
                                   className={classes.root2_cardMedia}
                               />
                               <CardContent>
-                                  <Typography gutterBottom variant="h5" component="h2">
+                                  <Typography
+                                      gutterBottom variant="h5"
+                                      component="h2"
+                                      style={{
+                                          color:"#19a2a7",
+                                          fontWeight:"bold",
+
+                                      }}
+
+                                  >
                                       General Cars
                                   </Typography>
                                   <Typography variant="body1" color="textSecondary" component="p">
@@ -205,6 +277,16 @@ class CustomerHome extends Component{
                                       variant="contained"
                                       fullWidth
                                       startIcon={<LocalTaxiIcon/>}
+                                      style={{
+                                          backgroundColor:"#19a2a7",
+                                          color:"#000",
+                                          fontWeight:"bold",
+
+                                      }}
+
+
+
+
                                   >
                                       View cars
                                   </Button>
@@ -214,7 +296,13 @@ class CustomerHome extends Component{
 
                           </CardActions>
                       </Card>
-                      <Card className={classes.root2}>
+                      <Card
+                          className={classes.root2}
+                          style={{
+                              border:"5px solid #9f29d2 "
+                          }}
+
+                      >
                           <CardActionArea>
                               <CardMedia
                                   component="img"
@@ -225,7 +313,16 @@ class CustomerHome extends Component{
                                   className={classes.root2_cardMedia}
                               />
                               <CardContent>
-                                  <Typography gutterBottom variant="h5" component="h2">
+                                  <Typography
+                                      gutterBottom variant="h5"
+                                      component="h2"
+                                      style={{
+                                          color:"#9f29d2",
+                                          fontWeight:"bold",
+
+                                      }}
+
+                                  >
                                       Premium Cars
                                   </Typography>
                                   <Typography variant="body1" color="textSecondary" component="p">
@@ -250,6 +347,12 @@ class CustomerHome extends Component{
                                       variant="contained"
                                       fullWidth
                                       startIcon={<LocalTaxiIcon/>}
+                                      style={{
+                                          backgroundColor:"#9f29d2",
+                                          color:"#000",
+                                          fontWeight:"bold",
+
+                                      }}
                                   >
                                       View cars
                                   </Button>
@@ -258,7 +361,12 @@ class CustomerHome extends Component{
                           </CardActions>
                       </Card>
 
-                      <Card className={classes.root2}>
+                      <Card
+                          className={classes.root2}
+                          style={{
+                              border:"5px solid #d2ad29 "
+                          }}
+                      >
                           <CardActionArea>
                               <CardMedia
                                   component="img"
@@ -269,7 +377,16 @@ class CustomerHome extends Component{
                                   className={classes.root2_cardMedia}
                               />
                               <CardContent>
-                                  <Typography gutterBottom variant="h5" component="h2">
+                                  <Typography
+                                      gutterBottom variant="h5"
+                                      component="h2"
+                                      style={{
+                                          color:"#d2ad29",
+                                          fontWeight:"bold",
+
+                                      }}
+
+                                  >
                                       Luxury Cars
                                   </Typography>
                                   <Typography variant="body1" color="textSecondary" component="p">
@@ -298,6 +415,13 @@ class CustomerHome extends Component{
                                       variant="contained"
                                       fullWidth
                                       startIcon={<LocalTaxiIcon/>}
+
+                                      style={{
+                                          backgroundColor:"#d2ad29",
+                                          color:"#000",
+                                          fontWeight:"bold",
+
+                                      }}
                                   >
                                       View cars
                                   </Button>
@@ -313,6 +437,27 @@ class CustomerHome extends Component{
 
               </div>*/}
 
+              <div className={classes.container_part2_div4}>
+                  <div className={classes.container_imageList}>
+                      <div className={classes.root3}>
+                          <ImageList rowHeight={160} className={classes.imageList} cols={3}>
+                              {itemData.map((item) => (
+                                  <ImageListItem key={item.img} cols={item.cols || 1}>
+                                      <img src={item.img} alt={item.title} />
+                                  </ImageListItem>
+                              ))}
+                          </ImageList>
+                      </div>
+                  </div>
+
+                  <div>
+
+                  </div>
+
+
+
+
+              </div>
 
 
 

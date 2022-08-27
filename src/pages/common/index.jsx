@@ -33,7 +33,7 @@ class  NavBar extends Component{
                 <div  className={classes.container}>
                     <AppBar position="static" className={classes.container_AppBar}>
                         <Toolbar>
-                            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
                                 <MenuIcon />
                             </IconButton>
                             {/*<Typography variant="h6" className={classes.title}>*/}
@@ -53,42 +53,6 @@ class  NavBar extends Component{
                             </Link>
 
 
-                            {/*<Link to={"chart"} className={classes.linkStyle}>*/}
-                            {/*    <Button>test</Button>*/}
-                            {/*</Link>*/}
-
-
-                           {/* <Link to="carView" className={classes.linkStyle}>
-                                <Button>CarView</Button>
-                            </Link>
-
-                            <Link to="order" className={classes.linkStyle}>
-                                <Button>Orders</Button>
-                            </Link>
-                            <Link to={"customerSignUp"} className={classes.linkStyle}>
-                                <Button>Login</Button>
-                            </Link>
-*/}
-
-
-
-
-                            {/*<Link to={"signIn"} className={classes.linkStyle}>*/}
-                            {/*    <Button>signIn</Button>*/}
-                            {/*</Link>*/}
-
-                            {/*<Link to={"adminLog"} className={classes.linkStyle}>*/}
-                            {/*    <Button>adminLog</Button>*/}
-                            {/*</Link>*/}
-
-
-                            {/*<Link to={"profile"} className={classes.linkStyle}>*/}
-                            {/*    <Button>profile</Button>*/}
-                            {/*</Link>*/}
-
-                            {/*<Link to={"driverTime"} className={classes.linkStyle}>*/}
-                            {/*    <Button>TimeTable</Button>*/}
-                            {/*</Link>*/}
 
 
 
@@ -136,9 +100,6 @@ class  NavBar extends Component{
 
 
                 </div>
-
-
-
 
 
 
