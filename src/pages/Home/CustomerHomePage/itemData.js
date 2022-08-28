@@ -27,38 +27,30 @@ export const itemData = [
     },
 
     {
-        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+        img: 'https://media.istockphoto.com/photos/emotional-middleeastern-couple-drinking-coffee-at-country-side-picture-id1352852401?b=1&k=20&m=1352852401&s=170667a&w=0&h=lcxZPyhP6uLXqAkwVEcU_enaPyPMD5GTAWPiaN58wJs=',
         title: 'Camera',
     },
 
 
     {
-        img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+        img: 'https://static.tcimg.net/vehicles/oem/69ac0709fe4ca72f/2023-BMW-2_Series.jpg',
         title: 'Honey',
     },
+
     {
-        img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-        title: 'Basketball',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+        img: 'https://monautoecole.net/wp-content/uploads/2020/10/thetrustedtravellercom-shutterstock_212451673-56c6ffcc84d39.jpg',
         title: 'Fern',
     },
+    {
+        img: 'https://media.istockphoto.com/photos/new-black-metallic-sedan-car-in-spotlight-modern-desing-brandless-picture-id907671144?k=20&m=907671144&s=612x612&w=0&h=SG1-AMWeGtHrxkrOWxQNjb65AiNgm2Nk2Ykv5gQfxDY=',
+        title: 'Basketball',
+        cols: 2,
+    },
+
     {
         img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
         title: 'Mushrooms',
     },
-    {
-        img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-        title: 'Tomato basil',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-        title: 'Sea star',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-        title: 'Bike',
-    },
+
 
 ];

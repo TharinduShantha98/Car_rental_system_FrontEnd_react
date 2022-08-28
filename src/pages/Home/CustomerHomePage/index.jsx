@@ -24,6 +24,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import {itemData} from './itemData';
+import  style from './style.css'
 
 class CustomerHome extends Component{
     constructor(props) {
@@ -49,6 +50,7 @@ class CustomerHome extends Component{
     render() {
         let {classes} = this.props;
 
+
         const bull = <span className={classes.bullet}>•</span>;
 
         return (
@@ -59,7 +61,7 @@ class CustomerHome extends Component{
                       <Typography
                           variant="h2"
                         style={{
-                            color:"#f8f4f4",
+                            color:"#9a9898",
                             fontWeight:"bold",
 
                         }}
@@ -69,7 +71,7 @@ class CustomerHome extends Component{
                       <Typography
                           variant="h4"
                           style={{
-                              color:"#c28f0c",
+                              color:"#867343",
                               fontWeight:"bold"
 
                           }}
@@ -79,7 +81,7 @@ class CustomerHome extends Component{
                       <Typography
                           variant="h6"
                           style={{
-                              color:"#f8f4f4",
+                              color:"#9a9898",
                               fontWeight:"bold"
 
                           }}
@@ -97,7 +99,7 @@ class CustomerHome extends Component{
                               type="date"
                               fullWidth
                               defaultValue="2022-07-23"
-                              className={classes.textField}
+                              className={classes.textField + " pickup2" +" pickup"}
                               variant="outlined"
                               size={'small'}
                               InputLabelProps={{
@@ -105,8 +107,11 @@ class CustomerHome extends Component{
                               }}
                               style={{
                                   color:"#f3eeee",
-                                  borderColor:"#f3eeee"
+                                 // borderColor:"#f3eeee"
                               }}
+
+
+
 
 
                           />
@@ -117,7 +122,7 @@ class CustomerHome extends Component{
                               type="date"
                               fullWidth
                               defaultValue="2022-07-23"
-                              className={classes.textField}
+                              className={classes.textField+ " pickup2" + " pickup"}
                               variant="outlined"
                               size={'small'}
                               InputLabelProps={{
@@ -205,7 +210,7 @@ class CustomerHome extends Component{
                       <Typography
                           variant="h2"
                           style={{
-                              color:"#eae5e5",
+                              color:"#6a6969",
                               fontWeight:"bold",
                            //   backgroundColor:"#000000",
                               width:"100%",
@@ -437,12 +442,74 @@ class CustomerHome extends Component{
 
               </div>*/}
 
+
+
+
               <div className={classes.container_part2_div4}>
+
+                  <div className={classes.container_welcome} >
+                      <Typography
+                          variant="h2"
+                          style={{
+                              color:"#eae5e5",
+                              fontWeight:"bold",
+                              width:"80%",
+
+
+
+                          }}
+                      >
+                          Welcome
+                      </Typography>
+                      <Typography variant="body1"
+                                  gutterBottom
+                                style={{
+                                    color:"#f3ecec",
+                                    fontWeight:"bold",
+                                    width:"80%",
+                                }}
+                      >
+                          Are you looking to rent a car in Mansfield, Nottinghamshire,
+                          Sheffield or South Yorkshire? Great news! You can now rent one of
+                          our award-winning ŠKODAs direct from us at Rainworth ŠKODA – from
+                          just £22 per day!
+
+                      </Typography>
+
+
+                      <Typography variant="body12"
+                                  gutterBottom
+                                  style={{
+                                      color:"#c8ef94",
+                                      fontWeight:"bold",
+                                      width:"80%",
+                                  }}
+                      >
+
+                          We’ve teamed up with Volkswagen Financial Services to bring
+                          rent-a-car to our customers, and we’re on a mission to improve the
+                          way you rent a car – no more portacabins, no more substandard cars and
+                          certainly no more lengthy terms and conditions. When you rent a car
+                          from Rainworth ŠKODA, you get all the luxuries our other customers get.
+                          From our warm showroom and friendly welcome, to our award-winning customer
+                          service and low prices
+                      </Typography>
+
+
+
+
+
+
+                  </div>
+
+
+
+
                   <div className={classes.container_imageList}>
-                      <div className={classes.root3}>
-                          <ImageList rowHeight={160} className={classes.imageList} cols={3}>
+                      <div className={classes.root3 }>
+                          <ImageList rowHeight={160} className={classes.imageList + " style-4"} cols={3}>
                               {itemData.map((item) => (
-                                  <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+                                  <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1} >
                                       <img src={item.img} alt={item.title} />
                                   </ImageListItem>
                               ))}
@@ -450,9 +517,7 @@ class CustomerHome extends Component{
                       </div>
                   </div>
 
-                  <div>
 
-                  </div>
 
 
 
@@ -462,18 +527,35 @@ class CustomerHome extends Component{
 
 
 
-              <div className={classes.container_part2}>
+              <div className={classes.container_part2} >
                   <div className={classes.container_part2_div}>
-                      <Typography variant="h6">Enjoy the efficient and specialized services of
+                      <Typography variant="h5"
+                        style={{
+                            color:"#ad851c",
+                            fontWeight:"bold"
+                        }}
+
+                      >Enjoy the efficient and specialized services of
                           Casons Rent a Car Sri Lanka's leading rent-a-car company </Typography>
                   </div>
 
 
-                  <div className={classes.container_part2_div2}  >
+                  <div className={classes.container_part2_div2}
+
+
+                  >
                       <Card className={classes.root}>
                           <CardContent className={classes.root_card}>
                               <DriveEtaIcon className={classes.icon}/>
-                              <Typography className={classes.pos} color="textSecondary">
+                              <Typography
+                                  className={classes.pos}
+                                  //color="textSecondary"
+                                  style={{
+                                      color:"#101111",
+                                      fontWeight:"bold"
+                                  }}
+
+                              >
                                   Over 200 Vehicle
                               </Typography>
                               <Typography variant="body2" component="p" className={classes.pos2} >
@@ -483,7 +565,10 @@ class CustomerHome extends Component{
                               </Typography>
                           </CardContent>
                           <CardActions>
-                              <Button size="small">Learn More</Button>
+                              <Button
+                                  size="small"
+                                className={"one"}
+                              >Learn More</Button>
                           </CardActions>
                       </Card>
 
@@ -491,7 +576,12 @@ class CustomerHome extends Component{
                       <Card className={classes.root}>
                           <CardContent className={classes.root_card}>
                               <PersonIcon className={classes.icon}/>
-                              <Typography className={classes.pos} color="textSecondary">
+                              <Typography className={classes.pos}
+                                          //color="textSecondary"
+                                          style={{
+                                              color:"#101111",
+                                              fontWeight:"bold"
+                                          }}>
                                   Our Strength
                               </Typography>
                               <Typography variant="body2" component="p" className={classes.pos2} >
@@ -506,10 +596,16 @@ class CustomerHome extends Component{
 
 
 
-                      <Card className={classes.root}>
+                      <Card className={classes.root} >
                           <CardContent className={classes.root_card}>
                               <StarIcon className={classes.icon}/>
-                              <Typography className={classes.pos} color="textSecondary">
+                              <Typography className={classes.pos}
+                                         // color="textSecondary"
+                                          style={{
+                                              color:"#101111",
+                                              fontWeight:"bold"
+                                          }}
+                              >
                                   Insurance
                               </Typography>
                               <Typography variant="body2" component="p" className={classes.pos2} >
@@ -526,7 +622,13 @@ class CustomerHome extends Component{
                       <Card className={classes.root}>
                           <CardContent className={classes.root_card}>
                               <SettingsIcon className={classes.icon}/>
-                              <Typography className={classes.pos} color="textSecondary">
+                              <Typography className={classes.pos}
+                                         // color="textSecondary"
+                                          style={{
+                                              color:"#101111",
+                                              fontWeight:"bold"
+                                          }}
+                              >
                                   24/7 Breakdown Service
                               </Typography>
                               <Typography variant="body2" component="p" className={classes.pos2} >
@@ -550,8 +652,18 @@ class CustomerHome extends Component{
 
 
               <div className={classes.container_part2_div5}>
+
+
+
+
                   <div className={classes.container_part2_div5_div1}>
-                      <Typography variant="h6" >Service</Typography>
+                      <Typography variant="h6"
+                        style={{
+                            color:"#cbc4c4",
+                            fontWeight:"bold",
+
+                        }}
+                      >Service</Typography>
                       <ol className={classes.listStyle}>
                           <li>Weddings & VIP Hires</li>
                           <li>Breakdown Services</li>
@@ -564,7 +676,15 @@ class CustomerHome extends Component{
 
                   </div>
                   <div className={classes.container_part2_div5_div1}>
-                      <Typography variant="h6">Contact Us</Typography>
+                      <Typography
+                          variant="h6"
+                          style={{
+                              color:"#cbc4c4",
+                              fontWeight:"bold",
+
+                          }}
+
+                      >Contact Us</Typography>
                       <ol className={classes.listStyle}>
                           <li>176/1 galle road</li>
                           <li>aluthgama</li>
@@ -579,7 +699,14 @@ class CustomerHome extends Component{
                       </ol>
                   </div>
                   <div className={classes.container_part2_div5_div1}>
-                      <Typography variant="h6">Vehicle Fleet</Typography>
+                      <Typography
+                          variant="h6"
+                          style={{
+                              color:"#cbc4c4",
+                              fontWeight:"bold",
+
+                          }}
+                      >Vehicle Fleet</Typography>
                       <ol className={classes.listStyle}>
                           <li>Cars</li>
                           <li>SUVs</li>
@@ -591,11 +718,7 @@ class CustomerHome extends Component{
                       </ol>
                   </div>
 
-
-
               </div>
-
-
 
           </div>
 

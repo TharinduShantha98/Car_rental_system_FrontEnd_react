@@ -2,6 +2,7 @@ import backGround from '../../../assets/img/cars/backGroung.jpg'
 import image4 from "../../../assets/img/image4.jpg";
 import rentCar from '../../../assets/img/cars/rentacar.jpg'
 import home2 from '../../../assets/img/profile/2.png'
+import home3 from '../../../assets/img/profile/3.png'
 
 
 export  const  styleSheet = {
@@ -9,7 +10,7 @@ export  const  styleSheet = {
         //width:'100vw',
         height:'400vh',
         display:'flex',
-    //    backgroundColor:'#282626',
+      //  backgroundColor:'#282626',
         flexDirection:'column',
 
     },
@@ -49,7 +50,7 @@ export  const  styleSheet = {
         height:'50vh',
         display:'flex',
        // backgroundColor:'#c23838',
-        backgroundColor:'#ffffff',
+        backgroundColor:'#242424',
         flexDirection: 'column',
         justifyContent:'center',
         overflow:'hidden',
@@ -61,7 +62,7 @@ export  const  styleSheet = {
         width:'100%',
         height:'20%',
         display:'flex',
-        backgroundColor:'#ffffff',
+      //  backgroundColor:'#ffffff',
       //  backgroundColor:'#c7d5ec',
        // flexDirection: 'column',
         justifyContent:'center',
@@ -73,21 +74,20 @@ export  const  styleSheet = {
         width:'100%',
         height:'80%',
         display:'flex',
-
-      //  backgroundColor:'#c7d5ec',
         flexDirection: 'row',
-        justifyContent:'center',
+        justifyContent:'space-around',
         alignItems:'center',
 
     },
     root: {
         //minWidth: 275,
-        width:'15%',
+        width:'18%',
         height:'90%',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center',
+        backgroundColor:"#7e8692"
 
     },
     root_card: {
@@ -139,6 +139,7 @@ export  const  styleSheet = {
         maxWidth: 345,
         width:'25%',
         height:'95%',
+        backgroundColor:"#585858"
     },
 
     root2_cardMedia:{
@@ -180,13 +181,26 @@ export  const  styleSheet = {
         height:'100vh',
         display:'flex',
         backgroundColor:'#242424',
-        flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
 
 
 
     },
+    container_welcome:{
+        width:"50%",
+        height:"100%",
+        display:"flex",
+        alignItems:"center",
+        flexDirection:"column",
+        justifyContent:"center",
+
+
+    },
+
+
+
     container_imageList:{
 
         width:"50%",
@@ -230,11 +244,16 @@ export  const  styleSheet = {
 
     container_part2_div5:{
         height:'50vh',
+        width:"100%",
         display:'flex',
-        backgroundColor:'#fdfdfd',
+        backgroundColor:'#1f1f1f',
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
+
+
+
+
     },
 
     container_part2_div5_div1:{
@@ -256,7 +275,9 @@ export  const  styleSheet = {
         backgroundRepeat: 'no-repeat',
     },
     listStyle:{
-        listStyle: 'none'
+        listStyle: 'none',
+        color: "#7d7b7b",
+        fontWeight:"bold",
     },
 
 
@@ -273,9 +294,13 @@ export  const  styleSheet = {
     },
     imageList: {
         width: "100%",
-        height: 612,
+        height: "100vh",
         //overflow: 'hidden',
     },
+
+
+
+
 
 
 
