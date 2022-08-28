@@ -34,7 +34,7 @@ import {
     ChartLegend,
 } from "@progress/kendo-react-charts";
 import "hammerjs";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import  styleCss from './style.css';
 
 
 
@@ -98,9 +98,6 @@ class AdminHome extends Component{
 
             <div className={classes.constraint}>
 
-
-
-
                 <div className={classes.constraint_main1} >
                     <Badge badgeContent={2} color="primary" >
                         <ListIcon />
@@ -148,19 +145,37 @@ class AdminHome extends Component{
                 <div className={classes. constraint_main2}>
                         <div className={classes. constraint_main2_div1}>
                             <Typography
-                                variant="h4"
+                                variant="h3"
                                 gutterBottom
-                                style={{fontWeight:'bold'}}
+                                style={
+                                    {fontWeight:'bold',
+                                        color:"#716f6f"
+                                    }}
 
 
                             >
                                DashBoard
                             </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
+                            <Typography
+                                variant="subtitle1" gutterBottom
+                                style={
+                                    {fontWeight:'bold',
+                                        color:"#716f6f"
+                                    }}
+
+                            >
                               Hi.. tharindu shantha  Welcome back to the DashBoard
                             </Typography>
 
-                            <Typography variant="subtitle2" gutterBottom>
+                            <Typography
+                                variant="subtitle2"
+                                gutterBottom
+                                style={
+                                    {fontWeight:'bold',
+                                        color:"#716f6f"
+                                    }}
+
+                            >
                                 check out your past Searches and the content to you have
                                 browsed in. View last results.
                             </Typography>
@@ -169,13 +184,17 @@ class AdminHome extends Component{
 
                         </div>
                         <div className={classes. constraint_main2_chart}>
-                            <Chart className={classes. constraint_main2_chart_chart} >
+                            <Chart className={classes. constraint_main2_chart_chart + " chart"} >
                                 <ChartValueAxis  >
                                     <ChartValueAxisItem title={{
                                         text: "total"
                                     }} min={0} max={100} />
                                 </ChartValueAxis>
-                                <ChartCategoryAxis >
+                                <ChartCategoryAxis
+                                    style={{
+                                        color:"#000 !important"
+                                    }}
+                                >
                                     <ChartCategoryAxisItem categories={categories} />
                                 </ChartCategoryAxis>
                                 <ChartSeries >
@@ -194,19 +213,24 @@ class AdminHome extends Component{
                         <div className={classes. constraint_main2_div2}>
                             <div className={classes. constraint_main2_div2_div1}>
 
-                                   <div className={classes. constraint_main2_div2_div1_div}>
-                                       <DirectionsCarIcon style={{fontSize:"45px",
+                                   <div className={classes. constraint_main2_div2_div1_div + " dashBordLink"}>
+                                       <DirectionsCarIcon style={{fontSize:"55px",
                                            color:"#e0c930"
                                        }}/>
                                        <Typography
                                            variant="h6"
                                            gutterBottom
-                                           style={{fontWeight:'bold'}}
+                                           style={
+                                               {fontWeight:'bold',
+
+
+                                               }}
 
 
                                        >
-                                           <Link to={"/carAdd"} style={{textDecoration:'none',
-                                               color:'black'}}>
+                                           <Link to={"/carAdd"}
+                                                 style={{textDecoration:'none',
+                                                     color:"#807e7e"}}>
                                            Car Add
                                            </Link>
                                        </Typography>
@@ -218,8 +242,8 @@ class AdminHome extends Component{
 
 
 
-                                <div className={classes. constraint_main2_div2_div1_div}>
-                                    <PeopleIcon style={{fontSize:"45px",
+                                <div className={classes. constraint_main2_div2_div1_div + " dashBordLink"}>
+                                    <PeopleIcon style={{fontSize:"55px",
                                         color:"#e0c930"
                                     }}/>
                                     <Typography
@@ -231,15 +255,15 @@ class AdminHome extends Component{
                                     >
 
                                         <Link to={"/customerView"} style={{textDecoration:'none',
-                                            color:'black'}}>
+                                            color:'#807e7e'}}>
                                         Customer view
 
                                         </Link>
                                     </Typography>
                                 </div >
 
-                                <div className={classes. constraint_main2_div2_div1_div}>
-                                    <ShoppingCartIcon style={{fontSize:"45px",
+                                <div className={classes. constraint_main2_div2_div1_div + " dashBordLink"}>
+                                    <ShoppingCartIcon style={{fontSize:"55px",
                                         color:"#e0c930"
                                     }}/>
                                     <Typography
@@ -251,13 +275,13 @@ class AdminHome extends Component{
                                     >
 
                                         <Link to={"/AdminOrder"} style={{textDecoration:'none',
-                                            color:'black'}}>
+                                            color:'#807e7e'}}>
                                        Order check
                                         </Link>
                                     </Typography>
                                 </div>
-                                <div className={classes. constraint_main2_div2_div1_div}>
-                                    <RadioButtonUncheckedIcon style={{fontSize:"45px",
+                                <div className={classes. constraint_main2_div2_div1_div + " dashBordLink"}>
+                                    <RadioButtonUncheckedIcon style={{fontSize:"55px",
                                         color:"#e0c930"
                                     }}/>
                                     <Typography
@@ -267,7 +291,7 @@ class AdminHome extends Component{
                                     >
 
                                         <Link to={"/driver"} style={{textDecoration:'none',
-                                         color:'black'}}>
+                                         color:'#807e7e'}}>
                                         Driver view
                                         </Link>
                                     </Typography>
@@ -286,10 +310,14 @@ class AdminHome extends Component{
 
                 <div className={classes.constraint_main3}>
                         <div className={classes.constraint_main3_div1}>
-                            <Chart style={{width:"100%",
+                            <Chart
+                                style={{width:"100%",
                                     height:"100%",
 
-                            }}>
+                            }}
+                            className={"chart"}
+
+                            >
                                 <ChartTitle text="Company vehicle status" />
                                 <ChartLegend position="bottom" />
                                 <ChartSeries>
@@ -311,7 +339,7 @@ class AdminHome extends Component{
 
 
                         <div className={classes.constraint_main3_div2}>
-                            <div className={classes.constraint_main3_div2_div1}>
+                            <div className={classes.constraint_main3_div2_div1+ " calender" + " calender2"}>
 
                                 <Calendar/>
 

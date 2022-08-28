@@ -1,0 +1,20 @@
+.chart>div>svg>g>path:nth-child(1){
+    fill: #102245 !important;
+}
+
+.calender>div:nth-child(1){
+    background-color:#102245;
+
+
+}
+
+.calender2>div:nth-child(1)>div:nth-child(1){
+    background-color:#102245;
+}
+
+
+.dashBordLink:hover{
+    background-color: #252526;
+
+
+}

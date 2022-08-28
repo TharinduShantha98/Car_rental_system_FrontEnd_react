@@ -3,7 +3,7 @@ export const styleSheet ={
     constraint:{
        // width:'100vw',
         height:'200vh',
-    //    backgroundColor:'#e3bdbd',
+       backgroundColor:'#102245',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
@@ -81,7 +81,7 @@ export const styleSheet ={
         alignItems:'center',
         justifyContent:'center',
         borderRadius:"50%",
-        border:"solid 1px #000",
+        border:"solid 2px #807e7e",
 
     },
 
@@ -100,7 +100,7 @@ export const styleSheet ={
 
     },
     constraint_main2_chart_chart:{
-        backgroundColor:'#a55b39 !important',
+        // backgroundColor:'#a55b39 !important',
         height:'90%',
     },
 
@@ -131,7 +131,7 @@ export const styleSheet ={
     constraint_main3_div2:{
         width: "30%",
         height: '100%',
-  //      backgroundColor:'#e0442f',
+        backgroundColor:'#102245',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
